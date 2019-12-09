@@ -1,0 +1,17 @@
+_site
+.awcache
+.DS_Store
+.idea
+.prettierignore
+beemo-error.log
+coverage
+dist
+node_modules
+npm-debug.log*
+package-lock.json
+prettier.config.js
+public/data/
+public/spec/
+stats.json
+yarn-debug.log*
+yarn-error.log*

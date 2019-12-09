@@ -1,0 +1,10 @@
+@tailwind base;
+
+@tailwind components;
+
+/* Disable scroll out of app*/
+body {
+  overflow: hidden;
+}
+
+@tailwind utilities;
