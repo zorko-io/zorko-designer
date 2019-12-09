@@ -5,7 +5,7 @@ _site
 .prettierignore
 beemo-error.log
 coverage
-dist
+build
 node_modules
 npm-debug.log*
 package-lock.json

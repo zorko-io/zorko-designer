@@ -1,25 +1,33 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Dialog} from '@reach/dialog';
 import '@reach/dialog/styles.css';
 import {Button} from '../../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectRepositoriesAll} from '../../repositories/selectors';
 import {chooseSpecFlow} from '../asyncActions';
+import {chooseSpecFlowOpenSpecs} from '../actions';
 
 export const ChooseSpecButton = () => {
-  const arr: any = [];
 
   const dispatch = useDispatch();
   const repositories = useSelector(selectRepositoriesAll);
   const [showDialog, setShowDialog] = React.useState(false);
-  const open = () => setShowDialog(true);
-  const close = () => setShowDialog(false);
+  const open = useCallback(() => {
+    dispatch(chooseSpecFlowOpenSpecs());
+    setShowDialog(true);
+  }, []);
+  const close = useCallback(() => {
+    setShowDialog(false);
+  }, []);
+  const chooseSpec = useCallback((spec) => {
+      dispatch(chooseSpecFlow(spec.name));
+      close();
+    }, []);
 
   return (
     <>
       <Button
         onClick={() => {
-          arr();
           open();
         }}
       >
@@ -55,8 +63,7 @@ export const ChooseSpecButton = () => {
                               <div
                                 key={index}
                                 onClick={() => {
-                                  dispatch(chooseSpecFlow(spec.name));
-                                  close();
+                                  chooseSpec(spec);
                                 }}
                               >
                                 <div>{spec.description}</div>

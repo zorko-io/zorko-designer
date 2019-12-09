@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     output: {
       filename: '[name].js',
       chunkFilename: '[name].js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'build'),
       pathinfo: false
     },
 

@@ -3,6 +3,7 @@ import { createLogger } from 'redux-logger'
 import logger from 'logrock';
 
 import rootReducer from './rootReducer';
+import {firebaseAnalyticMiddleware} from '../analytic/firebaseAnalyticMiddleware';
 
 const customLoggerMiddleware = () => next => action => {
   const beforeAction = Date.now();
@@ -25,7 +26,7 @@ const store = configureStore({
     titleFormatter: (action: Action, time?: string, took?: number) => {
       return `Redux|Action: ${action.type} in ${took.toFixed(2)} ms`;
     },
-  }), customLoggerMiddleware]
+  }), customLoggerMiddleware, firebaseAnalyticMiddleware]
 });
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
