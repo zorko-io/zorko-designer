@@ -1,5 +1,5 @@
 import React, {ReactNode, useCallback} from 'react';
-import {LoggerContainer} from 'logrock';
+import logger, {LoggerContainer} from 'logrock';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -17,6 +17,10 @@ export const AppLogger = (props: Props) => {
     alert(message);
   }, []);
 
+  const logMessage = useCallback((level, message) => {
+    console[level](message);
+  }, []);
+
   return (
     <LoggerContainer
       sessionID={Math.random()}
@@ -25,10 +29,10 @@ export const AppLogger = (props: Props) => {
         // You can replace default date to another format
         return dayjs().format('YYYY-MM-DD HH:mm:ss');
       }}
-      stdout={showMessage} // show logs for your users
+      stdout={logMessage} // show logs for your users
       onError={stackData => {
         // Send stack on your Backend or ElasticSearch or save it to file etc.
-        console.log('sendToSomwere', {stackData});
+        showMessage('error', JSON.stringify(stackData, null, 2));
       }}
       onPrepareStack={stack => {
         // This is middleware
