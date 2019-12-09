@@ -1,5 +1,5 @@
 import React, {ReactNode, useCallback} from 'react';
-import logger, {LoggerContainer} from 'logrock';
+import {LoggerContainer} from 'logrock';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -18,6 +18,12 @@ export const AppLogger = (props: Props) => {
   }, []);
 
   const logMessage = useCallback((level, message) => {
+
+    const isAlreadyInConsole = /Redux\|Action:/.test(message);
+    if(isAlreadyInConsole){
+      return;
+    }
+
     console[level](message);
   }, []);
 
@@ -32,7 +38,7 @@ export const AppLogger = (props: Props) => {
       stdout={logMessage} // show logs for your users
       onError={stackData => {
         // Send stack on your Backend or ElasticSearch or save it to file etc.
-        showMessage('error', JSON.stringify(stackData, null, 2));
+        console.error(JSON.stringify(stackData, null, 2));
       }}
       onPrepareStack={stack => {
         // This is middleware
