@@ -25,6 +25,11 @@ export const AppLogger = (props: Props) => {
     }
 
     console[level](message);
+
+    if (level === 'error') {
+      // Not sure that it's a right place, need a proper popup
+      showMessage(level, message);
+    }
   }, []);
 
   return (

@@ -6,14 +6,11 @@ import {
   chooseSpecFlowReadFailure
 } from './actions';
 
-const test: any = [];
-
 export function chooseSpecFlow(id) {
   return async dispatch => {
     dispatch(chooseSpecFlowReadRequest(id));
 
     try {
-      test();
       const spec = await Api.fetchSpecById(id);
       dispatch(chooseSpecFlowReadSuccess(id, spec));
     } catch (err) {
