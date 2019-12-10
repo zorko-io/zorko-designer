@@ -1,8 +1,9 @@
 import {createAction} from '@reduxjs/toolkit';
+import {VegaLiteSchema} from './reducers';
 
 export const vegaLiteSchemaReadSuccess = createAction(
   'vegaLiteSchema/readSuccess',
-  (schema: object) => ({
+  (schema: VegaLiteSchema) => ({
     payload: { schema }
   })
 );
