@@ -9,6 +9,8 @@ import barSpec from '../public/spec/vega-lite/bar.vl.json';
 import {chooseSpecFlowReadSuccess} from './features/chooseSpecFlow/actions';
 import {repositoriesLoadInitial} from './features/repositories/asyncActions';
 import {AppLogger} from './app/AppLogger';
+import vegaLiteSchema from './defaultVegaLiteSchema.json'
+import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema/actions';
 
 declare global {
   interface Window {
@@ -22,6 +24,7 @@ window.sessionID = `sessionid-${Math.random()
 
 const spec = barSpec as VegaLiteTopLevelUnitSpec;
 
+store.dispatch(vegaLiteSchemaReadSuccess(vegaLiteSchema));
 store.dispatch(repositoriesLoadInitial());
 store.dispatch(chooseSpecFlowReadSuccess('232323', spec));
 

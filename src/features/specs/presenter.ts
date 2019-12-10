@@ -2,9 +2,9 @@ import {BaseNormalizedState} from '../../core/normalize/BaseNormalizedState';
 import {SpecsState} from './reducers';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 
-export class Presenters extends BaseNormalizedState<VegaLiteTopLevelUnitSpec> {
+export class SpecsPresenter extends BaseNormalizedState<VegaLiteTopLevelUnitSpec> {
   static create(state?: SpecsState) {
-    return new Presenters(state);
+    return new SpecsPresenter(state);
   }
 
   editDescription(id: string, description: string) {

@@ -1,6 +1,6 @@
-import {Presenters} from './presenters';
+import {SpecsPresenter} from './presenter';
 import {RootState} from '../../store/rootReducer';
 
 export const selectSpecById = (state: RootState, id: string) => {
-  return Presenters.create(state.specs).byId(id);
+  return SpecsPresenter.create(state.specs).byId(id);
 };

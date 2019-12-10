@@ -1,4 +1,5 @@
 export const firebaseConfig = {
+  // TODO: move keys to env vars
   apiKey: "AIzaSyC3Qe5w0yirGOtlMstveFjdVbxB-vbR-tY",
   authDomain: "zorko-52d02.firebaseapp.com",
   databaseURL: "https://zorko-52d02.firebaseio.com",
