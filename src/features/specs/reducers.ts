@@ -1,6 +1,6 @@
 import {NormalizedState} from '../../core/normalize/NormalizedState';
 import produce from 'immer';
-import {specDescriptionEdit, SpecDescriptionEdit} from './actions';
+import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
 import {SpecsPresenter} from './presenter';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 import {ChooseSpecFlowOpenNewSpec, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
@@ -18,8 +18,18 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
       .editDescription(id, description)
       .toState();
   },
+  [specMarkEdit.type]: (state: SpecsState, action: SpecMarkEdit) => {
+    const {mark, id} = action.payload;
+
+    return SpecsPresenter.create(state)
+      .editMark(id, mark)
+      .toState();
+  },
   [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowOpenNewSpec) => {
     const {spec, id} = action.payload;
+
+    // because of version warnings from vega lib
+    delete spec.$schema;
 
     return SpecsPresenter.create(state)
       .add(spec, id)

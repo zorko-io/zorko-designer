@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {VegaLite} from 'react-vega';
+import _ from 'lodash';
 
 interface Props {
   spec: object;
@@ -10,7 +11,12 @@ const defaultProps: Partial<Props> = {
 };
 
 export const AnalyticWidget = (props: Props) => {
-  return <VegaLite spec={props.spec} />;
+  const spec = useMemo(() => {
+    // because vega modify spec prop internally
+    return _.cloneDeep(props.spec)
+  } , [props.spec]);
+
+  return <VegaLite spec={spec} />;
 };
 
 AnalyticWidget.defaultProps = defaultProps;
