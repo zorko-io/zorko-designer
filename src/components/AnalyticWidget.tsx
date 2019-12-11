@@ -16,7 +16,7 @@ export const AnalyticWidget = (props: Props) => {
     return _.cloneDeep(props.spec)
   } , [props.spec]);
 
-  return <VegaLite spec={spec} />;
+  return <VegaLite actions={false} spec={spec} />;
 };
 
 AnalyticWidget.defaultProps = defaultProps;
