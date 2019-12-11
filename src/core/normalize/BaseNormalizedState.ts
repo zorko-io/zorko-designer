@@ -31,7 +31,7 @@ export class BaseNormalizedState<I> {
     return this.byIds[id];
   }
 
-  items() {
+  all() {
     return this.allIds.map(id => this.byId(id));
   }
 
