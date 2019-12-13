@@ -7,7 +7,7 @@ import {specMarkEdit} from '../features/specs';
 import {selectAnalyticBoardMainSpecId} from '../features/analyticBoard';
 
 interface Props {
-    marks?: Option[]
+    marks?: Option<any>[]
 }
 
 const defaultProps: Partial<Props> = {

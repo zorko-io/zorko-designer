@@ -1,4 +1,4 @@
-export interface Option {
+export interface Option<T extends any> {
   label: string,
-  value: any
+  value: T
 }
