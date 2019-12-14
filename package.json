@@ -19,7 +19,7 @@
     "classnames": "^2.2.6",
     "datalib": "^1.9.2",
     "dayjs": "^1.8.17",
-    "firebase": "^7.5.2",
+    "firebase": "^7.6.0",
     "immer": "^5.0.0",
     "lodash": "^4.17.15",
     "logrock": "^2.0.1",
