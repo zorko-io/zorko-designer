@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {selectVegaLiteSchemaMarkOptions} from '../features/vegaLiteSchema';
 import {specMarkEdit} from '../features/specs';
 import {selectAnalyticBoardMainSpecId} from '../features/analyticBoard';
+import {DataSourceFieldListContainer} from '../features/dataSourceMetadata/components/DataSourceFieldListContainer';
 
 interface Props {
     marks?: Option<any>[]
@@ -14,7 +15,7 @@ const defaultProps: Partial<Props> = {
     marks:[]
 };
 
-export const VisualizationSidebar = (props: Props) => {
+export const VisualizationSidebarContainer = (props: Props) => {
   const specId = useSelector(selectAnalyticBoardMainSpecId);
   const markOptions = useSelector(selectVegaLiteSchemaMarkOptions);
   const dispatch = useDispatch();
@@ -23,12 +24,17 @@ export const VisualizationSidebar = (props: Props) => {
   }, []);
 
   return (<>
-    {markOptions.map((option,i) => (<Button key={i} onClick={() => {
-      console.log('mark', option.value);
-
-      changeMark(specId, option.value);
-    }} >{option.label}</Button>))}
+    <div>
+      <div>Marks: </div>
+      {markOptions.map((option,i) => (<Button key={i} onClick={() => {
+        changeMark(specId, option.value);
+      }} >{option.label}</Button>))}
+    </div>
+    <div>
+      <div>Fields: </div>
+      <DataSourceFieldListContainer />
+    </div>
   </>)
 };
 
-VisualizationSidebar.defaultProps = defaultProps;
+VisualizationSidebarContainer.defaultProps = defaultProps;

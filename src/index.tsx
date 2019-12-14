@@ -1,16 +1,14 @@
-import React, {useCallback, useContext} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import {App} from './app/App';
 import './index.css';
 import {Provider} from 'react-redux';
 import store from './store';
-import {VegaLiteTopLevelUnitSpec} from './common/types';
-import barSpec from '../public/spec/vega-lite/bar.vl.json';
-import {chooseSpecFlowReadSuccess} from './features/chooseSpecFlow/actions';
 import {repositoriesLoadInitial} from './features/repositories/asyncActions';
 import {AppLogger} from './app/AppLogger';
 import vegaLiteSchema from './defaultVegaLiteSchema.json'
-import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema/actions';
+import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';
+import {chooseSpecFlow} from './features/chooseSpecFlow/asyncActions';
 
 declare global {
   interface Window {
@@ -22,13 +20,11 @@ window.sessionID = `sessionid-${Math.random()
   .toString(36)
   .substr(3, 9)}`;
 
-const spec = barSpec as VegaLiteTopLevelUnitSpec;
-
 store.dispatch(vegaLiteSchemaReadSuccess(vegaLiteSchema));
 store.dispatch(repositoriesLoadInitial());
-store.dispatch(chooseSpecFlowReadSuccess('232323', spec));
+store.dispatch(chooseSpecFlow('bar'));
 
-ReactDOM.render(
+render(
   <AppLogger sessionId={window.sessionID}>
     <Provider store={store}>
       <App />

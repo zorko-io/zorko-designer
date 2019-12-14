@@ -3,7 +3,7 @@ import _ from 'lodash';
 import {AppLayout} from './AppLayout';
 import {AnalyticBoard} from '../features/analyticBoard/components/AnalyticBoard';
 import {ChooseSpecButton} from '../features/chooseSpecFlow/components/ChooseSpecButton';
-import {VisualizationSidebar} from './VisualizationSidebar';
+import {VisualizationSidebarContainer} from './VisualizationSidebarContainer';
 
 interface Props {
   label?: string;
@@ -31,7 +31,7 @@ export const App = (props: Props) => {
       )}
       renderLeftDrawer={() => <div>
         <span>Left Drawer</span>
-        <VisualizationSidebar/>
+        <VisualizationSidebarContainer/>
       </div>}
       renderCanvas={() => <AnalyticBoard />}
     />
