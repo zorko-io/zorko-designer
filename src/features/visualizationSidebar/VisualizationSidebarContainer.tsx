@@ -1,11 +1,11 @@
 import React, {useCallback} from 'react';
-import {Option} from '../common/Option';
-import {Button} from '../components';
+import {Option} from '../../common/Option';
+import {Button} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectVegaLiteSchemaMarkOptions} from '../features/vegaLiteSchema';
-import {specMarkEdit} from '../features/specs';
-import {selectAnalyticBoardMainSpecId} from '../features/analyticBoard';
-import {DataSourceFieldListContainer} from '../features/dataSourceMetadata/components/DataSourceFieldListContainer';
+import {selectVegaLiteSchemaMarkOptions} from '../vegaLiteSchema';
+import {specMarkEdit} from '../specs';
+import {selectAnalyticBoardMainSpecId} from '../analyticBoard';
+import {DataSourceFieldListContainer} from '../dataSourceMetadata/components/DataSourceFieldListContainer';
 
 interface Props {
     marks?: Option<any>[]
