@@ -1,2 +1,3 @@
+build/
 tailwind.config.js
 webpack.config.js
