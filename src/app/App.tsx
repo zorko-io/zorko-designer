@@ -5,6 +5,8 @@ import {AnalyticBoard} from '../features/analyticBoard/components/AnalyticBoard'
 import {ChooseSpecButton} from '../features/chooseSpecFlow/components/ChooseSpecButton';
 import {SidebarLayout} from '../layout/SidebarLayout';
 import {VisualizationSidebarContainer} from '../features/visualizationSidebar/VisualizationSidebarContainer';
+import {HeaderLayout} from '../layout/HeaderLayout';
+import {MainContentLayout} from '../layout/MainContentLayout';
 
 interface Props {
   label?: string;
@@ -19,7 +21,11 @@ const defaultProps: Partial<Props> = {
 export const App = (props: Props) => {
   return (
     <MainLayout
-      renderHeader={() => <ChooseSpecButton/>}
+      renderHeader={() => (
+        <HeaderLayout renderContent={() => (
+          <ChooseSpecButton/>
+          )}
+      />)}
       renderSideBar={() => (
         <SidebarLayout
           renderMenubar={() => (
@@ -38,7 +44,11 @@ export const App = (props: Props) => {
           </div>)}
         />)}
 
-      renderContent={() => <AnalyticBoard/>}
+      renderContent={() =>
+        <MainContentLayout
+          renderCanvasBoard={() => <AnalyticBoard/>}
+        />
+      }
     />
   );
 };
