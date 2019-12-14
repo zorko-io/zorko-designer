@@ -18,10 +18,13 @@ export const ChooseSpecButton = () => {
   const close = useCallback(() => {
     setShowDialog(false);
   }, []);
-  const chooseSpec = useCallback(spec => {
-    dispatch(chooseSpecFlow(spec.name));
-    close();
-  }, [close, dispatch]);
+  const chooseSpec = useCallback(
+    spec => {
+      dispatch(chooseSpecFlow(spec.name));
+      close();
+    },
+    [close, dispatch]
+  );
 
   return (
     <>

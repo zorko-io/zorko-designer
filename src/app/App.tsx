@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import {MainLayout} from '../layout/MainLayout';
 import {AnalyticBoard} from '../features/analyticBoard/components/AnalyticBoard';
 import {ChooseSpecButton} from '../features/chooseSpecFlow/components/ChooseSpecButton';
@@ -8,17 +7,7 @@ import {VisualizationSidebarContainer} from '../features/visualizationSidebar/Vi
 import {HeaderLayout} from '../layout/HeaderLayout';
 import {MainContentLayout} from '../layout/MainContentLayout';
 
-interface Props {
-  label?: string;
-  onAppOpen?: () => void;
-}
-
-const defaultProps: Partial<Props> = {
-  label: 'Test',
-  onAppOpen: _.noop
-};
-
-export const App = (props: Props) => {
+export const App = () => {
   return (
     <MainLayout
       renderHeader={() => <HeaderLayout renderContent={() => <ChooseSpecButton />} />}
@@ -46,5 +35,3 @@ export const App = (props: Props) => {
     />
   );
 };
-
-App.defaultProps = defaultProps;

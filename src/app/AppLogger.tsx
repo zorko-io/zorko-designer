@@ -17,19 +17,23 @@ export const AppLogger = (props: Props) => {
     alert(message);
   }, []);
 
-  const logMessage = useCallback((level, message) => {
-    const isAlreadyInConsole = /Redux\|Action:/.test(message);
-    if (isAlreadyInConsole) {
-      return;
-    }
+  const logMessage = useCallback(
+    (level, message) => {
+      const isAlreadyInConsole = /Redux\|Action:/.test(message);
+      if (isAlreadyInConsole) {
+        return;
+      }
 
-    console[level](message);
+      // eslint-disable-next-line no-console
+      console[level](message);
 
-    if (level === 'error') {
-      // Not sure that it's a right place, need a proper popup
-      showMessage(level, message);
-    }
-  }, [showMessage]);
+      if (level === 'error') {
+        // Not sure that it's a right place, need a proper popup
+        showMessage(level, message);
+      }
+    },
+    [showMessage]
+  );
 
   return (
     <LoggerContainer
@@ -42,6 +46,7 @@ export const AppLogger = (props: Props) => {
       stdout={logMessage} // show logs for your users
       onError={stackData => {
         // Send stack on your Backend or ElasticSearch or save it to file etc.
+        // eslint-disable-next-line no-console
         console.error(JSON.stringify(stackData, null, 2));
       }}
       onPrepareStack={stack => {

@@ -1,5 +1,4 @@
 import React, {useCallback} from 'react';
-import {Option} from '../../common/Option';
 import {Button} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectVegaLiteSchemaMarkOptions} from '../vegaLiteSchema';
@@ -7,21 +6,16 @@ import {specMarkEdit} from '../specs';
 import {selectAnalyticBoardMainSpecId} from '../analyticBoard';
 import {DataSourceFieldListContainer} from '../dataSourceMetadata/components/DataSourceFieldListContainer';
 
-interface Props {
-  marks?: Option<any>[];
-}
-
-const defaultProps: Partial<Props> = {
-  marks: []
-};
-
-export const VisualizationSidebarContainer = (props: Props) => {
+export const VisualizationSidebarContainer = () => {
   const specId = useSelector(selectAnalyticBoardMainSpecId);
   const markOptions = useSelector(selectVegaLiteSchemaMarkOptions);
   const dispatch = useDispatch();
-  const changeMark = useCallback((id, mark) => {
-    dispatch(specMarkEdit(id, mark));
-  }, [dispatch]);
+  const changeMark = useCallback(
+    (id, mark) => {
+      dispatch(specMarkEdit(id, mark));
+    },
+    [dispatch]
+  );
 
   return (
     <>
@@ -45,5 +39,3 @@ export const VisualizationSidebarContainer = (props: Props) => {
     </>
   );
 };
-
-VisualizationSidebarContainer.defaultProps = defaultProps;

@@ -3,7 +3,7 @@ import {NormalizedState} from './NormalizedState';
 export class BaseNormalizedState<I> {
   private byIds: {[key: string]: I};
   private allIds: string[];
-  private state: NormalizedState<I>;
+  private readonly state: NormalizedState<I>;
 
   constructor(state?: NormalizedState<I>) {
     if (!state) {

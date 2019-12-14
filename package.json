@@ -88,7 +88,6 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
-      "yarn lint",
       "git add"
     ],
     "*.{ts,tsx,css}": [

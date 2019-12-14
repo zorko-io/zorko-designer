@@ -1,9 +1,9 @@
 import {
   DataSource,
+  InlineDataset,
   isInlineData,
   isUrlData,
-  UrlData,
-  InlineDataset
+  UrlData
 } from 'vega-lite/build/src/data';
 import logger from 'logrock';
 import {
@@ -107,8 +107,6 @@ export async function fetchDataSourceMetadata(dataSource: DataSource) {
         logger.warn('API|Fetch Data Source Metadata: Only Array-like Inline Datasets supported');
       }
     }
-
-    console.log('GOT META DATA', {metadata});
   } else {
     logger.warn(
       'API|Fetch Data Source Metadata: Only Inline Data Sources and URL Data Sources supported'
