@@ -1,22 +1,18 @@
-import * as Api from '../../api'
+import * as Api from '../../api';
 import {DataSource} from 'vega-lite/build/src/data';
 import logger from 'logrock';
-import {
-  dataSourceMetadataReadFailure,
-  dataSourceMetadataReadRequest,
-  dataSourceMetadataReadSuccess
-} from './actions';
+import {dataSourceMetadataReadFailure, dataSourceMetadataReadRequest, dataSourceMetadataReadSuccess} from './actions';
 
 export const dataSourceMetadataRead = (dataSource: DataSource) => {
   return async dispatch => {
     dispatch(dataSourceMetadataReadRequest(dataSource));
 
     try {
-       const dataSourceMetadata = await Api.fetchDataSourceMetadata(dataSource);
-       dispatch(dataSourceMetadataReadSuccess(dataSourceMetadata));
+      const dataSourceMetadata = await Api.fetchDataSourceMetadata(dataSource);
+      dispatch(dataSourceMetadataReadSuccess(dataSourceMetadata));
     } catch (error) {
-       logger.error('Redux|Async Action: ' + error.message, error);
-       dispatch(dataSourceMetadataReadFailure(error));
+      logger.error('Redux|Async Action: ' + error.message, error);
+      dispatch(dataSourceMetadataReadFailure(error));
     }
-  }
+  };
 };

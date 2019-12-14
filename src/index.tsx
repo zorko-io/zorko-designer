@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
+import {render} from 'react-dom';
 import {App} from './app/App';
 import './index.css';
 import {Provider} from 'react-redux';
 import store from './store';
 import {repositoriesLoadInitial} from './features/repositories/asyncActions';
 import {AppLogger} from './app/AppLogger';
-import vegaLiteSchema from './defaultVegaLiteSchema.json'
+import vegaLiteSchema from './defaultVegaLiteSchema.json';
 import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';
 import {chooseSpecFlow} from './features/chooseSpecFlow/asyncActions';
 

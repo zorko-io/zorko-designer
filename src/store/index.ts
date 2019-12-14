@@ -1,5 +1,5 @@
-import {configureStore, getDefaultMiddleware, Action} from '@reduxjs/toolkit';
-import { createLogger } from 'redux-logger'
+import {Action, configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
+import {createLogger} from 'redux-logger';
 import logger from 'logrock';
 
 import rootReducer from './rootReducer';
@@ -18,15 +18,19 @@ const customLoggerMiddleware = () => next => action => {
   return;
 };
 
-
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [...getDefaultMiddleware(), createLogger({
-    collapsed: true,
-    titleFormatter: (action: Action, time?: string, took?: number) => {
-      return `Redux|Action: ${action.type} in ${took.toFixed(2)} ms`;
-    },
-  }), customLoggerMiddleware, firebaseAnalyticMiddleware]
+  middleware: [
+    ...getDefaultMiddleware(),
+    createLogger({
+      collapsed: true,
+      titleFormatter: (action: Action, time?: string, took?: number) => {
+        return `Redux|Action: ${action.type} in ${took.toFixed(2)} ms`;
+      }
+    }),
+    customLoggerMiddleware,
+    firebaseAnalyticMiddleware
+  ]
 });
 
 if (process.env.NODE_ENV === 'development' && module.hot) {

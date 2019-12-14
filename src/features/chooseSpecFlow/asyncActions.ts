@@ -1,10 +1,6 @@
 import * as Api from '../../api';
 import logger from 'logrock';
-import {
-  chooseSpecFlowReadSuccess,
-  chooseSpecFlowReadRequest,
-  chooseSpecFlowReadFailure
-} from './actions';
+import {chooseSpecFlowReadFailure, chooseSpecFlowReadRequest, chooseSpecFlowReadSuccess} from './actions';
 import {dataSourceMetadataReadSuccess} from '../dataSourceMetadata';
 
 export function chooseSpecFlow(id) {
@@ -17,7 +13,6 @@ export function chooseSpecFlow(id) {
 
       const dataSourceMetadata = await Api.fetchDataSourceMetadata(spec.data);
       dispatch(dataSourceMetadataReadSuccess(dataSourceMetadata));
-
     } catch (error) {
       logger.error('Redux|Async Action: ' + error.message, error);
 

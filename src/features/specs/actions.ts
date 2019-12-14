@@ -10,12 +10,8 @@ export const specDescriptionEdit = createAction(
 
 export type SpecDescriptionEdit = ReturnType<typeof specDescriptionEdit>;
 
-
-export const specMarkEdit = createAction(
-  'specs/markEdit',
-  (id: string, mark: Mark) => ({
-    payload: {id, mark}
-  })
-);
+export const specMarkEdit = createAction('specs/markEdit', (id: string, mark: Mark) => ({
+  payload: {id, mark}
+}));
 
 export type SpecMarkEdit = ReturnType<typeof specMarkEdit>;

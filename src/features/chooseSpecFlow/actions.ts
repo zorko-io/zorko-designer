@@ -1,7 +1,6 @@
 import {createAction} from '@reduxjs/toolkit';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 
-
 export const chooseSpecFlowOpenSpecs = createAction('chooseSpecFlow/openSpecs');
 
 export const chooseSpecFlowReadRequest = createAction(

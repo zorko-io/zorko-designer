@@ -4,28 +4,26 @@ import {VegaLiteSchemaReadSuccess, vegaLiteSchemaReadSuccess} from './actions';
 import {VegaLiteSchemaPresenter} from './presenters';
 
 export interface VegaLiteSchema {
-  definitions: any
+  definitions: any;
 }
 
 export interface VegaLiteSchemaState {
-  schema: VegaLiteSchema
+  schema: VegaLiteSchema;
 }
 
 export const initialVegaLiteSchemaState = VegaLiteSchemaPresenter.create().toState();
 
 const reducers = createReducer<VegaLiteSchemaState>(initialVegaLiteSchemaState, {
-  [vegaLiteSchemaReadSuccess.type] : (
+  [vegaLiteSchemaReadSuccess.type]: (
     state: VegaLiteSchemaState,
     action: VegaLiteSchemaReadSuccess
   ) => {
-    const { schema } = action.payload;
+    const {schema} = action.payload;
 
-    return VegaLiteSchemaPresenter
-      .create(state)
+    return VegaLiteSchemaPresenter.create(state)
       .setSchema(schema)
       .toState();
   }
 });
 
-
-export default produce(reducers)
+export default produce(reducers);

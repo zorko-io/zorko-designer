@@ -9,20 +9,20 @@ export class VegaLiteSchemaPresenter {
 
   constructor(state?: VegaLiteSchemaState) {
     if (!state) {
-      this.state = {schema: { definitions: {} }};
+      this.state = {schema: {definitions: {}}};
     } else {
       this.state = state;
     }
   }
 
-  getSchema()  {
+  getSchema() {
     return this.state.schema;
   }
 
-  setSchema (schema: VegaLiteSchema): this {
+  setSchema(schema: VegaLiteSchema): this {
     this.state.schema = schema;
 
-    return this
+    return this;
   }
 
   byDef(definition: string) {
@@ -39,5 +39,4 @@ export class VegaLiteSchemaPresenter {
   toState() {
     return this.state;
   }
-
 }

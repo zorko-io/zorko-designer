@@ -8,11 +8,11 @@ import {selectAnalyticBoardMainSpecId} from '../analyticBoard';
 import {DataSourceFieldListContainer} from '../dataSourceMetadata/components/DataSourceFieldListContainer';
 
 interface Props {
-    marks?: Option<any>[]
+  marks?: Option<any>[];
 }
 
 const defaultProps: Partial<Props> = {
-    marks:[]
+  marks: []
 };
 
 export const VisualizationSidebarContainer = (props: Props) => {
@@ -20,21 +20,30 @@ export const VisualizationSidebarContainer = (props: Props) => {
   const markOptions = useSelector(selectVegaLiteSchemaMarkOptions);
   const dispatch = useDispatch();
   const changeMark = useCallback((id, mark) => {
-    dispatch(specMarkEdit(id, mark))
-  }, []);
+    dispatch(specMarkEdit(id, mark));
+  }, [dispatch]);
 
-  return (<>
-    <div>
-      <div>Marks: </div>
-      {markOptions.map((option,i) => (<Button key={i} onClick={() => {
-        changeMark(specId, option.value);
-      }} >{option.label}</Button>))}
-    </div>
-    <div>
-      <div>Fields: </div>
-      <DataSourceFieldListContainer />
-    </div>
-  </>)
+  return (
+    <>
+      <div>
+        <div>Marks: </div>
+        {markOptions.map((option, i) => (
+          <Button
+            key={i}
+            onClick={() => {
+              changeMark(specId, option.value);
+            }}
+          >
+            {option.label}
+          </Button>
+        ))}
+      </div>
+      <div>
+        <div>Fields: </div>
+        <DataSourceFieldListContainer />
+      </div>
+    </>
+  );
 };
 
 VisualizationSidebarContainer.defaultProps = defaultProps;

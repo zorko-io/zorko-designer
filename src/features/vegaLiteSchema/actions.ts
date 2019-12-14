@@ -4,7 +4,7 @@ import {VegaLiteSchema} from './reducers';
 export const vegaLiteSchemaReadSuccess = createAction(
   'vegaLiteSchema/readSuccess',
   (schema: VegaLiteSchema) => ({
-    payload: { schema }
+    payload: {schema}
   })
 );
 

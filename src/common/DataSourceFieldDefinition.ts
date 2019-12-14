@@ -8,33 +8,29 @@ export enum LevelOfMeasurements {
   GEOJSON = 'geojson'
 }
 
-export type LevelOfMeasurement = LevelOfMeasurements.QUANTITATIVE
+export type LevelOfMeasurement =
+  | LevelOfMeasurements.QUANTITATIVE
   | LevelOfMeasurements.TEMPORAL
   | LevelOfMeasurements.NOMINAL
   | LevelOfMeasurements.ORDINAL
-  | LevelOfMeasurements.GEOJSON
+  | LevelOfMeasurements.GEOJSON;
 
-export enum ValueTypes  {
+export enum ValueTypes {
   NUMBER = 'number',
   STRING = 'string',
   DATE = 'date'
 }
 
-export type ValueType = ValueTypes.NUMBER
-  | ValueTypes.STRING
-  | ValueTypes.DATE
+export type ValueType = ValueTypes.NUMBER | ValueTypes.STRING | ValueTypes.DATE;
 
 export interface DataSourceFieldDefinition {
-  id?: string
-  valueType: ValueType
-  levelOfMeasurement: LevelOfMeasurement
-  name: string
-  values?: Option<any>
+  id?: string;
+  valueType: ValueType;
+  levelOfMeasurement: LevelOfMeasurement;
+  name: string;
+  values?: Option<any>;
 }
 
 export interface DataSourceMetadata {
   fields: DataSourceFieldDefinition[];
 }
-
-
-

@@ -18,9 +18,8 @@ export const AppLogger = (props: Props) => {
   }, []);
 
   const logMessage = useCallback((level, message) => {
-
     const isAlreadyInConsole = /Redux\|Action:/.test(message);
-    if(isAlreadyInConsole){
+    if (isAlreadyInConsole) {
       return;
     }
 
@@ -30,7 +29,7 @@ export const AppLogger = (props: Props) => {
       // Not sure that it's a right place, need a proper popup
       showMessage(level, message);
     }
-  }, []);
+  }, [showMessage]);
 
   return (
     <LoggerContainer

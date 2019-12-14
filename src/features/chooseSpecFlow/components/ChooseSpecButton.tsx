@@ -8,21 +8,20 @@ import {chooseSpecFlow} from '../asyncActions';
 import {chooseSpecFlowOpenSpecs} from '../actions';
 
 export const ChooseSpecButton = () => {
-
   const dispatch = useDispatch();
   const repositories = useSelector(selectRepositoriesAll);
   const [showDialog, setShowDialog] = React.useState(false);
   const open = useCallback(() => {
     dispatch(chooseSpecFlowOpenSpecs());
     setShowDialog(true);
-  }, []);
+  }, [dispatch]);
   const close = useCallback(() => {
     setShowDialog(false);
   }, []);
-  const chooseSpec = useCallback((spec) => {
-      dispatch(chooseSpecFlow(spec.name));
-      close();
-    }, []);
+  const chooseSpec = useCallback(spec => {
+    dispatch(chooseSpecFlow(spec.name));
+    close();
+  }, [close, dispatch]);
 
   return (
     <>

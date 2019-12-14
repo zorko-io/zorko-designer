@@ -16,4 +16,3 @@ export const selectAnalyticBoardMainSpec = createSelector(
     return SpecsPresenter.create(specs).byId(id);
   }
 );
-

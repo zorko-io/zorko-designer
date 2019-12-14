@@ -4,22 +4,25 @@ import {DataSourceMetadataReadSuccess, dataSourceMetadataReadSuccess} from './ac
 import {DataSourceFieldDefinition} from '../../common/DataSourceFieldDefinition';
 
 export type DataSourceMetadataState = {
-  fields: DataSourceFieldDefinition[]
+  fields: DataSourceFieldDefinition[];
 };
 
-export const initialDataSourceMetadataState: DataSourceMetadataState = { fields: []};
+export const initialDataSourceMetadataState: DataSourceMetadataState = {fields: []};
 
-const dataSourceMetadataReducer = createReducer<DataSourceMetadataState>(initialDataSourceMetadataState, {
-  [dataSourceMetadataReadSuccess.type]: (
-    state: DataSourceMetadataState,
-    action: DataSourceMetadataReadSuccess
-  ) => {
-    const { dataSourceMetadata } = action.payload;
+const dataSourceMetadataReducer = createReducer<DataSourceMetadataState>(
+  initialDataSourceMetadataState,
+  {
+    [dataSourceMetadataReadSuccess.type]: (
+      state: DataSourceMetadataState,
+      action: DataSourceMetadataReadSuccess
+    ) => {
+      const {dataSourceMetadata} = action.payload;
 
-    state.fields = dataSourceMetadata.fields;
+      state.fields = dataSourceMetadata.fields;
 
-    return state;
+      return state;
+    }
   }
-});
+);
 
 export default produce(dataSourceMetadataReducer);

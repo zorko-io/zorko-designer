@@ -13,8 +13,8 @@ const defaultProps: Partial<Props> = {
 export const AnalyticWidget = (props: Props) => {
   const spec = useMemo(() => {
     // because vega modify spec prop internally
-    return _.cloneDeep(props.spec)
-  } , [props.spec]);
+    return _.cloneDeep(props.spec);
+  }, [props.spec]);
 
   return <VegaLite actions={false} spec={spec} />;
 };

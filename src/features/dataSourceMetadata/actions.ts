@@ -6,9 +6,10 @@ export const dataSourceMetadataReadRequest = createAction(
   'dataSourceMetadata/read',
   (dataSource: DataSource) => {
     return {
-      payload: { dataSource }
-    }
-});
+      payload: {dataSource}
+    };
+  }
+);
 
 export type DataSourceMetadataReadRequest = ReturnType<typeof dataSourceMetadataReadRequest>;
 
@@ -16,8 +17,8 @@ export const dataSourceMetadataReadSuccess = createAction(
   'dataSourceMetadata/readSuccess',
   (dataSourceMetadata: DataSourceMetadata) => {
     return {
-      payload: { dataSourceMetadata }
-    }
+      payload: {dataSourceMetadata}
+    };
   }
 );
 
@@ -25,12 +26,11 @@ export type DataSourceMetadataReadSuccess = ReturnType<typeof dataSourceMetadata
 
 export const dataSourceMetadataReadFailure = createAction(
   'dataSourceMetadata/readFailure',
-  (error) => {
+  error => {
     return {
-      payload: { error }
-    }
+      payload: {error}
+    };
   }
 );
 
 export type DataSourceMetadataReadFailure = ReturnType<typeof dataSourceMetadataReadFailure>;
-

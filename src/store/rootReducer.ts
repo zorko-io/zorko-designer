@@ -1,20 +1,9 @@
 import produce from 'immer';
-import {specsReducer, SpecsState, initialSpecsState} from '../features/specs';
-import repositoriesReducer, {
-  initialRepositoriesState,
-  RepositoriesState
-} from '../features/repositories/reducers';
-import {
-  initialVegaLiteSchemaState,
-  vegaLiteSchemaReducer,
-  VegaLiteSchemaState
-} from '../features/vegaLiteSchema';
-import {
-  AnalyticBoardState,
-  initialAnalyticBoardState
-} from '../features/analyticBoard';
+import {initialSpecsState, specsReducer, SpecsState} from '../features/specs';
+import repositoriesReducer, {initialRepositoriesState, RepositoriesState} from '../features/repositories/reducers';
+import {initialVegaLiteSchemaState, vegaLiteSchemaReducer, VegaLiteSchemaState} from '../features/vegaLiteSchema';
+import {analyticBoardReducer, AnalyticBoardState, initialAnalyticBoardState} from '../features/analyticBoard';
 import {Action} from '@reduxjs/toolkit';
-import {analyticBoardReducer} from '../features/analyticBoard';
 import {
   dataSourceMetadataReducer,
   DataSourceMetadataState,
@@ -26,8 +15,8 @@ export interface RootState {
   specs: SpecsState;
   analyticBoard: AnalyticBoardState;
   repositories: RepositoriesState;
-  vegaLiteSchema: VegaLiteSchemaState,
-  dataSourceMetadata: DataSourceMetadataState
+  vegaLiteSchema: VegaLiteSchemaState;
+  dataSourceMetadata: DataSourceMetadataState;
 }
 
 const initialState: RootState = {

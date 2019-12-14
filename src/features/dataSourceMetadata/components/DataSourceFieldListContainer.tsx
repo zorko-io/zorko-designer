@@ -6,5 +6,5 @@ import {selectDataSourceMetadataAll} from '../selectors';
 export const DataSourceFieldListContainer = () => {
   const fields = useSelector(selectDataSourceMetadataAll);
 
-  return <DataSourceFieldList fields={fields} />
+  return <DataSourceFieldList fields={fields} />;
 };
