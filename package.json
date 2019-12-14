@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
+    "@typescript-eslint/parser": "^2.11.0",
     "autoprefixer": "^9.7.3",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.1",
