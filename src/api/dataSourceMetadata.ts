@@ -1,10 +1,19 @@
-import {DataSource, isInlineData, isUrlData, UrlData} from 'vega-lite/build/src/data';
+import {
+  DataSource,
+  isInlineData,
+  isUrlData,
+  UrlData,
+  InlineDataset
+} from 'vega-lite/build/src/data';
 import logger from 'logrock';
-import {DataSourceMetadata, LevelOfMeasurements, ValueTypes} from '../common/DataSourceFieldDefinition';
+import {
+  DataSourceMetadata,
+  LevelOfMeasurements,
+  ValueTypes
+} from '../common/DataSourceFieldDefinition';
 import _ from 'lodash';
 import dayjs from 'dayjs';
 import dl from 'datalib';
-import {InlineDataset} from 'vega-lite/src/data';
 
 /**
  * Data Source Metadata Discovery
