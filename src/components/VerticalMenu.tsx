@@ -17,7 +17,7 @@ const defaultProps: Partial<Props> = {
   activeMenu: MainMenuItems.NONE
 };
 
-export const SidebarMenu = (props: Props) => {
+export const VerticalMenu = (props: Props) => {
   return (
     <div className="flex flex-col">
       {React.Children.map(props.children, child => {
@@ -32,4 +32,4 @@ export const SidebarMenu = (props: Props) => {
   );
 };
 
-SidebarMenu.defaultProps = defaultProps;
+VerticalMenu.defaultProps = defaultProps;

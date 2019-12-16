@@ -2,14 +2,10 @@ import React from 'react';
 import {MainLayout} from '../layout/MainLayout';
 import {AnalyticBoard} from '../features/analyticBoard/components/AnalyticBoard';
 import {ChooseSpecButton} from '../features/chooseSpecFlow/components/ChooseSpecButton';
-import {SidebarLayout} from '../layout/SidebarLayout';
-import {VisualizationSidebarContainer} from '../features/visualizationSidebar/VisualizationSidebarContainer';
 import {HeaderLayout} from '../layout/HeaderLayout';
 import {MainContentLayout} from '../layout/MainContentLayout';
-import {MainMenuItems, MainMenuType, SidebarMenu} from './SidebarMenu';
-import {SidebarMenuItem} from './SidebarMenuItem';
-import {Icon, IconNames} from '../components';
-import {Link} from 'react-router-dom';
+import {MainMenuItems, MainMenuType} from '../components/VerticalMenu';
+import {Sidebar} from '../features/sidebar/components/Sidebar';
 
 interface Props {
   activeMenu?: MainMenuType;
@@ -23,30 +19,7 @@ export const App = (props: Props) => {
   return (
     <MainLayout
       renderHeader={() => <HeaderLayout renderContent={() => <ChooseSpecButton />} />}
-      renderSideBar={() => (
-        <SidebarLayout
-          renderMenubar={() => (
-            <SidebarMenu activeMenu={props.activeMenu}>
-              <SidebarMenuItem type={MainMenuItems.VISUALIZATION}>
-                <Link to={'/visualization'}>
-                  <Icon name={IconNames.CHAR_BAR} />
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem type={MainMenuItems.DATA}>
-                <Link to={'/data'}>
-                  <Icon name={IconNames.SERVERS} />
-                </Link>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          )}
-          renderContent={() => (
-            <div>
-              <span>Left Drawer</span>
-              <VisualizationSidebarContainer />
-            </div>
-          )}
-        />
-      )}
+      renderSideBar={() => <Sidebar activeMenu={props.activeMenu} />}
       renderContent={() => <MainContentLayout renderCanvasBoard={() => <AnalyticBoard />} />}
     />
   );

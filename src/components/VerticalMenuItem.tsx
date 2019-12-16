@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {MainMenuItems, MainMenuType} from './SidebarMenu';
+import {MainMenuItems, MainMenuType} from './VerticalMenu';
 import classNames from 'classnames';
 
 interface Props {
@@ -13,7 +13,7 @@ const defaultProps: Partial<Props> = {
   isActive: false
 };
 
-export const SidebarMenuItem = (props: Props) => {
+export const VerticalMenuItem = (props: Props) => {
   return (
     <div
       className={classNames('inline-block h-9 w-9 p-1', {
@@ -25,4 +25,4 @@ export const SidebarMenuItem = (props: Props) => {
   );
 };
 
-SidebarMenuItem.defaultProps = defaultProps;
+VerticalMenuItem.defaultProps = defaultProps;
