@@ -1,6 +1,5 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {App} from './app/App';
 import './index.css';
 import {Provider} from 'react-redux';
 import store from './store';
@@ -9,6 +8,8 @@ import {AppLogger} from './app/AppLogger';
 import vegaLiteSchema from './defaultVegaLiteSchema.json';
 import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';
 import {chooseSpecFlow} from './features/chooseSpecFlow/asyncActions';
+import {AppShell} from './app/AppShell';
+import {HashRouter} from 'react-router-dom';
 
 declare global {
   interface Window {
@@ -27,7 +28,9 @@ store.dispatch(chooseSpecFlow('bar'));
 render(
   <AppLogger sessionId={window.sessionID}>
     <Provider store={store}>
-      <App />
+      <HashRouter>
+        <AppShell />
+      </HashRouter>
     </Provider>
   </AppLogger>,
   document.getElementById('root')

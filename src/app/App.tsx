@@ -7,7 +7,22 @@ import {VisualizationSidebarContainer} from '../features/visualizationSidebar/Vi
 import {HeaderLayout} from '../layout/HeaderLayout';
 import {MainContentLayout} from '../layout/MainContentLayout';
 
-export const App = () => {
+export enum MainMenuItems {
+  VISUALIZATION = 'visualization',
+  DATA = 'data'
+}
+
+export type MainMenuType = MainMenuItems.DATA | MainMenuItems.VISUALIZATION;
+
+interface Props {
+  activeMenu?: MainMenuType;
+}
+
+const defaultProps: Partial<Props> = {
+  activeMenu: MainMenuItems.VISUALIZATION
+};
+
+export const App = (props: Props) => {
   return (
     <MainLayout
       renderHeader={() => <HeaderLayout renderContent={() => <ChooseSpecButton />} />}
@@ -35,3 +50,5 @@ export const App = () => {
     />
   );
 };
+
+App.defaultProps = defaultProps;
