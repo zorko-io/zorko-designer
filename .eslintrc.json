@@ -69,6 +69,7 @@
     "react/no-unescaped-entities": "off",
     "no-prototype-builtins": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/ban-ts-ignore": "warn"
   }
 }

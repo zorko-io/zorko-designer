@@ -6,13 +6,10 @@ import {SidebarLayout} from '../layout/SidebarLayout';
 import {VisualizationSidebarContainer} from '../features/visualizationSidebar/VisualizationSidebarContainer';
 import {HeaderLayout} from '../layout/HeaderLayout';
 import {MainContentLayout} from '../layout/MainContentLayout';
-
-export enum MainMenuItems {
-  VISUALIZATION = 'visualization',
-  DATA = 'data'
-}
-
-export type MainMenuType = MainMenuItems.DATA | MainMenuItems.VISUALIZATION;
+import {MainMenuItems, MainMenuType, SidebarMenu} from './SidebarMenu';
+import {SidebarMenuItem} from './SidebarMenuItem';
+import {Icon, IconNames} from '../components';
+import {Link} from 'react-router-dom';
 
 interface Props {
   activeMenu?: MainMenuType;
@@ -29,14 +26,18 @@ export const App = (props: Props) => {
       renderSideBar={() => (
         <SidebarLayout
           renderMenubar={() => (
-            <svg
-              className="fill-current inline-block h-8 w-8"
-              data-icon-name="chart-bar"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path d="M1 10h3v10H1V10zM6 0h3v20H6V0zm5 8h3v12h-3V8zm5-4h3v16h-3V4z" />
-            </svg>
+            <SidebarMenu activeMenu={props.activeMenu}>
+              <SidebarMenuItem type={MainMenuItems.VISUALIZATION}>
+                <Link to={'/visualization'}>
+                  <Icon name={IconNames.CHAR_BAR} />
+                </Link>
+              </SidebarMenuItem>
+              <SidebarMenuItem type={MainMenuItems.DATA}>
+                <Link to={'/data'}>
+                  <Icon name={IconNames.SERVERS} />
+                </Link>
+              </SidebarMenuItem>
+            </SidebarMenu>
           )}
           renderContent={() => (
             <div>

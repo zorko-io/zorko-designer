@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import {App, MainMenuItems} from './App';
+import {App} from './App';
+import {MainMenuItems} from './SidebarMenu';
 
 export const AppShell = () => {
   return (
