@@ -1,5 +1,6 @@
-import {VegaLiteTopLevelUnitSpec} from '../../../common/types';
 import {PositionChannelPresenter, PositionChannelState} from './PositionChannelPresenter';
+import {Encoding} from 'vega-lite/src/encoding';
+import {DataSourceFieldDefinition} from '../../../common/DataSourceFieldDefinition';
 
 export interface EncodingChannelsState {
   channels: {
@@ -23,13 +24,7 @@ export class EncodingChannelsPresenter {
     }
   }
 
-  extractChannels(spec: VegaLiteTopLevelUnitSpec) {
-    // TODO: move encoding channels upper
-    const encoding = spec.encoding;
-    if (!encoding) {
-      return this;
-    }
-
+  setChannels(encoding: Encoding<any>) {
     const x = encoding.x as any;
 
     if (x) {
@@ -56,6 +51,25 @@ export class EncodingChannelsPresenter {
   addChannel(channel) {
     this.state.channels[channel.name] = channel;
     this.state.order.push(channel.name);
+  }
+
+  ingestWithFieldsSuggestion(fields: DataSourceFieldDefinition[]) {
+    const options = fields.map(field => {
+      return {value: field.name, label: field.name};
+    });
+
+    for (let channel of this.all()) {
+      channel = PositionChannelPresenter.create(channel)
+        .setFieldOptions(options)
+        .toState();
+      this.setChannel(channel);
+    }
+
+    return this;
+  }
+
+  setChannel(channel) {
+    this.state.channels[channel.name] = channel;
   }
 
   editChannelByName(name, modificationCallback) {

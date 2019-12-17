@@ -51,8 +51,12 @@ export const rootReducer = (state: RootState = initialState, action: Action) => 
   state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);
   state.repositories = repositoriesReducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
-  state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
-  state.encodingChannels = encodingChannelsReducer(state.encodingChannels, action);
+  const dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
+  state.dataSourceMetadata = dataSourceMetadata;
+
+  state.encodingChannels = encodingChannelsReducer(state.encodingChannels, action, {
+    dataSourceMetadata
+  });
 
   return state;
 };

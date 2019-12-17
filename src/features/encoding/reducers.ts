@@ -8,12 +8,14 @@ export const initialEncodingChannelsState: EncodingChannelsState = EncodingChann
 const encodingChannelsReducer = createReducer<EncodingChannelsState>(initialEncodingChannelsState, {
   [chooseSpecFlowReadSuccess.type]: (
     state: EncodingChannelsState,
-    action: ChooseSpecFlowReadSuccess
+    action: ChooseSpecFlowReadSuccess,
+    options
   ) => {
     const {spec} = action.payload;
     return EncodingChannelsPresenter.create(state)
       .reset()
-      .extractChannels(spec)
+      .setChannels(spec.encoding)
+      .ingestWithFieldsSuggestion(options.dataSourceMetadata.fields)
       .toState();
   }
 });

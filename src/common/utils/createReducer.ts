@@ -1,7 +1,7 @@
 import {Action} from '@reduxjs/toolkit';
 
 export function createReducer<T>(initState, map) {
-  return function(state: T, action: Action): T {
+  return function(state: T, action: Action, options?): T {
     const reducer = map[action.type];
 
     if (!state) {
@@ -13,6 +13,6 @@ export function createReducer<T>(initState, map) {
     }
 
     // TODO: make more intelligent typings
-    return reducer(state, action) as T;
+    return reducer(state, action, options) as T;
   };
 }
