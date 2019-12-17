@@ -348,6 +348,24 @@
     react-focus-lock "^2.2.1"
     react-remove-scroll "^2.2.0"
 
+"@reach/menu-button@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@reach/menu-button/-/menu-button-0.6.4.tgz#2a03e772300b68138b65b3e14addb58fcdc52d51"
+  integrity sha512-X7hVOr1aUw/06pki9YG64P3UdlHfd6VAy0g5/zPcdm7KkXpDlLB3IPmdmM9AWNxjnQKEqZXL9Cqs4FHTVa6HQA==
+  dependencies:
+    "@reach/component-component" "^0.6.2"
+    "@reach/portal" "^0.6.2"
+    "@reach/rect" "^0.6.2"
+    "@reach/utils" "^0.6.4"
+    "@reach/window-size" "^0.6.2"
+    prop-types "^15.7.2"
+    warning "^4.0.3"
+
+"@reach/observe-rect@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@reach/observe-rect/-/observe-rect-1.0.3.tgz#2ea3dcc369ab22bd9f050a92ea319321356a61e8"
+  integrity sha1-LqPcw2mrIr2fBQqS6jGTITVqYeg=
+
 "@reach/portal@^0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.6.2.tgz#5d57d092c204e69630313152c8f0507a9ca81229"
@@ -355,10 +373,25 @@
   dependencies:
     "@reach/component-component" "^0.6.2"
 
+"@reach/rect@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@reach/rect/-/rect-0.6.2.tgz#b2d43da207d48b84583d915059500f1b2deec3d6"
+  integrity sha512-2jCG6NNeLjQIsxxSmxxkJNM7zhfzWyl2jX78QAoHYYmolQfliUg5e0DIFN2QRUXVtMP3pu8SUVri+hdOnx+fiw==
+  dependencies:
+    "@reach/observe-rect" "^1.0.3"
+    prop-types "^15.7.2"
+
 "@reach/utils@^0.6.4":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.6.4.tgz#be268e1a7d04f921596b3672888a932c1832074a"
   integrity sha512-jUWNb1STgR69WGkV4O/N4XOcUvM0u5LP1b9SR6VZsPRazpmzM8HUl3WsBVgMOnSCefZtk+wM4ig2/iYgdElwPw==
+
+"@reach/window-size@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@reach/window-size/-/window-size-0.6.2.tgz#e1af23de96848c89dabe56c1eb7c1a8481fdca47"
+  integrity sha512-Xi6PiCRQnNFNQLB/T1dElHc55ocC1+IrKwEI+FaRZHiIPU2NpEpr9fuRSdXBjXx7R8DZBIKwd2IZ454P3qh6BQ==
+  dependencies:
+    prop-types "^15.7.2"
 
 "@reduxjs/toolkit@^1.1.0":
   version "1.1.0"
@@ -8297,6 +8330,13 @@ vscode-uri@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-2.1.1.tgz#5aa1803391b6ebdd17d047f51365cf62c38f6e90"
   integrity sha512-eY9jmGoEnVf8VE8xr5znSah7Qt1P/xsCdErz+g8HYZtJ7bZqKH5E3d+6oVNm1AC/c6IHUDokbmVXKOi4qPAC9A==
+
+warning@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
+  dependencies:
+    loose-envify "^1.0.0"
 
 watchpack@^1.6.0:
   version "1.6.0"
