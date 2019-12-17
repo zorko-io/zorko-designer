@@ -12,6 +12,7 @@ const encodingChannelsReducer = createReducer<EncodingChannelsState>(initialEnco
   ) => {
     const {spec} = action.payload;
     return EncodingChannelsPresenter.create(state)
+      .reset()
       .extractChannels(spec)
       .toState();
   }

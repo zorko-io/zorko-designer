@@ -9,7 +9,7 @@ export interface EncodingChannelsState {
 }
 
 export class EncodingChannelsPresenter {
-  private readonly state: EncodingChannelsState;
+  private state: EncodingChannelsState;
 
   static create(state?: EncodingChannelsState) {
     return new EncodingChannelsPresenter(state);
@@ -17,18 +17,14 @@ export class EncodingChannelsPresenter {
 
   constructor(state?: EncodingChannelsState) {
     if (!state) {
-      state = {
-        channels: {
-          x: null
-        },
-        order: []
-      };
+      this.reset();
+    } else {
+      this.state = state;
     }
-
-    this.state = state;
   }
 
   extractChannels(spec: VegaLiteTopLevelUnitSpec) {
+    // TODO: move encoding channels upper
     const encoding = spec.encoding;
     if (!encoding) {
       return this;
@@ -37,20 +33,29 @@ export class EncodingChannelsPresenter {
     const x = encoding.x as any;
 
     if (x) {
-      const channel = PositionChannelPresenter.create({
+      this.addChannel({
         name: 'x',
         field: x.field,
         type: x.type
-      }).toState();
-      this.addChannel('x', channel);
+      });
+    }
+
+    const y = encoding.y as any;
+
+    if (y) {
+      this.addChannel({
+        name: 'y',
+        field: y.field,
+        type: y.type
+      });
     }
 
     return this;
   }
 
-  addChannel(name, channel) {
-    this.state.channels[name] = channel;
-    this.state.order.push(name);
+  addChannel(channel) {
+    this.state.channels[channel.name] = channel;
+    this.state.order.push(channel.name);
   }
 
   editChannelByName(name, modificationCallback) {
@@ -61,6 +66,29 @@ export class EncodingChannelsPresenter {
     this.state.channels[name] = modificationCallback(presenter).toState();
 
     return this;
+  }
+
+  reset() {
+    this.state = {
+      channels: {
+        x: null
+      },
+      order: []
+    };
+
+    return this;
+  }
+
+  allNames() {
+    return this.state.order;
+  }
+
+  byName(name) {
+    return this.state.channels[name];
+  }
+
+  all() {
+    return this.allNames().map(name => this.byName(name));
   }
 
   toState(): EncodingChannelsState {

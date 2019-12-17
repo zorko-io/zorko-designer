@@ -1,25 +1,19 @@
 import React from 'react';
-import {Menu, MenuButton, MenuItem, MenuLink, MenuList} from '@reach/menu-button';
-import '@reach/menu-button/styles.css';
-import _ from 'lodash';
+import {useSelector} from 'react-redux';
+import {selectEncodingChannelsAll} from '../selectors';
 
 export const EncodingContainer = () => {
+  const channels = useSelector(selectEncodingChannelsAll);
+
   return (
     <div>
-      <Menu>
-        <MenuButton className={'btn btn-default'}>X channel</MenuButton>
-        <MenuList>
-          <MenuItem onSelect={_.noop}>Download</MenuItem>
-          <MenuLink to="view">View</MenuLink>
-        </MenuList>
-      </Menu>
-      <Menu>
-        <MenuButton className={'btn btn-default'}>Y channel</MenuButton>
-        <MenuList>
-          <MenuItem onSelect={_.noop}>Download</MenuItem>
-          <MenuLink to="view">View</MenuLink>
-        </MenuList>
-      </Menu>
+      {channels.map(channel => (
+        <div key={channel.name} className="flex h-10">
+          <div className={'block m-2'}>{channel.name}</div>
+          <div className={'block m-2'}>{channel.field}</div>
+          <div className={'block m-2'}>{channel.type + '|'}</div>
+        </div>
+      ))}
     </div>
   );
 };
