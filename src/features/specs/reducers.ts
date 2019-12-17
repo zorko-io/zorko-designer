@@ -5,6 +5,7 @@ import {SpecsPresenter} from './presenter';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createReducer} from '../../common/utils/createReducer';
+import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encoding';
 
 export interface SpecsState extends NormalizedState<VegaLiteTopLevelUnitSpec> {}
 
@@ -23,6 +24,13 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
 
     return SpecsPresenter.create(state)
       .editMark(id, mark)
+      .toState();
+  },
+  [encodingChannelFieldEdit.type]: (state: SpecsState, action: EncodingChannelFieldEdit) => {
+    const {specId, channel, field} = action.payload;
+
+    return SpecsPresenter.create(state)
+      .editEncodingChannelField(specId, channel, field)
       .toState();
   },
   [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowReadSuccess) => {

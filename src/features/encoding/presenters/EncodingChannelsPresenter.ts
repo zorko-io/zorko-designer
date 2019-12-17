@@ -72,7 +72,7 @@ export class EncodingChannelsPresenter {
     this.state.channels[channel.name] = channel;
   }
 
-  editChannelByName(name, modificationCallback) {
+  editByName(name, modificationCallback) {
     const channel = this.state.channels[name];
 
     const presenter = PositionChannelPresenter.create(channel);

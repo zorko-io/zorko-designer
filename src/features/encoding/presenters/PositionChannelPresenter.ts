@@ -22,6 +22,11 @@ export class PositionChannelPresenter {
     this.state = state;
   }
 
+  setField(field) {
+    this.state.field = field;
+    return this;
+  }
+
   setFieldOptions(options: Option<string>[]) {
     this.state.fieldOptions = options;
     return this;

@@ -16,6 +16,15 @@ export class SpecsPresenter extends BaseNormalizedState<VegaLiteTopLevelUnitSpec
     return this;
   }
 
+  editEncodingChannelField(id: string, channelName: string, field: string) {
+    const spec = this.byId(id);
+    const channel = spec.encoding[channelName];
+
+    channel.field = field;
+
+    return this;
+  }
+
   editMark(id: string, mark: Mark) {
     const spec = this.byId(id);
 
