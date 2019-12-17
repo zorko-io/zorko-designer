@@ -1,5 +1,5 @@
 import {PositionChannelPresenter, PositionChannelState} from './PositionChannelPresenter';
-import {Encoding} from 'vega-lite/src/encoding';
+import {Encoding} from 'vega-lite/build/src/encoding';
 import {DataSourceFieldDefinition} from '../../../common/DataSourceFieldDefinition';
 
 export interface EncodingChannelsState {
