@@ -3,7 +3,7 @@ import {VegaLiteTopLevelUnitSpec} from '../../../common/types';
 import {useSelector} from 'react-redux';
 import {selectAnalyticBoardMainSpec} from '../selectors';
 import {AnalyticWidget} from '../../../components/AnalyticWidget';
-import {EncodingContainer} from '../../encoding/EncodingContainer';
+import {EncodingContainer} from '../../encoding/components/EncodingContainer';
 
 interface Props {
   selectedSpec?: VegaLiteTopLevelUnitSpec;

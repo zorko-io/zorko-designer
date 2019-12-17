@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {ChooseSpecFlowOpenNewSpec, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createReducer} from '../../common/utils/createReducer';
 
 export interface AnalyticBoardState {
@@ -11,7 +11,7 @@ export const initialAnalyticBoardState: AnalyticBoardState = {mainSpecId: ''};
 const reducers = createReducer<AnalyticBoardState>(initialAnalyticBoardState, {
   [chooseSpecFlowReadSuccess.type]: (
     state: AnalyticBoardState,
-    action: ChooseSpecFlowOpenNewSpec
+    action: ChooseSpecFlowReadSuccess
   ) => {
     const {id} = action.payload;
 

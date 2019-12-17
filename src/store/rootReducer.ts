@@ -1,14 +1,28 @@
 import produce from 'immer';
 import {initialSpecsState, specsReducer, SpecsState} from '../features/specs';
-import repositoriesReducer, {initialRepositoriesState, RepositoriesState} from '../features/repositories/reducers';
-import {initialVegaLiteSchemaState, vegaLiteSchemaReducer, VegaLiteSchemaState} from '../features/vegaLiteSchema';
-import {analyticBoardReducer, AnalyticBoardState, initialAnalyticBoardState} from '../features/analyticBoard';
+import repositoriesReducer, {
+  initialRepositoriesState,
+  RepositoriesState
+} from '../features/repositories/reducers';
+import {
+  initialVegaLiteSchemaState,
+  vegaLiteSchemaReducer,
+  VegaLiteSchemaState
+} from '../features/vegaLiteSchema';
+import {
+  analyticBoardReducer,
+  AnalyticBoardState,
+  initialAnalyticBoardState
+} from '../features/analyticBoard';
 import {Action} from '@reduxjs/toolkit';
 import {
   dataSourceMetadataReducer,
   DataSourceMetadataState,
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata';
+import {initialEncodingChannelsState} from '../features/encoding/reducers';
+import {encodingChannelsReducer} from '../features/encoding';
+import {EncodingChannelsState} from '../features/encoding/presenters/EncodingChannelsPresenter';
 
 export interface RootState {
   version: string;
@@ -17,6 +31,7 @@ export interface RootState {
   repositories: RepositoriesState;
   vegaLiteSchema: VegaLiteSchemaState;
   dataSourceMetadata: DataSourceMetadataState;
+  encodingChannels: EncodingChannelsState;
 }
 
 const initialState: RootState = {
@@ -25,7 +40,8 @@ const initialState: RootState = {
   analyticBoard: initialAnalyticBoardState,
   repositories: initialRepositoriesState,
   vegaLiteSchema: initialVegaLiteSchemaState,
-  dataSourceMetadata: initialDataSourceMetadataState
+  dataSourceMetadata: initialDataSourceMetadataState,
+  encodingChannels: initialEncodingChannelsState
 };
 
 export const rootReducer = (state: RootState = initialState, action: Action) => {
@@ -36,6 +52,7 @@ export const rootReducer = (state: RootState = initialState, action: Action) => 
   state.repositories = repositoriesReducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
   state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
+  state.encodingChannels = encodingChannelsReducer(state.encodingChannels, action);
 
   return state;
 };

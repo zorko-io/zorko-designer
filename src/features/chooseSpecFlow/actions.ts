@@ -19,7 +19,7 @@ export const chooseSpecFlowReadSuccess = createAction(
   })
 );
 
-export type ChooseSpecFlowOpenNewSpec = ReturnType<typeof chooseSpecFlowReadSuccess>;
+export type ChooseSpecFlowReadSuccess = ReturnType<typeof chooseSpecFlowReadSuccess>;
 
 export const chooseSpecFlowReadFailure = createAction('chooseSpecFlow/specReadFailure', error => ({
   payload: {error}

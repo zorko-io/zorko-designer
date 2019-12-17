@@ -3,7 +3,7 @@ import produce from 'immer';
 import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
 import {SpecsPresenter} from './presenter';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
-import {ChooseSpecFlowOpenNewSpec, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createReducer} from '../../common/utils/createReducer';
 
 export interface SpecsState extends NormalizedState<VegaLiteTopLevelUnitSpec> {}
@@ -25,7 +25,7 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
       .editMark(id, mark)
       .toState();
   },
-  [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowOpenNewSpec) => {
+  [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowReadSuccess) => {
     const {spec, id} = action.payload;
 
     // because of version warnings from vega lib
