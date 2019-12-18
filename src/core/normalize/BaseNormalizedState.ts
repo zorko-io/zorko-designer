@@ -1,8 +1,6 @@
 import {NormalizedState} from './NormalizedState';
 
 export class BaseNormalizedState<I> {
-  private byIds: {[key: string]: I};
-  private allIds: string[];
   private readonly state: NormalizedState<I>;
 
   constructor(state?: NormalizedState<I>) {
@@ -10,9 +8,23 @@ export class BaseNormalizedState<I> {
       state = {allIds: [], byIds: {}};
     }
 
-    this.byIds = state.byIds;
-    this.allIds = state.allIds;
     this.state = state;
+  }
+
+  get byIds() {
+    return this.state.byIds;
+  }
+
+  set byIds(byIds) {
+    this.state.byIds = byIds;
+  }
+
+  get allIds() {
+    return this.state.allIds;
+  }
+
+  set allIds(allIds) {
+    this.state.allIds = allIds;
   }
 
   add(item: I, id: string): this {

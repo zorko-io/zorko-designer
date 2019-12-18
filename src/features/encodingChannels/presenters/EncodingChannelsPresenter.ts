@@ -24,7 +24,7 @@ export class EncodingChannelsPresenter {
     }
   }
 
-  setChannels(encoding: Encoding<any>) {
+  setEncoding(encoding: Encoding<any>) {
     const x = encoding.x as any;
 
     if (x) {
@@ -46,6 +46,10 @@ export class EncodingChannelsPresenter {
     }
 
     return this;
+  }
+
+  getEncoding() {
+    return this.state.channels;
   }
 
   addChannel(channel) {

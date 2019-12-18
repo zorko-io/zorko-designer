@@ -2,12 +2,18 @@ import {NormalizedState} from '../../core/normalize/NormalizedState';
 import produce from 'immer';
 import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
 import {SpecsPresenter} from './presenter';
-import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createReducer} from '../../common/utils/createReducer';
-import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encoding';
+import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encodingChannels';
 
-export interface SpecsState extends NormalizedState<VegaLiteTopLevelUnitSpec> {}
+export interface SpecState {
+  description: string;
+  mark: string;
+  data: object;
+  encoding: string;
+}
+
+export interface SpecsState extends NormalizedState<SpecState> {}
 
 export const initialSpecsState: SpecsState = SpecsPresenter.create().toState();
 
@@ -28,7 +34,7 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
   },
   [encodingChannelFieldEdit.type]: (state: SpecsState, action: EncodingChannelFieldEdit) => {
     const {specId, channel, field} = action.payload;
-
+    // todo: move to channels reducer/presenter
     return SpecsPresenter.create(state)
       .editEncodingChannelField(specId, channel, field)
       .toState();
@@ -36,11 +42,14 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
   [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowReadSuccess) => {
     const {spec, id} = action.payload;
 
-    // because of version warnings from vega lib
-    delete spec.$schema;
-
+    const specState = {
+      mark: spec.mark as string,
+      data: spec.data,
+      description: spec.description,
+      encoding: id
+    };
     return SpecsPresenter.create(state)
-      .add(spec, id)
+      .add(specState, id)
       .toState();
   }
 });

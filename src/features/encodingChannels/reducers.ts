@@ -25,7 +25,7 @@ const encodingChannelsReducer = createReducer<EncodingChannelsState>(initialEnco
     const {spec} = action.payload;
     return EncodingChannelsPresenter.create(state)
       .reset()
-      .setChannels(spec.encoding)
+      .setEncoding(spec.encoding)
       .ingestWithFieldsSuggestion(options.dataSourceMetadata.fields)
       .toState();
   }

@@ -1,9 +1,8 @@
 import {BaseNormalizedState} from '../../core/normalize/BaseNormalizedState';
-import {SpecsState} from './reducers';
-import {VegaLiteTopLevelUnitSpec} from '../../common/types';
+import {SpecsState, SpecState} from './reducers';
 import {Mark} from 'vega-lite/build/src/mark';
 
-export class SpecsPresenter extends BaseNormalizedState<VegaLiteTopLevelUnitSpec> {
+export class SpecsPresenter extends BaseNormalizedState<SpecState> {
   static create(state?: SpecsState) {
     return new SpecsPresenter(state);
   }
