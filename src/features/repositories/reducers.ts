@@ -18,7 +18,7 @@ const repositoriesReducer = createReducer<RepositoriesState>(initialRepositories
     const {repositories} = action.payload;
 
     return RepositoriesStatePresenter.create(state)
-      .addMany(repositories)
+      .setMany(repositories, repo => repo.name)
       .toState();
   }
 });

@@ -9,7 +9,11 @@ Object {
 
 exports[`BaseNormalizeSate set multiple items with custom prop path 1`] = `
 Object {
-  "allIds": Array [],
+  "allIds": Array [
+    "2312323",
+    "fmjfkjsjsfdjkfs",
+    "vnsj9393939",
+  ],
   "byIds": Object {
     "2312323": Object {
       "id": "id-1",
@@ -29,7 +33,11 @@ Object {
 
 exports[`BaseNormalizeSate set multiple items with default id prop 1`] = `
 Object {
-  "allIds": Array [],
+  "allIds": Array [
+    "id-1",
+    "id-2",
+    "id-3",
+  ],
   "byIds": Object {
     "id-1": Object {
       "id": "id-1",
@@ -54,7 +62,7 @@ Object {
   ],
   "byIds": Object {
     "12312312": Object {
-      "message": "boomm",
+      "message": "boom",
     },
   },
 }

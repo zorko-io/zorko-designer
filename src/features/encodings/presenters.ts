@@ -25,7 +25,7 @@ export class EncodingsPresenter extends BaseNormalizedState<EncodingState> {
       {}
     );
 
-    this.set(nextEncoding as EncodingState, id);
+    this.set(id, nextEncoding as EncodingState);
 
     return this;
   }

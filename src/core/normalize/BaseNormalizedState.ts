@@ -11,7 +11,7 @@ export class BaseNormalizedState<I> {
     this.state = state;
   }
 
-  set(item: I, id: string): this {
+  set(id: string, item: I): this {
     this.setItem(item, id);
     this.setId(id);
     return this;
@@ -28,7 +28,7 @@ export class BaseNormalizedState<I> {
         id = idPath(item);
       }
 
-      this.setItem(item, id);
+      this.set(id, item);
     }
     return this;
   }
@@ -46,7 +46,7 @@ export class BaseNormalizedState<I> {
     };
   }
 
-  items() {
+  allItems() {
     return this.getAllIds().map(id => this.get(id));
   }
 

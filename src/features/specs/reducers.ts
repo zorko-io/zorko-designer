@@ -41,7 +41,7 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
       encoding: id
     };
     return SpecsPresenter.create(state)
-      .set(specState, id)
+      .set(id, specState)
       .toState();
   }
 });

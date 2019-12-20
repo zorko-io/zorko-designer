@@ -25,8 +25,8 @@ describe('BaseNormalizeSate', () => {
       {message: 'fmjfkjsjsfdjkfs', id: 'id-2'},
       {message: 'vnsj9393939', id: 'id-3'}
     ];
+    item = {message: 'boom'};
     itemIds = ['id-1', 'id-2', 'id-3'];
-    item = {message: 'boomm'};
 
     presenter = TestNormalizedState.create();
   });
@@ -36,23 +36,23 @@ describe('BaseNormalizeSate', () => {
   });
 
   it('sets new item to a store', () => {
-    expect(presenter.set(item, itemId).toState()).toMatchSnapshot();
+    expect(presenter.set(itemId, item).toState()).toMatchSnapshot();
   });
 
   it('sets other item with same id', () => {
-    presenter.set(item, itemId);
+    presenter.set(itemId, item);
 
-    expect(presenter.set({message: 'other sample'}, itemId).toState()).toMatchSnapshot();
+    expect(presenter.set(itemId, {message: 'other sample'}).toState()).toMatchSnapshot();
   });
 
   it('gets item from store', () => {
-    presenter.set(item, itemId);
+    presenter.set(itemId, item);
 
     expect(presenter.get(itemId)).toEqual(item);
   });
 
   it('gets all ids for one item', () => {
-    presenter.set(item, itemId);
+    presenter.set(itemId, item);
 
     expect(presenter.allIds()).toEqual([itemId]);
   });
@@ -67,5 +67,17 @@ describe('BaseNormalizeSate', () => {
     presenter.setMany(items, i => i.message);
 
     expect(presenter.toState()).toMatchSnapshot();
+  });
+
+  it('gets all ids', () => {
+    presenter.setMany(items);
+
+    expect(presenter.allIds()).toEqual(itemIds);
+  });
+
+  it('gets all items', () => {
+    presenter.setMany(items);
+
+    expect(presenter.allItems()).toEqual(items);
   });
 });
