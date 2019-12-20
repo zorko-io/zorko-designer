@@ -14,5 +14,6 @@
     "allowJs": true,
     "typeRoots": ["node_modules/@types"]
   },
-  "files": ["src/index.tsx"]
+  "files": ["src/index.tsx"],
+  "include": ["src/**/*Test.ts"]
 }

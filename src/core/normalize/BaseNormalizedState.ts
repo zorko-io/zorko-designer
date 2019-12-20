@@ -54,8 +54,7 @@ export class BaseNormalizedState<I> {
 
   editById(id: string, modificationCallback) {
     const prevItem = this.byId(id);
-    const nextItem = modificationCallback(prevItem);
-    this.byIds[id] = nextItem;
+    this.byIds[id] = modificationCallback(prevItem);
 
     return this;
   }
