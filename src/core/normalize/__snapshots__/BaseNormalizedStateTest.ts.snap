@@ -6,3 +6,49 @@ Object {
   "byIds": Object {},
 }
 `;
+
+exports[`BaseNormalizeSate set multiple items with default id prop 1`] = `
+Object {
+  "allIds": Array [],
+  "byIds": Object {
+    "id-1": Object {
+      "id": "id-1",
+      "message": "2312323",
+    },
+    "id-2": Object {
+      "id": "id-2",
+      "message": "fmjfkjsjsfdjkfs",
+    },
+    "id-3": Object {
+      "id": "id-3",
+      "message": "vnsj9393939",
+    },
+  },
+}
+`;
+
+exports[`BaseNormalizeSate sets new item to a store 1`] = `
+Object {
+  "allIds": Array [
+    "12312312",
+  ],
+  "byIds": Object {
+    "12312312": Object {
+      "message": "boomm",
+    },
+  },
+}
+`;
+
+exports[`BaseNormalizeSate sets other item with same id 1`] = `
+Object {
+  "allIds": Array [
+    "12312312",
+  ],
+  "byIds": Object {
+    "12312312": Object {
+      "message": "other sample",
+    },
+  },
+}
+`;

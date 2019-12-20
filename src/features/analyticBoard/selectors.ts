@@ -15,8 +15,8 @@ export const selectAnalyticBoardMainSpecId = createSelector(
 export const selectAnalyticBoardMainSpec = createSelector(
   [selectAnalyticBoardMainSpecId, selectSpecs, selectEncodings],
   (id, specs, encodings) => {
-    const specRoot = SpecsPresenter.create(specs).byId(id);
-    const encoding = EncodingsPresenter.create(encodings).byId(id);
+    const specRoot = SpecsPresenter.create(specs).get(id);
+    const encoding = EncodingsPresenter.create(encodings).get(id);
     return {
       ...specRoot,
       encoding
@@ -28,7 +28,7 @@ export const selectAnalyticBoardEncodingChannels = createSelector(
   [selectAnalyticBoard, selectEncodings],
   (analyticBoard, encodings) => {
     return analyticBoard.encodingChannels.map(name => {
-      const encoding = EncodingsPresenter.create(encodings).byId(analyticBoard.mainSpecId);
+      const encoding = EncodingsPresenter.create(encodings).get(analyticBoard.mainSpecId);
       return encoding[name];
     });
   }

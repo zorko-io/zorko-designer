@@ -9,7 +9,7 @@ export class RepositoriesStatePresenter extends BaseNormalizedState<Repository> 
   // TODO: move to base class
   addMany(repositories: Repository[]) {
     for (const repo of repositories) {
-      this.add(repo, repo.name);
+      this.set(repo, repo.name);
     }
     return this;
   }

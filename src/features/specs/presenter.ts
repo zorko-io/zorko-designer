@@ -8,7 +8,7 @@ export class SpecsPresenter extends BaseNormalizedState<SpecState> {
   }
 
   editDescription(id: string, description: string) {
-    const spec = this.byId(id);
+    const spec = this.get(id);
 
     spec.description = description;
 
@@ -16,7 +16,7 @@ export class SpecsPresenter extends BaseNormalizedState<SpecState> {
   }
 
   editEncodingChannelField(id: string, channelName: string, field: string) {
-    const spec = this.byId(id);
+    const spec = this.get(id);
     const channel = spec.encoding[channelName];
 
     channel.field = field;
@@ -25,7 +25,7 @@ export class SpecsPresenter extends BaseNormalizedState<SpecState> {
   }
 
   editMark(id: string, mark: Mark) {
-    const spec = this.byId(id);
+    const spec = this.get(id);
 
     spec.mark = mark;
 

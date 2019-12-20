@@ -11,55 +11,88 @@ export class BaseNormalizedState<I> {
     this.state = state;
   }
 
-  get byIds() {
-    return this.state.byIds;
+  set(item: I, id: string): this {
+    this.setItem(item, id);
+    this.setId(id);
+    return this;
   }
 
-  set byIds(byIds) {
-    this.state.byIds = byIds;
-  }
-
-  get allIds() {
-    return this.state.allIds;
-  }
-
-  set allIds(allIds) {
-    this.state.allIds = allIds;
-  }
-
-  // TODO: rename to 'set'
-  add(item: I, id: string): this {
-    this.byIds[id] = item;
-    this.allIds.push(id);
+  setMany(items: I[], idPath?: Function): this {
+    for (const item of items) {
+      // @ts-ignore
+      const id = item.id;
+      this.setItem(item, id);
+    }
     return this;
   }
 
   reset(): this {
-    this.byIds = {};
-    this.allIds = [];
+    this.setByIds({});
+    this.setAllIds([]);
+
     return this;
   }
 
-  byId(id: string) {
-    return this.byIds[id];
+  get(id: string) {
+    return {
+      ...this.getItem(id)
+    };
   }
 
-  all() {
-    return this.allIds.map(id => this.byId(id));
+  items() {
+    return this.getAllIds().map(id => this.get(id));
   }
 
-  ids() {
-    return this.allIds;
+  allIds() {
+    return [...this.getAllIds()];
   }
 
   editById(id: string, modificationCallback) {
-    const prevItem = this.byId(id);
-    this.byIds[id] = modificationCallback(prevItem);
+    const prevItem = this.get(id);
+    this.setItem(modificationCallback(prevItem), id);
 
     return this;
   }
 
   toState(): NormalizedState<I> {
     return this.state;
+  }
+
+  protected getAllIds() {
+    return this.state.allIds;
+  }
+
+  protected setAllIds(allIds: string[]) {
+    this.state.allIds = allIds;
+    return this;
+  }
+
+  protected setId(id: string) {
+    const allIds = this.getAllIds();
+
+    if (!allIds.find(i => i === id)) {
+      allIds.push(id);
+    }
+
+    return this;
+  }
+
+  protected getItem(id: string) {
+    const byIds = this.getByIds();
+    return byIds[id];
+  }
+
+  protected getByIds() {
+    return this.state.byIds;
+  }
+
+  protected setByIds(byIds) {
+    this.state.byIds = byIds;
+    return this;
+  }
+
+  protected setItem(item: I, id: string) {
+    this.state.byIds[id] = item;
+    return this;
   }
 }
