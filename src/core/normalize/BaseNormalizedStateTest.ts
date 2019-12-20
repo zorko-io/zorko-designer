@@ -46,38 +46,40 @@ describe('BaseNormalizeSate', () => {
   });
 
   it('gets item from store', () => {
-    presenter.set(itemId, item);
-
-    expect(presenter.get(itemId)).toEqual(item);
+    expect(presenter.set(itemId, item).get(itemId)).toEqual(item);
   });
 
   it('gets all ids for one item', () => {
-    presenter.set(itemId, item);
-
-    expect(presenter.allIds()).toEqual([itemId]);
+    expect(presenter.set(itemId, item).allIds()).toEqual([itemId]);
   });
 
   it('set multiple items with default id prop', () => {
-    presenter.setMany(items);
-
-    expect(presenter.toState()).toMatchSnapshot();
+    expect(presenter.setMany(items).toState()).toMatchSnapshot();
   });
 
   it('set multiple items with custom prop path', () => {
-    presenter.setMany(items, i => i.message);
-
-    expect(presenter.toState()).toMatchSnapshot();
+    expect(presenter.setMany(items, i => i.message).toState()).toMatchSnapshot();
   });
 
   it('gets all ids', () => {
-    presenter.setMany(items);
-
-    expect(presenter.allIds()).toEqual(itemIds);
+    expect(presenter.setMany(items).allIds()).toEqual(itemIds);
   });
 
   it('gets all items', () => {
-    presenter.setMany(items);
+    expect(presenter.setMany(items).allItems()).toEqual(items);
+  });
 
-    expect(presenter.allItems()).toEqual(items);
+  it('edits item by id', () => {
+    const nextMessage = 'modified';
+
+    const nextItem = presenter
+      .set(itemId, item)
+      .editById(itemId, prevItem => {
+        prevItem.message = nextMessage;
+        return prevItem;
+      })
+      .get(itemId);
+
+    expect(nextItem.message).toEqual(nextMessage);
   });
 });
