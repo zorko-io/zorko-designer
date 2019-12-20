@@ -22,4 +22,8 @@ describe('SpecPresenterTest', () => {
   it('sets encoding', () => {
     expect(presenter.setEncoding('newEncoding').toState()).toMatchSnapshot();
   });
+
+  it('sets data', () => {
+    expect(presenter.setData({values: []}).toState()).toMatchSnapshot();
+  });
 });

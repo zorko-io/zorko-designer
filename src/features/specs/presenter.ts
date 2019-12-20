@@ -53,4 +53,9 @@ export class SpecPresenter extends BaseStatePresenter<SpecState> {
     this.state.encoding = encoding;
     return this;
   }
+
+  setData(data: object): this {
+    this.state.data = data;
+    return this;
+  }
 }

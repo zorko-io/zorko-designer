@@ -1,7 +1,7 @@
 import {NormalizedState} from '../../core/normalize/NormalizedState';
 import produce from 'immer';
 import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
-import {SpecsPresenter} from './presenter';
+import {SpecPresenter, SpecsPresenter} from './presenter';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createReducer} from '../../common/utils/createReducer';
 
@@ -34,14 +34,16 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
   [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowReadSuccess) => {
     const {spec, id} = action.payload;
 
-    const specState = {
-      mark: spec.mark as string,
-      data: spec.data,
-      description: spec.description,
-      encoding: id
-    };
     return SpecsPresenter.create(state)
-      .set(id, specState)
+      .set(
+        id,
+        SpecPresenter.create()
+          .setData(spec.data)
+          .setDescription(spec.description)
+          .setMark(spec.mark as string)
+          .setEncoding(id)
+          .toState()
+      )
       .toState();
   }
 });

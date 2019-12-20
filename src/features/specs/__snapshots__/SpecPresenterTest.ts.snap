@@ -9,6 +9,17 @@ Object {
 }
 `;
 
+exports[`SpecPresenterTest sets data 1`] = `
+Object {
+  "data": Object {
+    "values": Array [],
+  },
+  "description": "",
+  "encoding": "",
+  "mark": "",
+}
+`;
+
 exports[`SpecPresenterTest sets description 1`] = `
 Object {
   "data": Object {},
