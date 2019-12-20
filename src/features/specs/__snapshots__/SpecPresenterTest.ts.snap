@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpecPresenterTest creates default state 1`] = `
+Object {
+  "data": Object {},
+  "description": "",
+  "encoding": "",
+  "mark": "",
+}
+`;
+
+exports[`SpecPresenterTest sets description 1`] = `
+Object {
+  "data": Object {},
+  "description": "newDescription",
+  "encoding": "",
+  "mark": "",
+}
+`;
+
+exports[`SpecPresenterTest sets encoding 1`] = `
+Object {
+  "data": Object {},
+  "description": "",
+  "encoding": "newEncoding",
+  "mark": "",
+}
+`;
+
+exports[`SpecPresenterTest sets mark 1`] = `
+Object {
+  "data": Object {},
+  "description": "",
+  "encoding": "",
+  "mark": "newMark",
+}
+`;
