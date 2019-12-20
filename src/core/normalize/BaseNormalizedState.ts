@@ -27,6 +27,7 @@ export class BaseNormalizedState<I> {
     this.state.allIds = allIds;
   }
 
+  // TODO: rename to 'set'
   add(item: I, id: string): this {
     this.byIds[id] = item;
     this.allIds.push(id);
@@ -49,6 +50,14 @@ export class BaseNormalizedState<I> {
 
   ids() {
     return this.allIds;
+  }
+
+  editById(id: string, modificationCallback) {
+    const prevItem = this.byId(id);
+    const nextItem = modificationCallback(prevItem);
+    this.byIds[id] = nextItem;
+
+    return this;
   }
 
   toState(): NormalizedState<I> {

@@ -1,11 +1,12 @@
 import produce from 'immer';
 import {createReducer} from '../../common/utils/createReducer';
 import {NormalizedState} from '../../core/normalize/NormalizedState';
-import {EncodingChannelsPresenter, EncodingChannelsState} from '../encodingChannels/presenters';
+import {EncodingPresenter, EncodingState, PositionChannelPresenter} from '../encoding/presenters';
 import {EncodingsPresenter} from './presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encoding';
 
-export type EncodingsState = NormalizedState<EncodingChannelsState>;
+export type EncodingsState = NormalizedState<EncodingState>;
 
 export const initialEncodingsState: EncodingsState = EncodingsPresenter.create().toState();
 
@@ -18,16 +19,25 @@ const encodingsReducer = createReducer<EncodingsState>(initialEncodingsState, {
       return encodings.toState();
     }
 
-    const encoding = EncodingChannelsPresenter.create()
-      .setEncoding(spec.encoding)
-      .toState();
-
-    const result = encodings
+    return encodings
       .reset()
-      .add(encoding, id)
+      .setEncoding(spec.encoding as EncodingState, id)
       .toState();
+  },
+  [encodingChannelFieldEdit.type]: (state: EncodingsState, action: EncodingChannelFieldEdit) => {
+    const {field, channelName, specId} = action.payload;
 
-    return result;
+    return EncodingsPresenter.create(state)
+      .editById(specId, encoding => {
+        return EncodingPresenter.create(encoding)
+          .editByName(channelName, channel => {
+            return PositionChannelPresenter.create(channel)
+              .setField(field)
+              .toState();
+          })
+          .toState();
+      })
+      .toState();
   }
 });
 

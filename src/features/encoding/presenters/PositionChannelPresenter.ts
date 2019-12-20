@@ -1,10 +1,7 @@
-import {Option} from '../../../common/Option';
-
 export type PositionChannelState = {
   name: string;
   field?: any;
   type?: any;
-  fieldOptions: Option<string>[];
 };
 
 export class PositionChannelPresenter {
@@ -16,7 +13,7 @@ export class PositionChannelPresenter {
 
   constructor(state?: PositionChannelState) {
     if (!state) {
-      state = {name: 'x', field: null, type: null, fieldOptions: []};
+      state = {name: 'x', field: null, type: null};
     }
 
     this.state = state;
@@ -24,11 +21,6 @@ export class PositionChannelPresenter {
 
   setField(field) {
     this.state.field = field;
-    return this;
-  }
-
-  setFieldOptions(options: Option<string>[]) {
-    this.state.fieldOptions = options;
     return this;
   }
 

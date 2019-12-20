@@ -4,7 +4,6 @@ import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} fr
 import {SpecsPresenter} from './presenter';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createReducer} from '../../common/utils/createReducer';
-import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encodingChannels';
 
 export interface SpecState {
   description: string;
@@ -30,13 +29,6 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
 
     return SpecsPresenter.create(state)
       .editMark(id, mark)
-      .toState();
-  },
-  [encodingChannelFieldEdit.type]: (state: SpecsState, action: EncodingChannelFieldEdit) => {
-    const {specId, channel, field} = action.payload;
-    // todo: move to channels reducer/presenter
-    return SpecsPresenter.create(state)
-      .editEncodingChannelField(specId, channel, field)
       .toState();
   },
   [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowReadSuccess) => {

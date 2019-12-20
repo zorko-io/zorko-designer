@@ -20,8 +20,8 @@ import {
   DataSourceMetadataState,
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata';
-import {encodingChannelsReducer, initialEncodingChannelsState} from '../features/encodingChannels';
-import {EncodingChannelsState} from '../features/encodingChannels/presenters';
+import {encodingChannelsReducer, initialEncodingChannelsState} from '../features/encoding';
+import {EncodingState} from '../features/encoding/presenters';
 import {encodingsReducer, EncodingsState, initialEncodingsState} from '../features/encodings';
 
 export interface RootState {
@@ -31,7 +31,7 @@ export interface RootState {
   repositories: RepositoriesState;
   vegaLiteSchema: VegaLiteSchemaState;
   dataSourceMetadata: DataSourceMetadataState;
-  encodingChannels: EncodingChannelsState;
+  encodingChannels: EncodingState;
   encodings: EncodingsState;
 }
 
@@ -55,12 +55,9 @@ export const rootReducer = (state: RootState = initialState, action: Action) => 
   state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);
   state.repositories = repositoriesReducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
-  const dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
-  state.dataSourceMetadata = dataSourceMetadata;
+  state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
 
-  state.encodingChannels = encodingChannelsReducer(state.encodingChannels, action, {
-    dataSourceMetadata
-  });
+  state.encodingChannels = encodingChannelsReducer(state.encodingChannels, action);
 
   return state;
 };

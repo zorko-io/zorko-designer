@@ -1,23 +1,25 @@
 import React, {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Select from 'react-select';
-import {selectEncodingChannelsAll} from '../selectors';
 import {selectDataSourceMetadataAll} from '../../dataSourceMetadata/selectors';
 import {encodingChannelFieldEdit} from '../actions';
-import {selectAnalyticBoardMainSpecId} from '../../analyticBoard';
+import {
+  selectAnalyticBoardEncodingChannels,
+  selectAnalyticBoardMainSpecId
+} from '../../analyticBoard';
 
 export const EncodingContainer = () => {
-  const channels = useSelector(selectEncodingChannelsAll);
+  const channels = useSelector(selectAnalyticBoardEncodingChannels);
   const fields = useSelector(selectDataSourceMetadataAll);
   const specId = useSelector(selectAnalyticBoardMainSpecId);
   const dispatch = useDispatch();
   const handleChannelChange = useCallback(
-    (field, channel) => {
+    (field, channelName) => {
       dispatch(
         encodingChannelFieldEdit({
           specId,
           field,
-          channel
+          channelName
         })
       );
     },
