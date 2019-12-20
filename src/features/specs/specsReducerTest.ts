@@ -1,26 +1,17 @@
-import {specsReducer, SpecsState} from './index';
+import {specDescriptionEdit, specMarkEdit, specsReducer, SpecsState} from './index';
 import {createAction} from '@reduxjs/toolkit';
-import {SpecPresenter, SpecsPresenter} from './presenter';
+import {SpecsPresenter} from './presenter';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
+import * as specsReducerFixtures from './specsFixtures';
 
 describe('Specs Reducer', () => {
-  let actual: SpecsState, expected: SpecsState, initState: SpecsState;
+  let actual, expected, initState: SpecsState, id: string, spec: VegaLiteTopLevelUnitSpec;
 
   beforeEach(() => {
     initState = SpecsPresenter.create().toState();
-  });
-
-  it('inits default state', () => {
-    actual = specsReducer(null, createAction('anyAction'));
-    expected = SpecsPresenter.create().toState();
-
-    expect(actual).toEqual(expected);
-  });
-
-  it('chooses spec', () => {
-    const id = 'someId';
-    const spec = {
+    id = 'someId';
+    spec = {
       description: 'hohooho',
       data: {
         values: [
@@ -34,22 +25,45 @@ describe('Specs Reducer', () => {
         y: {field: 'b', type: 'ordinal'}
       }
     };
-    const action = chooseSpecFlowReadSuccess('someId', spec as VegaLiteTopLevelUnitSpec);
+  });
 
-    actual = specsReducer(initState, action);
-    expected = SpecsPresenter.create(initState)
-      .set(
-        id,
-        SpecPresenter.create()
-          .setEncoding(id)
-          .setData(spec.data)
-          .setDescription(spec.description)
-          .setMark(spec.mark)
-          .setEncoding(id)
-          .toState()
-      )
-      .toState();
+  it('inits default state', () => {
+    actual = specsReducer(null, createAction('anyAction'));
+    expected = SpecsPresenter.create().toState();
 
     expect(actual).toEqual(expected);
+  });
+
+  it('chooses spec', () => {
+    const action = chooseSpecFlowReadSuccess(id, spec as VegaLiteTopLevelUnitSpec);
+
+    actual = specsReducer(initState, action);
+    expected = specsReducerFixtures.getStateWithOneSpec(id, spec, initState);
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('edit description', () => {
+    const nextDescription = 'zzzzzz';
+    const action = specDescriptionEdit({id, description: nextDescription});
+    let state = specsReducerFixtures.getStateWithOneSpec(id, spec, initState);
+
+    state = specsReducer(state, action);
+    actual = SpecsPresenter.create(state).get(id).description;
+    expected = nextDescription;
+
+    expect(expected).toEqual(expected);
+  });
+
+  it('edit mark', () => {
+    const nextMark = 'line';
+    const action = specMarkEdit(id, nextMark);
+    let state = specsReducerFixtures.getStateWithOneSpec(id, spec, initState);
+
+    state = specsReducer(state, action);
+    actual = SpecsPresenter.create(state).get(id).mark;
+    expected = nextMark;
+
+    expect(expected).toEqual(expected);
   });
 });

@@ -21,14 +21,22 @@ const reducers = createReducer<SpecsState>(initialSpecsState, {
     const {description, id} = action.payload;
 
     return SpecsPresenter.create(state)
-      .editDescription(id, description)
+      .editById(id, specState => {
+        return SpecPresenter.create(specState)
+          .setDescription(description)
+          .toState();
+      })
       .toState();
   },
   [specMarkEdit.type]: (state: SpecsState, action: SpecMarkEdit) => {
     const {mark, id} = action.payload;
 
     return SpecsPresenter.create(state)
-      .editMark(id, mark)
+      .editById(id, specState => {
+        return SpecPresenter.create(specState)
+          .setMark(mark)
+          .toState();
+      })
       .toState();
   },
   [chooseSpecFlowReadSuccess.type]: (state: SpecsState, action: ChooseSpecFlowReadSuccess) => {

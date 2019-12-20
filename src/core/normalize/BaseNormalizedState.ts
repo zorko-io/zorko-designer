@@ -41,9 +41,7 @@ export class BaseNormalizedState<I> {
   }
 
   get(id: string) {
-    return {
-      ...this.getItem(id)
-    };
+    return this.getItem(id);
   }
 
   allItems() {
@@ -51,7 +49,7 @@ export class BaseNormalizedState<I> {
   }
 
   allIds() {
-    return [...this.getAllIds()];
+    return this.getAllIds();
   }
 
   editById(id: string, modificationCallback: Function): this {
