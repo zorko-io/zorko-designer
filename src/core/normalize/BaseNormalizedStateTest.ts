@@ -62,4 +62,10 @@ describe('BaseNormalizeSate', () => {
 
     expect(presenter.toState()).toMatchSnapshot();
   });
+
+  it('set multiple items with custom prop path', () => {
+    presenter.setMany(items, i => i.message);
+
+    expect(presenter.toState()).toMatchSnapshot();
+  });
 });

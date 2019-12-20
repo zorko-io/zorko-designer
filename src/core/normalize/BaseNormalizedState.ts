@@ -19,8 +19,15 @@ export class BaseNormalizedState<I> {
 
   setMany(items: I[], idPath?: Function): this {
     for (const item of items) {
-      // @ts-ignore
-      const id = item.id;
+      let id;
+
+      if (!idPath) {
+        // @ts-ignore
+        id = item.id;
+      } else {
+        id = idPath(item);
+      }
+
       this.setItem(item, id);
     }
     return this;
