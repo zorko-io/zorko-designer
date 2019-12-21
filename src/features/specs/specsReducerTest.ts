@@ -2,8 +2,9 @@ import {specDescriptionEdit, specMarkEdit, specsReducer, SpecsState} from './ind
 import {createAction} from '@reduxjs/toolkit';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
-import * as specsReducerFixtures from './__mocks__/specsFixtures';
+import * as specsReducerFixtures from './__mocks__/specsStateFixtures';
 import {SpecsPresenter} from './presenters';
+import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 
 describe('Specs Reducer', () => {
   let actual, expected, initState: SpecsState, id: string, spec: VegaLiteTopLevelUnitSpec;
@@ -11,20 +12,7 @@ describe('Specs Reducer', () => {
   beforeEach(() => {
     initState = SpecsPresenter.create().toState();
     id = 'someId';
-    spec = {
-      description: 'hohooho',
-      data: {
-        values: [
-          {a: 1, b: 'c'},
-          {a: 2, b: 'n'}
-        ]
-      },
-      mark: 'bar',
-      encoding: {
-        x: {field: 'a', type: 'quantitative'},
-        y: {field: 'b', type: 'ordinal'}
-      }
-    };
+    spec = vegaLiteSpecsFixture.getSimpleSpec();
   });
 
   it('inits default state', () => {

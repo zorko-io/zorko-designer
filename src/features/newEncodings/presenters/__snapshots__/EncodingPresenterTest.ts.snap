@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Encoding Presenter creates default 1`] = `Object {}`;
+
+exports[`Encoding Presenter sets color 1`] = `
+Object {
+  "color": "bar/color",
+}
+`;
+
+exports[`Encoding Presenter sets x 1`] = `
+Object {
+  "x": "bar/x",
+}
+`;
+
+exports[`Encoding Presenter sets y 1`] = `
+Object {
+  "y": "bar/y",
+}
+`;
