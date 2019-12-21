@@ -11,7 +11,7 @@ export class BaseNormalizedState<I> {
     this.state = state;
   }
 
-  set(id: string, item: I): this {
+  set(id: string, item): this {
     this.setItem(item, id);
     this.setId(id);
     return this;
@@ -54,7 +54,13 @@ export class BaseNormalizedState<I> {
 
   editById(id: string, modificationCallback: Function): this {
     const prevItem = this.get(id);
-    this.setItem(modificationCallback(prevItem), id);
+    let callbackResult = modificationCallback(prevItem);
+
+    if (callbackResult.toState) {
+      callbackResult = callbackResult.toState();
+    }
+
+    this.setItem(callbackResult, id);
 
     return this;
   }
@@ -97,7 +103,14 @@ export class BaseNormalizedState<I> {
   }
 
   protected setItem(item: I, id: string) {
-    this.state.byIds[id] = item;
+    let nextItem = item;
+    // @ts-ignore
+    if (item.toState) {
+      // @ts-ignore
+      nextItem = item.toState();
+    }
+
+    this.state.byIds[id] = nextItem;
     return this;
   }
 }

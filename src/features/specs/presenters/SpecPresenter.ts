@@ -1,12 +1,5 @@
-import {BaseNormalizedState} from '../../core/normalize/BaseNormalizedState';
-import {SpecsState, SpecState} from './reducers';
-import {BaseStatePresenter} from '../../core/BaseStatePresenter';
-
-export class SpecsPresenter extends BaseNormalizedState<SpecState> {
-  static create(state?: SpecsState) {
-    return new SpecsPresenter(state);
-  }
-}
+import {BaseStatePresenter} from '../../../core/BaseStatePresenter';
+import {SpecState} from './SpecState';
 
 export class SpecPresenter extends BaseStatePresenter<SpecState> {
   static create(state?: SpecState) {

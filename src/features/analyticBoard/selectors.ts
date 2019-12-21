@@ -1,9 +1,9 @@
 import {RootState} from '../../store/rootReducer';
 import {selectSpecs} from '../specs/selectors';
 import {createSelector} from '@reduxjs/toolkit';
-import {SpecsPresenter} from '../specs/presenter';
 import {selectEncodings} from '../encodings/selectors';
 import {EncodingsPresenter} from '../encodings';
+import {SpecsPresenter} from '../specs/presenters/SpecsPresenter';
 
 export const selectAnalyticBoard = (state: RootState) => state.analyticBoard;
 

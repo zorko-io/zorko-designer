@@ -1,9 +1,9 @@
 import {specDescriptionEdit, specMarkEdit, specsReducer, SpecsState} from './index';
 import {createAction} from '@reduxjs/toolkit';
-import {SpecsPresenter} from './presenter';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
-import * as specsReducerFixtures from './specsFixtures';
+import * as specsReducerFixtures from './__mocks__/specsFixtures';
+import {SpecsPresenter} from './presenters';
 
 describe('Specs Reducer', () => {
   let actual, expected, initState: SpecsState, id: string, spec: VegaLiteTopLevelUnitSpec;

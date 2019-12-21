@@ -1,4 +1,4 @@
-import {SpecPresenter} from './presenter';
+import {SpecPresenter} from './SpecPresenter';
 
 describe('SpecPresenterTest', () => {
   let presenter: SpecPresenter;

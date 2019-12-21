@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {initialSpecsState, specsReducer, SpecsState} from '../features/specs';
+import {SpecsPresenter, specsReducer, SpecsState} from '../features/specs';
 import repositoriesReducer, {
   initialRepositoriesState,
   RepositoriesState
@@ -37,7 +37,7 @@ export interface RootState {
 
 const initialState: RootState = {
   version: '',
-  specs: initialSpecsState,
+  specs: SpecsPresenter.create().toState(),
   analyticBoard: initialAnalyticBoardState,
   repositories: initialRepositoriesState,
   vegaLiteSchema: initialVegaLiteSchemaState,
