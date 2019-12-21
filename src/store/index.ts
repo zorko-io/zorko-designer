@@ -18,19 +18,24 @@ const customLoggerMiddleware = () => next => action => {
   return;
 };
 
+const middleware = [
+  ...getDefaultMiddleware(),
+  createLogger({
+    collapsed: true,
+    titleFormatter: (action: Action, time?: string, took?: number) => {
+      return `Redux|Action: ${action.type} in ${took.toFixed(2)} ms`;
+    }
+  }),
+  customLoggerMiddleware
+];
+
+if (process.env.NODE_ENV === 'production') {
+  middleware.push(firebaseAnalyticMiddleware);
+}
+
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [
-    ...getDefaultMiddleware(),
-    createLogger({
-      collapsed: true,
-      titleFormatter: (action: Action, time?: string, took?: number) => {
-        return `Redux|Action: ${action.type} in ${took.toFixed(2)} ms`;
-      }
-    }),
-    customLoggerMiddleware,
-    firebaseAnalyticMiddleware
-  ]
+  middleware: middleware
 });
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
