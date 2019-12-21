@@ -2,6 +2,7 @@ import {createReducerWithPresenter} from '../../common/utils/createReducerWithPr
 import {PositionChannelPresenter, ChannelsPresenter, ChannelsState} from './presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createChannelId} from '../../common/utils';
+import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encoding';
 
 export const channelsReducer = createReducerWithPresenter<ChannelsState>(ChannelsPresenter.create, {
   [chooseSpecFlowReadSuccess.type]: (
@@ -24,5 +25,16 @@ export const channelsReducer = createReducerWithPresenter<ChannelsState>(Channel
     }
 
     return presenter;
+  },
+  [encodingChannelFieldEdit.type]: (
+    presenter: ChannelsPresenter,
+    action: EncodingChannelFieldEdit
+  ) => {
+    const {specId, field, channelName} = action.payload;
+    const channelId = createChannelId(specId, channelName);
+
+    return presenter.editById(channelId, channel => {
+      return PositionChannelPresenter.create(channel).setField(field);
+    });
   }
 });

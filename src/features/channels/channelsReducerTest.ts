@@ -3,6 +3,9 @@ import {ChannelsPresenter, ChannelsState, PositionChannelPresenter} from './pres
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {channelsReducer} from './channelsReducer';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import * as channelsStateFixtures from './__mocks___/channelsStateFixtures';
+import {encodingChannelFieldEdit} from '../encoding';
+import {createChannelId} from '../../common/utils';
 
 describe('Channels Reducer', () => {
   let actual, expected, action, initState: ChannelsState, id: string, spec;
@@ -22,21 +25,22 @@ describe('Channels Reducer', () => {
   it('choose spec', () => {
     action = chooseSpecFlowReadSuccess(id, spec);
     actual = channelsReducer(initState, action);
-    expected = ChannelsPresenter.create()
-      .set(
-        'boom/x',
-        PositionChannelPresenter.create()
-          .setField('a')
-          .setType('quantitative')
-          .setName('x')
-      )
-      .set(
-        'boom/y',
-        PositionChannelPresenter.create()
-          .setField('b')
-          .setType('ordinal')
-          .setName('y')
-      )
+    expected = channelsStateFixtures.getSimpleChannelsState(id);
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('edits channel field', () => {
+    const nextField = 'b';
+    const channelName = 'x';
+    initState = channelsStateFixtures.getSimpleChannelsState(id);
+    action = encodingChannelFieldEdit({specId: id, field: nextField, channelName});
+
+    actual = channelsReducer(initState, action);
+    expected = ChannelsPresenter.create(channelsStateFixtures.getSimpleChannelsState(id))
+      .editById(createChannelId(id, channelName), channel => {
+        return PositionChannelPresenter.create(channel).setField(nextField);
+      })
       .toState();
 
     expect(actual).toEqual(expected);
