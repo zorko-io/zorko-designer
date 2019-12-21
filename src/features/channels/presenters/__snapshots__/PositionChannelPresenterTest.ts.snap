@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionChannelPresenter creates default state 1`] = `
+Object {
+  "field": null,
+  "name": "",
+  "type": null,
+}
+`;
+
+exports[`PositionChannelPresenter sets field 1`] = `
+Object {
+  "field": "a",
+  "name": "",
+  "type": null,
+}
+`;
+
+exports[`PositionChannelPresenter sets name 1`] = `
+Object {
+  "field": null,
+  "name": "x",
+  "type": null,
+}
+`;
+
+exports[`PositionChannelPresenter sets type 1`] = `
+Object {
+  "field": null,
+  "name": "",
+  "type": "quantitative",
+}
+`;

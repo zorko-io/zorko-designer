@@ -1,4 +1,4 @@
-import {PositionChannelState} from './PositionChannelPresenter';
+import {PositionChannelState} from '../../channels/presenters/PositionChannelState';
 
 export enum EncodingChannelNames {
   X = 'x',

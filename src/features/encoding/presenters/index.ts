@@ -1,2 +1,3 @@
 export * from './EncodingPresenter';
-export * from './PositionChannelPresenter';
+export * from '../../channels/presenters/PositionChannelPresenter';
+export {PositionChannelState} from '../../channels/presenters/PositionChannelState';
