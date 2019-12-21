@@ -4,6 +4,7 @@ import {EncodingPresenter, EncodingsPresenter, EncodingsState} from './presenter
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {createChannelId} from '../../common/utils';
 
 describe('Encodings Reducer', () => {
   let actual,
@@ -31,10 +32,10 @@ describe('Encodings Reducer', () => {
     actual = newEncodingsReducer(initState, action);
     expected = EncodingsPresenter.create(initState)
       .set(
-        'bar',
+        id,
         EncodingPresenter.create()
-          .setX('bar/x')
-          .setY('bar/y')
+          .setX(createChannelId(id, 'x'))
+          .setY(createChannelId(id, 'y'))
       )
       .toState();
 

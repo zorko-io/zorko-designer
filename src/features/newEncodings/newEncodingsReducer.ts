@@ -1,6 +1,7 @@
 import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
 import {chooseSpecFlowReadSuccess, ChooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {EncodingPresenter, EncodingsPresenter} from './presenters';
+import {createChannelId} from '../../common/utils';
 
 export const newEncodingsReducer = createReducerWithPresenter(EncodingsPresenter.create, {
   [chooseSpecFlowReadSuccess.type]: (
@@ -15,7 +16,7 @@ export const newEncodingsReducer = createReducerWithPresenter(EncodingsPresenter
     }
 
     for (const name of Object.keys(spec.encoding)) {
-      const channelId = `${id}/${name}`;
+      const channelId = createChannelId(id, name);
       encoding.setChannel(name, channelId);
     }
 

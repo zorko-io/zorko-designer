@@ -1,6 +1,7 @@
 import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
 import {PositionChannelPresenter, ChannelsPresenter, ChannelsState} from './presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {createChannelId} from '../../common/utils';
 
 export const channelsReducer = createReducerWithPresenter<ChannelsState>(ChannelsPresenter.create, {
   [chooseSpecFlowReadSuccess.type]: (
@@ -15,7 +16,7 @@ export const channelsReducer = createReducerWithPresenter<ChannelsState>(Channel
     }
 
     for (const name of Object.keys(encoding)) {
-      const channelId = `${id}/${name}`;
+      const channelId = createChannelId(id, name);
       const channel = encoding[name];
       const channelPresenter = PositionChannelPresenter.create(channel).setName(name);
 
