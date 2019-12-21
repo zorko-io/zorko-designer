@@ -1,9 +1,8 @@
 import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
-import {ChannelsPresenter} from './presenters/ChannelsPresenter';
+import {PositionChannelPresenter, ChannelsPresenter, ChannelsState} from './presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
-import {PositionChannelPresenter} from './presenters/PositionChannelPresenter';
 
-export const channelsReducer = createReducerWithPresenter(ChannelsPresenter.create, {
+export const channelsReducer = createReducerWithPresenter<ChannelsState>(ChannelsPresenter.create, {
   [chooseSpecFlowReadSuccess.type]: (
     presenter: ChannelsPresenter,
     action: ChooseSpecFlowReadSuccess

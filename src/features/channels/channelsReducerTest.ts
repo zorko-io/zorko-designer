@@ -1,9 +1,8 @@
 import {createAction} from '@reduxjs/toolkit';
-import {ChannelsPresenter, ChannelsState} from './presenters/ChannelsPresenter';
+import {ChannelsPresenter, ChannelsState, PositionChannelPresenter} from './presenters';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {channelsReducer} from './channelsReducer';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
-import {PositionChannelPresenter} from './presenters/PositionChannelPresenter';
 
 describe('Channels Reducer', () => {
   let actual, expected, action, initState: ChannelsState, id: string, spec;
