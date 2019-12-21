@@ -1,9 +1,12 @@
 import {RootState} from '../../store/rootReducer';
 import {selectSpecs} from '../specs/selectors';
 import {createSelector} from '@reduxjs/toolkit';
-import {selectEncodings} from '../encodings/selectors';
-import {EncodingsPresenter} from '../encodings';
-import {SpecsPresenter} from '../specs/presenters/SpecsPresenter';
+import {SpecsPresenter} from '../specs/presenters';
+import {EncodingPresenter, EncodingsPresenter} from '../newEncodings';
+import {selectChannels} from '../channels/selectors';
+import {ChannelsPresenter} from '../channels/presenters';
+import {createChannelId, extractChannelNameFromId} from '../../common/utils';
+import {selectEncodings} from '../newEncodings/selectors';
 
 export const selectAnalyticBoard = (state: RootState) => state.analyticBoard;
 
@@ -12,24 +15,37 @@ export const selectAnalyticBoardMainSpecId = createSelector(
   analyticBoard => analyticBoard.mainSpecId
 );
 
+// TODO: cover with test
 export const selectAnalyticBoardMainSpec = createSelector(
-  [selectAnalyticBoardMainSpecId, selectSpecs, selectEncodings],
-  (id, specs, encodings) => {
-    const specRoot = SpecsPresenter.create(specs).get(id);
-    const encoding = EncodingsPresenter.create(encodings).get(id);
+  [selectAnalyticBoardMainSpecId, selectSpecs, selectEncodings, selectChannels],
+  (id, specsState, encodingsState, channelsState) => {
+    const specState = SpecsPresenter.create(specsState).get(id);
+    const encodingState = EncodingsPresenter.create(encodingsState).get(id);
+    // TODO: store list of channels in board state
+    const channelIds = EncodingPresenter.create(encodingState).getChannels();
+    const channelsPresenter = ChannelsPresenter.create(channelsState);
+
+    const encoding = channelIds.reduce((memo, channelId) => {
+      const channelName = extractChannelNameFromId(channelId);
+      memo[channelName] = channelsPresenter.get(channelId);
+      return memo;
+    }, {});
+
     return {
-      ...specRoot,
+      ...specState,
       encoding
     };
   }
 );
 
 export const selectAnalyticBoardEncodingChannels = createSelector(
-  [selectAnalyticBoard, selectEncodings],
-  (analyticBoard, encodings) => {
+  [selectAnalyticBoardMainSpecId, selectAnalyticBoard, selectChannels],
+  (id: string, analyticBoard, channelsState) => {
+    const channelsPresenter = ChannelsPresenter.create(channelsState);
+
     return analyticBoard.encodingChannels.map(name => {
-      const encoding = EncodingsPresenter.create(encodings).get(analyticBoard.mainSpecId);
-      return encoding[name];
+      const channelId = createChannelId(id, name);
+      return channelsPresenter.get(channelId);
     });
   }
 );

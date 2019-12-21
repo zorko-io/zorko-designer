@@ -2,7 +2,7 @@ import {createReducerWithPresenter} from '../../common/utils/createReducerWithPr
 import {PositionChannelPresenter, ChannelsPresenter, ChannelsState} from './presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createChannelId} from '../../common/utils';
-import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../encoding';
+import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../analyticBoard/actions';
 
 export const channelsReducer = createReducerWithPresenter<ChannelsState>(ChannelsPresenter.create, {
   [chooseSpecFlowReadSuccess.type]: (

@@ -3,10 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Select from 'react-select';
 import {selectDataSourceMetadataAll} from '../../dataSourceMetadata/selectors';
 import {encodingChannelFieldEdit} from '../actions';
-import {
-  selectAnalyticBoardEncodingChannels,
-  selectAnalyticBoardMainSpecId
-} from '../../analyticBoard';
+import {selectAnalyticBoardEncodingChannels, selectAnalyticBoardMainSpecId} from '../selectors';
 
 export const EncodingContainer = () => {
   const channels = useSelector(selectAnalyticBoardEncodingChannels);

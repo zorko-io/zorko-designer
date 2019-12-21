@@ -27,6 +27,12 @@ export class EncodingPresenter extends BaseStatePresenter<EncodingState> {
     return this;
   }
 
+  getChannels() {
+    return Object.keys(this.state).map(name => {
+      return this.state[name];
+    });
+  }
+
   setX(x: string): this {
     this.state.x = x;
     return this;

@@ -20,9 +20,10 @@ import {
   DataSourceMetadataState,
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata';
-import {encodingsReducer, EncodingsState, initialEncodingsState} from '../features/encodings';
 import {ChannelsPresenter, ChannelsState} from '../features/channels/presenters';
 import {channelsReducer} from '../features/channels';
+import {newEncodingsReducer} from '../features/newEncodings';
+import {EncodingsPresenter, EncodingsState} from '../features/newEncodings/presenters';
 
 export interface RootState {
   version: string;
@@ -32,7 +33,7 @@ export interface RootState {
   vegaLiteSchema: VegaLiteSchemaState;
   dataSourceMetadata: DataSourceMetadataState;
   channels: ChannelsState;
-  encodings: EncodingsState;
+  newEncoding: EncodingsState;
 }
 
 const initialState: RootState = {
@@ -43,13 +44,13 @@ const initialState: RootState = {
   vegaLiteSchema: initialVegaLiteSchemaState,
   dataSourceMetadata: initialDataSourceMetadataState,
   channels: ChannelsPresenter.create().toState(),
-  encodings: initialEncodingsState
+  newEncoding: EncodingsPresenter.create().toState()
 };
 
 export const rootReducer = (state: RootState = initialState, action: Action) => {
   state.version = '1.0.0';
 
-  state.encodings = encodingsReducer(state.encodings, action);
+  state.newEncoding = newEncodingsReducer(state.newEncoding, action);
 
   state.specs = specsReducer(state.specs, action);
   state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);

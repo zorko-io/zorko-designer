@@ -4,8 +4,8 @@ import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {channelsReducer} from './channelsReducer';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import * as channelsStateFixtures from './__mocks___/channelsStateFixtures';
-import {encodingChannelFieldEdit} from '../encoding';
 import {createChannelId} from '../../common/utils';
+import {encodingChannelFieldEdit} from '../analyticBoard/actions';
 
 describe('Channels Reducer', () => {
   let actual, expected, action, initState: ChannelsState, id: string, spec;
