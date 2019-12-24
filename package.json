@@ -19,7 +19,7 @@
     "@types/webpack-env": "^1.14.1",
     "classnames": "^2.2.6",
     "datalib": "^1.9.2",
-    "dayjs": "^1.8.17",
+    "dayjs": "^1.8.18",
     "firebase": "^7.6.1",
     "immer": "^5.1.0",
     "lodash": "^4.17.15",
