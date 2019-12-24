@@ -13,7 +13,7 @@ export function createReducer<T>(initState, map) {
     }
 
     /**
-     * @todo Extend reducer with proper typescript typing
+     * @todo #30:30m/DEV Extend reducer with proper typescript typing
      *
      * It should accept generic presenter type and state thought generics,
      * remove explicit type cast

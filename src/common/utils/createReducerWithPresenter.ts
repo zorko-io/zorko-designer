@@ -13,7 +13,7 @@ export function createReducerWithPresenter<T>(create, map) {
       return state;
     }
     /**
-     * @todo Extend reducer with presenter with proper typescript typing
+     * @todo #30:30m/DEV Extend reducer with presenter with proper typescript typing
      *
      * It should accept generic presenter type and state thought generics,
      * remove explicit type cast

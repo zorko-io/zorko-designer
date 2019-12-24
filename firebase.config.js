@@ -1,6 +1,6 @@
 export const firebaseConfig = {
   /**
-   * @todo move keys to env vars
+   * @todo #30:30m/DEV move keys to env vars
    *
    * I assume that keys provided by deployment env, we no need keys
    * for dev environment committed in VCS

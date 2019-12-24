@@ -11,7 +11,7 @@ export const firebaseAnalyticMiddleware = () => next => action => {
   switch (action.type) {
     case chooseSpecFlowReadRequest.type: {
       /**
-       * @todo Extract to method 'selectContent'
+       * @todo #30:30m/DEV Extract to method 'selectContent'
        *
        * Make as method of firebase analytic class
        * like 'firebaseAnalytic.selectContent({
@@ -30,7 +30,7 @@ export const firebaseAnalyticMiddleware = () => next => action => {
 
     case chooseSpecFlowOpenSpecs.type: {
       /**
-       * @todo Extract to method 'viewSpecsCategory'
+       * @todo #30:30m/DEV Extract to method 'viewSpecsCategory'
        *
        * Make as method of firebase analytic class
        * like 'firebaseAnalytic.viewList({ category: 'examples'})'
@@ -45,7 +45,7 @@ export const firebaseAnalyticMiddleware = () => next => action => {
 
     case specMarkEdit.type: {
       /**
-       * @todo Extract to method 'editContent'
+       * @todo #30:30m/DEV Extract to method 'editContent'
        *
        * Make as method of firebase analytic class
        * like 'firebaseAnalytic.editContent({
