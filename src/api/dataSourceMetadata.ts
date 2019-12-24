@@ -38,8 +38,8 @@ async function fetchDataByUrl(dataSource: UrlData) {
 }
 
 /**
- * @todo #30:30m/DEV Move to application config,
- * I assume that it's a env vars or at least common config for app
+ * @todo #30:30m/DEV Move to application config
+ *  I assume that it's a env vars or at least common config for app
  */
 const MAX_OPTION_COUNT = 10;
 
@@ -90,7 +90,8 @@ export async function fetchDataSourceMetadata(dataSource: DataSource) {
 
   if (isInlineData(dataSource)) {
     /**
-     * @todo #30:30m/DEV Throw an error if inline data is bigger then 30Mb
+     * @todo #30:30m/DEV Throw an error if inline data upper then limit
+     *  Let's setup limit in 30Mb
      */
     const inlineDataset = dataSource.values;
 
