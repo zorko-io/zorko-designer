@@ -10,6 +10,16 @@ export const firebaseAnalyticMiddleware = () => next => action => {
 
   switch (action.type) {
     case chooseSpecFlowReadRequest.type: {
+      /**
+       * @todo Extract to method 'selectContent'
+       *
+       * Make as method of firebase analytic class
+       * like 'firebaseAnalytic.selectContent({
+       *    id: action.payload.id,
+       *    type: 'vega-lite'
+       * })'
+       *
+       */
       FirebaseAnalytic.logEvent('select_content', {
         ['content_type']: 'vega-lite',
         ['content_id']: action.payload.id
@@ -19,6 +29,13 @@ export const firebaseAnalyticMiddleware = () => next => action => {
     }
 
     case chooseSpecFlowOpenSpecs.type: {
+      /**
+       * @todo Extract to method 'viewSpecsCategory'
+       *
+       * Make as method of firebase analytic class
+       * like 'firebaseAnalytic.viewList({ category: 'examples'})'
+       *
+       */
       FirebaseAnalytic.logEvent('view_item_list', {
         ['item_category']: 'examples'
       });
@@ -27,7 +44,17 @@ export const firebaseAnalyticMiddleware = () => next => action => {
     }
 
     case specMarkEdit.type: {
-      // TODO: need to register new event type and and and
+      /**
+       * @todo Extract to method 'editContent'
+       *
+       * Make as method of firebase analytic class
+       * like 'firebaseAnalytic.editContent({
+       *   type: 'vega-lite',
+       *   id: action.payload.id,
+       *   changeType: 'mark'
+       * })'
+       *
+       */
       FirebaseAnalytic.logEvent('edit_content', {
         ['content_type']: 'vega-lite',
         ['change_type']: 'mark',

@@ -12,7 +12,12 @@ export function createReducer<T>(initState, map) {
       return state;
     }
 
-    // TODO: make more intelligent typings
+    /**
+     * @todo Extend reducer with proper typescript typing
+     *
+     * It should accept generic presenter type and state thought generics,
+     * remove explicit type cast
+     */
     return reducer(state, action, options) as T;
   };
 }

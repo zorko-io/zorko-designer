@@ -37,6 +37,10 @@ async function fetchDataByUrl(dataSource: UrlData) {
   });
 }
 
+/**
+ * @todo Move to application config,
+ * I assume that it's a env vars or at least common config for app
+ */
 const MAX_OPTION_COUNT = 10;
 
 async function discoverDataSourceMetadataByInlineDataset(inlineDataset: InlineDataset) {
@@ -54,8 +58,6 @@ async function discoverDataSourceMetadataByInlineDataset(inlineDataset: InlineDa
       const value = firstObject[name];
 
       if (_.isString(value)) {
-        // TODO: check with datejs that it's a date
-
         if (dayjs(value).isValid()) {
           field.levelOfMeasurement = LevelOfMeasurements.TEMPORAL;
           field.valueType = ValueTypes.STRING;
@@ -87,7 +89,9 @@ export async function fetchDataSourceMetadata(dataSource: DataSource) {
   };
 
   if (isInlineData(dataSource)) {
-    // Starts with naive implementation
+    /**
+     * @todo Throw an error if inline data is bigger then 30Mb
+     */
     const inlineDataset = dataSource.values;
 
     if (!_.isEmpty(inlineDataset)) {

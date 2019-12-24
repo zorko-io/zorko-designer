@@ -1,5 +1,10 @@
 export const firebaseConfig = {
-  // TODO: move keys to env vars
+  /**
+   * @todo move keys to env vars
+   *
+   * I assume that keys provided by deployment env, we no need keys
+   * for dev environment committed in VCS
+   */
   apiKey: "AIzaSyC3Qe5w0yirGOtlMstveFjdVbxB-vbR-tY",
   authDomain: "zorko-52d02.firebaseapp.com",
   databaseURL: "https://zorko-52d02.firebaseio.com",

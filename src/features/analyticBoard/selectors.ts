@@ -15,13 +15,25 @@ export const selectAnalyticBoardMainSpecId = createSelector(
   analyticBoard => analyticBoard.mainSpecId
 );
 
-// TODO: cover with test
+/**
+ * @todo Cover with unit tests AnalyticBoard selector
+ *
+ * Prepare a mock data of app state, I assume it would be a top level fixture
+ * which may combine all other state's fixtures, put it in `src/__mocks__`
+ *
+ * And test may include case with empty app state and then with one spec
+ * chosen (use simple one)
+ *
+ */
 export const selectAnalyticBoardMainSpec = createSelector(
   [selectAnalyticBoardMainSpecId, selectSpecs, selectEncodings, selectChannels],
   (id, specsState, encodingsState, channelsState) => {
     const specState = SpecsPresenter.create(specsState).get(id);
     const encodingState = EncodingsPresenter.create(encodingsState).get(id);
-    // TODO: store list of channels in board state
+    /**
+     * @todo Store list of channels in board state
+     *
+     */
     const channelIds = EncodingPresenter.create(encodingState).getChannels();
     const channelsPresenter = ChannelsPresenter.create(channelsState);
 
