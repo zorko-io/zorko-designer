@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import 'firebase/analytics';
 import EventName = firebase.analytics.EventName;
 
 type FirebaseAnalyticType = firebase.analytics.Analytics;
@@ -7,6 +8,11 @@ interface EditContentEvent {
   type: string;
   id: string;
   changeType: string;
+}
+
+interface SelectContentParams {
+  id: string;
+  contentType: string;
 }
 
 interface ViewSpecsCategory {
@@ -40,6 +46,13 @@ export class ZorkoDesignerAnalyticFacade {
       ['content_type']: content.type,
       ['change_type']: content.changeType,
       ['content_id']: content.id
+    });
+  }
+
+  selectContent(params: SelectContentParams) {
+    this.logEvent(ZorkoDesigerEventNames.SELECT_CONTENT, {
+      ['content_type']: params.contentType,
+      ['content_id']: params.id
     });
   }
 }
