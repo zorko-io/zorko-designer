@@ -30,7 +30,7 @@
     "react-router-dom": "^5.1.2",
     "react-select": "^3.0.8",
     "react-vega": "latest",
-    "redux": "^4.0.4",
+    "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "tailwindcss": "^1.1.4",
     "vega": "^5.8.1",
