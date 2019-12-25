@@ -1,9 +1,11 @@
 import {Action, configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {createLogger} from 'redux-logger';
 import logger from 'logrock';
-
 import rootReducer from './rootReducer';
 import {firebaseAnalyticMiddleware} from '../analytic/firebaseAnalyticMiddleware';
+import firebase from 'firebase';
+import {firebaseConfig} from '../../firebase.config';
+import {ZorkoDesignerAnalyticFacade} from '../analytic/ZorkoDesignerAnalyticFacade';
 
 const customLoggerMiddleware = () => next => action => {
   const beforeAction = Date.now();
@@ -30,7 +32,11 @@ const middleware = [
 ];
 
 if (process.env.NODE_ENV === 'production') {
-  middleware.push(firebaseAnalyticMiddleware);
+  const app = firebase.initializeApp(firebaseConfig);
+  const analytics = app.analytics();
+  const analyticFacade = new ZorkoDesignerAnalyticFacade(analytics);
+
+  middleware.push(firebaseAnalyticMiddleware(analyticFacade));
 }
 
 const store = configureStore({
@@ -44,7 +50,5 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
     store.replaceReducer(newRootReducer);
   });
 }
-
-export type AppDispatch = typeof store.dispatch;
 
 export default store;

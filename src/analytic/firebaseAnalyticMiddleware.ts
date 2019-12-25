@@ -2,10 +2,12 @@ import {
   chooseSpecFlowOpenSpecs,
   chooseSpecFlowReadRequest
 } from '../features/chooseSpecFlow/actions';
-import {zorkoDesignerAnalytic} from './index';
 import {specMarkEdit} from '../features/specs';
+import {ZorkoDesignerAnalyticFacade} from './ZorkoDesignerAnalyticFacade';
 
-export const firebaseAnalyticMiddleware = () => next => action => {
+export const firebaseAnalyticMiddleware = (
+  zorkoDesignerAnalytic: ZorkoDesignerAnalyticFacade
+) => () => next => action => {
   next(action);
 
   switch (action.type) {
