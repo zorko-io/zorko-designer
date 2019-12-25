@@ -2,7 +2,7 @@ import {Action, configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {createLogger} from 'redux-logger';
 import logger from 'logrock';
 import rootReducer from './rootReducer';
-import {firebaseAnalyticMiddleware} from '../analytic/firebaseAnalyticMiddleware';
+import {zorkoDesignerAnalyticMiddleware} from '../features/analytic/zorkoDesignerAnalyticMiddleware';
 import firebase from 'firebase';
 import {firebaseConfig} from '../../firebase.config';
 import {ZorkoDesignerAnalyticFacade} from '../analytic/ZorkoDesignerAnalyticFacade';
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV === 'production') {
   const analytics = app.analytics();
   const analyticFacade = new ZorkoDesignerAnalyticFacade(analytics);
 
-  middleware.push(firebaseAnalyticMiddleware(analyticFacade));
+  middleware.push(zorkoDesignerAnalyticMiddleware(analyticFacade));
 }
 
 const store = configureStore({

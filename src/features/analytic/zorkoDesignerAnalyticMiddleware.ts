@@ -1,16 +1,8 @@
-import {
-  chooseSpecFlowOpenSpecs,
-  chooseSpecFlowReadRequest
-} from '../features/chooseSpecFlow/actions';
-import {specMarkEdit} from '../features/specs';
-import {ZorkoDesignerAnalyticFacade} from './ZorkoDesignerAnalyticFacade';
+import {chooseSpecFlowOpenSpecs, chooseSpecFlowReadRequest} from '../chooseSpecFlow';
+import {specMarkEdit} from '../specs';
+import {ZorkoDesignerAnalyticFacade} from '../../analytic/ZorkoDesignerAnalyticFacade';
 
-/**
- * @todo #41:30m/DEV Cover firebaseAnalyticMiddleware with unit tests
- *  create testfile, provide by one testcase pare event
- */
-
-export const firebaseAnalyticMiddleware = (
+export const zorkoDesignerAnalyticMiddleware = (
   zorkoDesignerAnalytic: ZorkoDesignerAnalyticFacade
 ) => () => next => action => {
   next(action);
