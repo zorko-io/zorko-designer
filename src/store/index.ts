@@ -7,6 +7,13 @@ import firebase from 'firebase';
 import {firebaseConfig} from '../../firebase.config';
 import {ZorkoDesignerAnalyticFacade} from '../analytic/ZorkoDesignerAnalyticFacade';
 
+/**
+ * @todo #41:15m/DEV Move middleware to index.ts
+ *  extract logger middlewares to separate files as logrock
+ *  and redux to understand the difference
+ *
+ */
+
 const customLoggerMiddleware = () => next => action => {
   const beforeAction = Date.now();
 

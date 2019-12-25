@@ -5,6 +5,11 @@ import {
 import {specMarkEdit} from '../features/specs';
 import {ZorkoDesignerAnalyticFacade} from './ZorkoDesignerAnalyticFacade';
 
+/**
+ * @todo #41:30m/DEV Cover firebaseAnalyticMiddleware with unit tests
+ *  create testfile, provide by one testcase pare event
+ */
+
 export const firebaseAnalyticMiddleware = (
   zorkoDesignerAnalytic: ZorkoDesignerAnalyticFacade
 ) => () => next => action => {
