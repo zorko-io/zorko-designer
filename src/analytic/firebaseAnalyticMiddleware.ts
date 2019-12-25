@@ -2,7 +2,7 @@ import {
   chooseSpecFlowOpenSpecs,
   chooseSpecFlowReadRequest
 } from '../features/chooseSpecFlow/actions';
-import {zorkoDesignerAnalytic} from './zorkoDesignerAnalyticFacade';
+import {zorkoDesignerAnalytic} from './index';
 import {specMarkEdit} from '../features/specs';
 
 export const firebaseAnalyticMiddleware = () => next => action => {
@@ -24,13 +24,8 @@ export const firebaseAnalyticMiddleware = () => next => action => {
     }
 
     case chooseSpecFlowOpenSpecs.type: {
-      /**
-       * @todo #30:30m/DEV Extract to method 'viewSpecsCategory'
-       *  Make as method of firebase analytic class
-       *  like 'firebaseAnalytic.viewList({ category})'
-       */
-      zorkoDesignerAnalytic.logEvent('view_item_list', {
-        ['item_category']: 'examples'
+      zorkoDesignerAnalytic.viewSpecsCategory({
+        category: 'examples'
       });
 
       break;
