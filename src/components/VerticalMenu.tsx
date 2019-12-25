@@ -21,6 +21,10 @@ export const VerticalMenu = (props: Props) => {
   return (
     <div className="flex flex-col">
       {React.Children.map(props.children, child => {
+        /**
+         *  @todo #42:30m/DEV Provide proper typings for VerticalMenu component
+         *   Remove Ts-Ignore for VerticalMenu component
+         */
         // @ts-ignore
         const isActive = child.props.type === props.activeMenu;
         // @ts-ignore

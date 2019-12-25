@@ -22,6 +22,10 @@ export class BaseNormalizedState<I> {
       let id;
 
       if (!idPath) {
+        /**
+         *  @todo #42:15m/DEV Provide strict typing for path gen function
+         *   Remove Ts-Ignore for VerticalMenu component
+         */
         // @ts-ignore
         id = item.id;
       } else {
@@ -104,6 +108,11 @@ export class BaseNormalizedState<I> {
 
   protected setItem(item: I, id: string) {
     let nextItem = item;
+    /**
+     *  @todo #42:30m/DEV Define Item so that it might be a presenter
+     *   assuming that we can extend this one or
+     *   prep yet one class so it would accept only presenters as items
+     */
     // @ts-ignore
     if (item.toState) {
       // @ts-ignore
