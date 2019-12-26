@@ -1,23 +1,30 @@
 import {Action} from '@reduxjs/toolkit';
-import produce from 'immer';
+import {ReducerMap} from './ReducerMap';
+import {StatePresenter} from '../../core/StatePresenter';
+import {ReducerFunc} from './ReducerFunc';
 
-export function createReducerWithPresenter<T>(create, map) {
-  const reducerWithPresenter = function(state: T, action: Action, options?): T {
-    const reducer = map[action.type];
+export interface StatePresenterCreateFunc<S, P extends StatePresenter<S>> {
+  (state?: S): P;
+}
 
+export function createReducerWithPresenter<S, P extends StatePresenter<S>>(
+  create: StatePresenterCreateFunc<S, P>,
+  map: ReducerMap<P>
+): ReducerFunc<S> {
+  return function(state: S, action: Action, options?): S {
     if (!state) {
       return create().toState();
     }
 
+    const reducer = map[action.type];
+
     if (!reducer) {
       return state;
     }
-    /**
-     * @todo #30:30m/DEV Extend reducer with presenter with proper typescript typing
-     *  It should accept generic presenter type and state thought generics,
-     *  remove explicit type cast
-     */
-    return reducer(create(state), action, options).toState() as T;
+
+    let presenter = create(state);
+    presenter = reducer(presenter, action, options);
+
+    return presenter.toState();
   };
-  return produce(reducerWithPresenter);
 }

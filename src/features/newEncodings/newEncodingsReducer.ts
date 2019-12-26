@@ -1,11 +1,11 @@
 import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
-import {chooseSpecFlowReadSuccess, ChooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {chooseSpecFlowReadSuccess, ChooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {EncodingPresenter, EncodingsPresenter, EncodingsState} from './presenters';
 import {createChannelId} from '../../common/utils';
+import produce from 'immer';
 
-export const newEncodingsReducer = createReducerWithPresenter<EncodingsState>(
-  EncodingsPresenter.create,
-  {
+export const newEncodingsReducer = produce(
+  createReducerWithPresenter<EncodingsState, EncodingsPresenter>(EncodingsPresenter.create, {
     [chooseSpecFlowReadSuccess.type]: (
       presenter: EncodingsPresenter,
       action: ChooseSpecFlowReadSuccess
@@ -24,5 +24,5 @@ export const newEncodingsReducer = createReducerWithPresenter<EncodingsState>(
 
       return presenter.set(id, encoding);
     }
-  }
+  })
 );

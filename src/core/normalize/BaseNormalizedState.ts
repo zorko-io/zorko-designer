@@ -1,6 +1,7 @@
 import {NormalizedState} from './NormalizedState';
+import {StatePresenter} from '../StatePresenter';
 
-export class BaseNormalizedState<I> {
+export class BaseNormalizedState<I> implements StatePresenter<NormalizedState<I>> {
   private readonly state: NormalizedState<I>;
 
   constructor(state?: NormalizedState<I>) {
