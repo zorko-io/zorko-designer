@@ -36,7 +36,7 @@ export interface RootState {
   newEncoding: EncodingsState;
 }
 
-const initialState: RootState = {
+export const initialRootState: RootState = {
   version: '',
   specs: SpecsPresenter.create().toState(),
   analyticBoard: initialAnalyticBoardState,
@@ -47,7 +47,7 @@ const initialState: RootState = {
   newEncoding: EncodingsPresenter.create().toState()
 };
 
-export const rootReducer = (state: RootState = initialState, action: Action) => {
+export const rootReducer = (state: RootState = initialRootState, action: Action) => {
   state.version = '1.0.0';
 
   state.newEncoding = newEncodingsReducer(state.newEncoding, action);
