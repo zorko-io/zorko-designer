@@ -1,6 +1,6 @@
 import {specDescriptionEdit, specMarkEdit, specsReducer, SpecsState} from './index';
 import {createAction} from '@reduxjs/toolkit';
-import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {VegaLiteTopLevelUnitSpec} from '../../common/types';
 import * as specsReducerFixtures from './__mocks__/specsStateFixtures';
 import {SpecsPresenter} from './presenters';
