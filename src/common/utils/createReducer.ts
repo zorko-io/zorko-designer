@@ -1,7 +1,9 @@
 import {Action} from '@reduxjs/toolkit';
+import {ReducerFunc} from './ReducerFunc';
+import {ReducerMap} from './ReducerMap';
 
-export function createReducer<T>(initState, map) {
-  return function(state: T, action: Action, options?): T {
+export function createReducer<S>(initState: S, map: ReducerMap<S>): ReducerFunc<S> {
+  return function(state: S, action: Action, options?: object): S {
     const reducer = map[action.type];
 
     if (!state) {
@@ -12,11 +14,6 @@ export function createReducer<T>(initState, map) {
       return state;
     }
 
-    /**
-     * @todo #30:30m/DEV Extend reducer with proper typescript typing
-     *  It should accept generic presenter type and state thought generics,
-     *  remove explicit type cast
-     */
-    return reducer(state, action, options) as T;
+    return reducer(state, action, options);
   };
 }
