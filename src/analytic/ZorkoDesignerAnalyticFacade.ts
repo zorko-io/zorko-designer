@@ -8,6 +8,7 @@ interface EditContentEvent {
   type: string;
   id: string;
   changeType: string;
+  value?: string;
 }
 
 interface SelectContentParams {
@@ -45,6 +46,7 @@ export class ZorkoDesignerAnalyticFacade {
     this.logEvent(ZorkoDesigerEventNames.EDIT_CONTENT, {
       ['content_type']: content.type,
       ['change_type']: content.changeType,
+      ['change_value']: content.value,
       ['content_id']: content.id
     });
   }

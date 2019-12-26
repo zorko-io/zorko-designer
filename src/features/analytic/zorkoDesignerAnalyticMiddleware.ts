@@ -29,6 +29,7 @@ export const zorkoDesignerAnalyticMiddleware = (
       zorkoDesignerAnalytic.editContent({
         type: 'vega-lite',
         changeType: 'mark',
+        value: action.payload.mark,
         id: action.payload.id
       });
 

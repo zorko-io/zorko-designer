@@ -47,7 +47,8 @@ describe('zorkoDesignerAnalyticMiddleware', () => {
 
     expect(analyticFacade.editContent).toHaveBeenCalledWith({
       type: 'vega-lite',
-      changeType: mark,
+      changeType: 'mark',
+      value: mark,
       id
     });
   });
