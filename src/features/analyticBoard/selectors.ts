@@ -24,6 +24,7 @@ export const selectAnalyticBoardMainSpec = createSelector(
      * @todo #30:30m/DEV Store list of channels in board state
      *  Extend appropriate reducer/presenter, unit tests off course
      */
+
     const channelIds = EncodingPresenter.create(encodingState).getChannels();
     const channelsPresenter = ChannelsPresenter.create(channelsState);
 
