@@ -15,5 +15,5 @@
     "typeRoots": ["node_modules/@types"]
   },
   "files": ["src/index.tsx"],
-  "include": ["src/**/*Test.ts"]
+  "include": ["src/**/*Test.ts", "src/**/*Tests.ts"]
 }

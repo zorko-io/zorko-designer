@@ -7,7 +7,7 @@ module.exports = {
   ],
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.ts?(x)',
-    '<rootDir>/src/**/?(*)(Test).ts?(x)'
+    '<rootDir>/src/**/?(*)(Test|Tests).ts?(x)'
   ],
   collectCoverageFrom: ['src/**/*.ts'],
   moduleNameMapper: {

@@ -1,11 +1,8 @@
 import produce from 'immer';
-import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {createReducer} from '../../common/utils/createReducer';
-
-export interface AnalyticBoardState {
-  mainSpecId: string;
-  encodingChannels: string[];
-}
+import {AnalyticBoardState} from './presenters/AnalyticBoardState';
+import {AnalyticBoardPresenter} from './presenters';
 
 export const initialAnalyticBoardState: AnalyticBoardState = {mainSpecId: '', encodingChannels: []};
 
@@ -15,13 +12,13 @@ const reducers = createReducer<AnalyticBoardState>(initialAnalyticBoardState, {
     action: ChooseSpecFlowReadSuccess
   ) => {
     const {id, spec} = action.payload;
-    state.mainSpecId = id;
+    const presenter = AnalyticBoardPresenter.create(state).setMainSpec(id);
 
     if (spec.encoding) {
-      state.encodingChannels = Object.keys(spec.encoding);
+      presenter.setChannels(Object.keys(spec.encoding));
     }
 
-    return state;
+    return presenter.toState();
   }
 });
 

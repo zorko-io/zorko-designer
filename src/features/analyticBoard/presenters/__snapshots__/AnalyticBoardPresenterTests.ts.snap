@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalyticBoardPresenter creates with default state 1`] = `
+Object {
+  "encodingChannels": Array [],
+  "mainSpecId": "",
+}
+`;
+
+exports[`AnalyticBoardPresenter sets main spec id 1`] = `
+Object {
+  "encodingChannels": Array [],
+  "mainSpecId": "123",
+}
+`;
+
+exports[`AnalyticBoardPresenter sets selected channels 1`] = `
+Object {
+  "encodingChannels": Array [
+    "x",
+    "y",
+    "z",
+  ],
+  "mainSpecId": "",
+}
+`;
