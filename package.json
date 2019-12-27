@@ -6,7 +6,7 @@
   "dependencies": {
     "@reach/dialog": "^0.7.0",
     "@reach/menu-button": "^0.7.0",
-    "@reduxjs/toolkit": "^1.1.0",
+    "@reduxjs/toolkit": "^1.2.1",
     "@types/classnames": "^2.2.9",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.1.0",
