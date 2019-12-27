@@ -1,7 +1,5 @@
-import analyticBoardReducer from './reducers';
-
-export * from './reducers';
+import {analyticBoardReducer} from './analyticBoardReducer';
+export * from './presenters';
 export * from './selectors';
 
 export {analyticBoardReducer};
-export {AnalyticBoardState} from './presenters/AnalyticBoardState';

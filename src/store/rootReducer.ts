@@ -10,10 +10,11 @@ import {
   VegaLiteSchemaState
 } from '../features/vegaLiteSchema';
 import {
+  AnalyticBoardPresenter,
   analyticBoardReducer,
-  AnalyticBoardState,
-  initialAnalyticBoardState
+  AnalyticBoardState
 } from '../features/analyticBoard';
+
 import {Action} from '@reduxjs/toolkit';
 import {
   dataSourceMetadataReducer,
@@ -39,7 +40,7 @@ export interface RootState {
 export const initialRootState: RootState = {
   version: '',
   specs: SpecsPresenter.create().toState(),
-  analyticBoard: initialAnalyticBoardState,
+  analyticBoard: AnalyticBoardPresenter.create().toState(),
   repositories: initialRepositoriesState,
   vegaLiteSchema: initialVegaLiteSchemaState,
   dataSourceMetadata: initialDataSourceMetadataState,

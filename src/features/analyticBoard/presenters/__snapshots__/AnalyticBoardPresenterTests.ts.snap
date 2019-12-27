@@ -17,9 +17,9 @@ Object {
 exports[`AnalyticBoardPresenter sets selected channels 1`] = `
 Object {
   "encodingChannels": Array [
-    "x",
-    "y",
-    "z",
+    "bar/x",
+    "bar/y",
+    "bar/z",
   ],
   "mainSpecId": "",
 }

@@ -20,10 +20,14 @@ describe('AnalyticBoardPresenter', () => {
   });
 
   it('sets selected channels', () => {
-    expect(presenter.setChannels(['x', 'y', 'z']).toState()).toMatchSnapshot();
+    expect(presenter.setChannels(['bar/x', 'bar/y', 'bar/z']).toState()).toMatchSnapshot();
   });
 
   it('gets selected channels', () => {
-    expect(presenter.setChannels(['x', 'y', 'z']).getChannels()).toEqual(['x', 'y', 'z']);
+    expect(presenter.setChannels(['bar/x', 'bar/y', 'bar/z']).getChannels()).toEqual([
+      'bar/x',
+      'bar/y',
+      'bar/z'
+    ]);
   });
 });
