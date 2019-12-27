@@ -3,6 +3,7 @@ import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpe
 import {AnalyticBoardState} from './presenters';
 import {AnalyticBoardPresenter} from './presenters';
 import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
+import {createChannelId} from '../../common/utils';
 
 export const analyticBoardReducer = produce(
   createReducerWithPresenter<AnalyticBoardState, AnalyticBoardPresenter>(
@@ -17,7 +18,8 @@ export const analyticBoardReducer = produce(
         presenter.setMainSpec(id);
 
         if (spec.encoding) {
-          presenter.setChannels(Object.keys(spec.encoding));
+          const channelIds = Object.keys(spec.encoding).map(name => createChannelId(id, name));
+          presenter.setChannels(channelIds);
         }
 
         return presenter;

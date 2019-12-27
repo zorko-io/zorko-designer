@@ -4,12 +4,12 @@ import {
   selectAnalyticBoardMainSpec,
   selectAnalyticBoardMainSpecId
 } from './selectors';
-import {ChannelsPresenter, PositionChannelPresenter} from '../channels/presenters';
-import {createChannelId} from '../../common/utils';
+import {PositionChannelPresenter} from '../channels/presenters';
 import {rootReducer} from '../../store/rootReducer';
 import {createAction} from '@reduxjs/toolkit';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
+import {LevelOfMeasurements} from '../../common/DataSourceFieldDefinition';
 
 /**
  * @todo #32:30m/DEV Move to its own features, prep presenter
@@ -21,10 +21,11 @@ const getAnalyticBoardDefaultState = (specId, chanelNames = []) => {
 };
 
 describe('Select Analytic Board', () => {
-  let rootState, specId;
+  let rootState, specId, spec, action;
 
   beforeEach(() => {
     specId = '1234';
+    spec = vegaLiteSpecsFixture.getSimpleSpec();
     rootState = getAnalyticBoardDefaultState(specId);
     rootState = rootReducer(undefined, createAction('any'));
   });
@@ -38,29 +39,25 @@ describe('Select Analytic Board', () => {
   });
 
   it('select analytic boards channels', () => {
-    /**
-     * @todo #32:30m/DEV Rewrite with rootReducer move to mocks for channel
-     *  it makes sence to move it to features/channels/__mocks__
-     *
-     */
+    action = chooseSpecFlowReadSuccess(specId, spec);
+    rootState = rootReducer(rootState, action);
 
-    const firstChannel = PositionChannelPresenter.create().setName('x');
-    const secondChannel = PositionChannelPresenter.create().setName('y');
-    const items = [firstChannel.toState(), secondChannel.toState()];
-    rootState = {
-      analyticBoard: getAnalyticBoardDefaultState(specId, ['x', 'y']),
-      channels: ChannelsPresenter.create()
-        .set(createChannelId(specId, firstChannel.getName()), firstChannel)
-        .set(createChannelId(specId, secondChannel.getName()), secondChannel)
+    expect(selectAnalyticBoardEncodingChannels(rootState)).toEqual([
+      PositionChannelPresenter.create()
+        .setName('x')
+        .setField('a')
+        .setType(LevelOfMeasurements.QUANTITATIVE)
+        .toState(),
+      PositionChannelPresenter.create()
+        .setName('y')
+        .setField('b')
+        .setType(LevelOfMeasurements.ORDINAL)
         .toState()
-    };
-
-    expect(selectAnalyticBoardEncodingChannels(rootState)).toEqual(items);
+    ]);
   });
 
   it('selects spec from analytic board', () => {
-    const spec = vegaLiteSpecsFixture.getSimpleSpec();
-    const action = chooseSpecFlowReadSuccess(specId, spec);
+    action = chooseSpecFlowReadSuccess(specId, spec);
 
     rootState = rootReducer(rootState, action);
 

@@ -2,7 +2,7 @@ import {createAction} from '@reduxjs/toolkit';
 import {ChannelsPresenter, ChannelsState, PositionChannelPresenter} from './presenters';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {channelsReducer} from './channelsReducer';
-import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import * as channelsStateFixtures from './__mocks___/channelsStateFixtures';
 import {createChannelId} from '../../common/utils';
 import {encodingChannelFieldEdit} from '../analyticBoard/actions';
