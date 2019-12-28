@@ -3,6 +3,7 @@ _site
 .DS_Store
 .idea
 .prettierignore
+.env
 beemo-error.log
 coverage
 build
