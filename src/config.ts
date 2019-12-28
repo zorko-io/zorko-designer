@@ -1,4 +1,4 @@
-const zorkoDesignerConfig = {
+const config = {
   dataSourceMetadata: {
     fields: {
       /**
@@ -9,4 +9,4 @@ const zorkoDesignerConfig = {
   }
 };
 
-export default zorkoDesignerConfig;
+export default config;

@@ -14,7 +14,7 @@ import {
 import _ from 'lodash';
 import dayjs from 'dayjs';
 import dl from 'datalib';
-import config from '../zorkoDesignerConfig';
+import config from '../config';
 
 /**
  * @todo #37:30m/DEV Move configuration to composition root
