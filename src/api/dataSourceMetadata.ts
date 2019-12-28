@@ -15,6 +15,7 @@ import _ from 'lodash';
 import dayjs from 'dayjs';
 import dl from 'datalib';
 import config from '../config';
+import sizeof from 'object-sizeof';
 
 /**
  * @todo #37:30m/DEV Move configuration to composition root
@@ -22,6 +23,7 @@ import config from '../config';
  */
 
 const MAX_OPTION_COUNT = config.dataSourceMetadata.fields.maxOptionsCount;
+const MAX_SIZE_OF_INLINE_DATA_SOURCE = config.dataSourceMetadata.inlineDataSource.maxSizeInBytes;
 
 /**
  * Data Source Metadata Discovery
@@ -91,10 +93,10 @@ export async function fetchDataSourceMetadata(dataSource: DataSource) {
   };
 
   if (isInlineData(dataSource)) {
-    /**
-     * @todo #30:30m/DEV Throw an error if inline data upper then limit
-     *  Let's setup limit in 30Mb
-     */
+    if (sizeof(dataSource) > MAX_SIZE_OF_INLINE_DATA_SOURCE) {
+      throw Error(`Inline data set bigger than ${MAX_SIZE_OF_INLINE_DATA_SOURCE} bytes`);
+    }
+
     const inlineDataset = dataSource.values;
 
     if (!_.isEmpty(inlineDataset)) {
