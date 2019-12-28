@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
   const config = {
@@ -59,6 +60,10 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'public/index.html'
+      }),
+      new Dotenv({
+        safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+        systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
       })
     ],
 
