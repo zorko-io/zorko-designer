@@ -21,11 +21,6 @@ export const selectAnalyticBoardMainSpec = createSelector(
 
     const id = presenter.getMainSpec();
     const specState = SpecsPresenter.create(specsState).get(id);
-    /**
-     * @todo #30:30m/DEV Store list of channels in board state
-     *  Extend appropriate reducer/presenter, unit tests off course
-     */
-
     const channelIds = presenter.getChannels();
     const channelsPresenter = ChannelsPresenter.create(channelsState);
 
