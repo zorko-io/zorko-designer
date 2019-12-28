@@ -14,6 +14,14 @@ import {
 import _ from 'lodash';
 import dayjs from 'dayjs';
 import dl from 'datalib';
+import config from '../zorkoDesignerConfig';
+
+/**
+ * @todo #37:30m/DEV Move configuration to composition root
+ *  it's not good that configuration happens here, it violates open/close principle
+ */
+
+const MAX_OPTION_COUNT = config.dataSourceMetadata.fields.maxOptionsCount;
 
 /**
  * Data Source Metadata Discovery
@@ -36,12 +44,6 @@ async function fetchDataByUrl(dataSource: UrlData) {
     });
   });
 }
-
-/**
- * @todo #30:30m/DEV Move to application config
- *  I assume that it's a env vars or at least common config for app
- */
-const MAX_OPTION_COUNT = 10;
 
 async function discoverDataSourceMetadataByInlineDataset(inlineDataset: InlineDataset) {
   const values = inlineDataset;
