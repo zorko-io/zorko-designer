@@ -43,10 +43,11 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",
+    "postinstall": "yarn vendor",
     "start:production": "webpack-dev-server --mode production",
     "start:static": "http-server build",
     "generate-example-images": "scripts/generate-example-images.sh",
-    "build": "yarn vendor && webpack --mode production --progress",
+    "build": "webpack --mode production --progress",
     "postbuild": "rsync -r --ignore-existing public/* build",
     "clean": "rimraf -rf build",
     "vendor": "scripts/vendor.sh",
