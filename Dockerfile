@@ -16,18 +16,19 @@ WORKDIR /usr/src/app
 
 # Copies the package.json and yarn.lock files first to ensure the cache is only invalidated when these files change
 # https://nodejs.org/en/docs/guides/nodejs-docker-webapp/#creating-a-dockerfile
-COPY package.json yarn.lock ./
+COPY ../package.json ../yarn.lock ./
 
 # For this project, additional files must also be copied as yarn hooks depend on them
-COPY scripts ./scripts
+COPY ../scripts ./scripts
 
 # Remove 'r' characters from the vendor script (otherwise it won't execute)
-RUN sed $'s/\r$//' ./scripts/vendor.sh > ./scripts/vendor.sh
+RUN sed $'s/\r$//' ./../scripts/vendor.sh > ./../scripts/vendor.sh
 
 # Copy remaining files
 COPY . .
 
 ## Run Yarn
+RUN cd ..
 RUN yarn
 #
 ## Sets the container executable (ENTRYPOINT) as yarn and the default argument (CMD) as start

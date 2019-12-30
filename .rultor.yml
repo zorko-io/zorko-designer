@@ -3,8 +3,6 @@ architect:
 docker:
   image: node:12
 install:
-  - sudo apt-get update && apt-get upgrade -y
-  - sudo apt-get -y install rsync
   - sed $'s/\r$//' ./scripts/vendor.sh > ./scripts/vendor.sh
   - yarn
 merge:
