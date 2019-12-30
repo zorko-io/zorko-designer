@@ -1,7 +1,7 @@
 architect:
   - nesterone
 docker:
-  image: ./Dockerfile
+  directory: ./Dockerfile
 merge:
   script:
     - yarn test:coverage
