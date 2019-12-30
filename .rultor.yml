@@ -1,0 +1,9 @@
+architect:
+  - nesterone
+docker:
+  image: ./Dockerfile
+merge:
+  script:
+    - yarn test:coverage
+    - yarn build
+
