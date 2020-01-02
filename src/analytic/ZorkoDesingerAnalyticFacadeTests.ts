@@ -35,10 +35,4 @@ describe('ZorkoAnalytic', () => {
       ['content_id']: id
     });
   });
-
-  /**
-   * @todo #40:15m/DEV Add unit test for 'editContent'
-   *  provide with unit test
-   *
-   */
 });
