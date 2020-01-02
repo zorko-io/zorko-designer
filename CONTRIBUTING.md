@@ -71,6 +71,10 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Code of Conduct
 
+/**
+ * @todo #72:15m/DEV Doc - Move to separate file
+ */
+
 ### Our Pledge
 
 In the interest of fostering an open and welcoming environment, we as
