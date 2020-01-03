@@ -94,11 +94,10 @@ Example:
 
 ### Unit Tests
 
-/**
- * @todo #72:15m/DEV Doc - Explain reasons for strict unit coverage
- *  define suggestions on how/when to write unit tests
- *
- */
+Project has a requirement for high level of code coverage with unit test for next entitles: `Presenters`, `Reducers` and
+`Selectors`. Test runner has a configuration for coverage threshold, it's a quite big, around ~90% for `Presenters`,`Reducers` and `Selectors`
+
+> Unit tests for UI elements like `components` and/or `containers` are not welcome
 
 
 ## How can I contribute ?
