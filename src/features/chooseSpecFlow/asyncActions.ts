@@ -1,6 +1,10 @@
-import * as Api from '../../api';
+import * as Api from '../../packages/designerApi';
 import logger from 'logrock';
-import {chooseSpecFlowReadFailure, chooseSpecFlowReadRequest, chooseSpecFlowReadSuccess} from './actions';
+import {
+  chooseSpecFlowReadFailure,
+  chooseSpecFlowReadRequest,
+  chooseSpecFlowReadSuccess
+} from './actions';
 import {dataSourceMetadataReadSuccess} from '../dataSourceMetadata';
 
 export function chooseSpecFlow(id) {

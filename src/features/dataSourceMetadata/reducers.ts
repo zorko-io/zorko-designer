@@ -1,7 +1,7 @@
 import produce from 'immer';
 import {createReducer} from '../../common/utils/createReducer';
 import {DataSourceMetadataReadSuccess, dataSourceMetadataReadSuccess} from './actions';
-import {DataSourceFieldDefinition} from '../../common/DataSourceFieldDefinition';
+import {DataSourceFieldDefinition} from '../../packages/coreTypes/DataSourceFieldDefinition';
 
 export type DataSourceMetadataState = {
   fields: DataSourceFieldDefinition[];

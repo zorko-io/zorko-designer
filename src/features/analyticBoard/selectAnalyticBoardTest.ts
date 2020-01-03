@@ -9,7 +9,7 @@ import {rootReducer} from '../../store/rootReducer';
 import {createAction} from '@reduxjs/toolkit';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
-import {LevelOfMeasurements} from '../../common/DataSourceFieldDefinition';
+import {LevelOfMeasurements} from '../../packages/coreTypes/DataSourceFieldDefinition';
 
 /**
  * @todo #32:30m/DEV Move to its own features, prep presenter

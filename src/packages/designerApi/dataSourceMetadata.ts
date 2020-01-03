@@ -10,11 +10,11 @@ import {
   DataSourceMetadata,
   LevelOfMeasurements,
   ValueTypes
-} from '../common/DataSourceFieldDefinition';
+} from '../coreTypes/DataSourceFieldDefinition';
 import _ from 'lodash';
 import dayjs from 'dayjs';
 import dl from 'datalib';
-import config from '../config';
+import config from '../../config';
 import sizeof from 'object-sizeof';
 
 /**

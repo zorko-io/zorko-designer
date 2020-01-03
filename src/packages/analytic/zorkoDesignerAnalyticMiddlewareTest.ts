@@ -1,6 +1,6 @@
 import {zorkoDesignerAnalyticMiddleware} from './zorkoDesignerAnalyticMiddleware';
-import {chooseSpecFlowOpenSpecs, chooseSpecFlowReadRequest} from '../chooseSpecFlow';
-import {specMarkEdit} from '../specs';
+import {chooseSpecFlowOpenSpecs, chooseSpecFlowReadRequest} from '../../features/chooseSpecFlow';
+import {specMarkEdit} from '../../features/specs';
 
 describe('zorkoDesignerAnalyticMiddleware', () => {
   let analyticFacade, middleware, action, id;

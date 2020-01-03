@@ -1,4 +1,4 @@
-import {VegaLiteTopLevelUnitSpec} from '../../common/types';
+import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
 
 export const getSimpleSpec = (): VegaLiteTopLevelUnitSpec => {
   return {
