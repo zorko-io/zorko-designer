@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import {DataSourceMetadata} from '../../common/DataSourceFieldDefinition';
+import {DataSourceMetadata} from '../../packages/coreTypes/DataSourceFieldDefinition';
 import {DataSource} from 'vega-lite/build/src/data';
 
 export const dataSourceMetadataReadRequest = createAction(

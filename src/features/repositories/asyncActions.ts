@@ -1,4 +1,4 @@
-import * as Api from '../../api';
+import * as Api from '../../packages/designerApi';
 import {repositoriesReadFailure, repositoriesReadRequest, repositoriesReadSuccess} from './actions';
 
 export const repositoriesLoadInitial = () => {

@@ -2,7 +2,7 @@ import {newEncodingsReducer} from './newEncodingsReducer';
 import {createAction} from '@reduxjs/toolkit';
 import {EncodingPresenter, EncodingsPresenter, EncodingsState} from './presenters';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
-import {VegaLiteTopLevelUnitSpec} from '../../common/types';
+import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
 import {createChannelId} from '../../common/utils';
 

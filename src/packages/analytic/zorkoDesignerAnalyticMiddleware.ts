@@ -1,6 +1,6 @@
-import {chooseSpecFlowOpenSpecs, chooseSpecFlowReadRequest} from '../chooseSpecFlow';
-import {specMarkEdit} from '../specs';
-import {ZorkoDesignerAnalyticFacade} from '../../analytic/ZorkoDesignerAnalyticFacade';
+import {chooseSpecFlowOpenSpecs, chooseSpecFlowReadRequest} from '../../features/chooseSpecFlow';
+import {specMarkEdit} from '../../features/specs';
+import {ZorkoDesignerAnalyticFacade} from './ZorkoDesignerAnalyticFacade';
 
 export const zorkoDesignerAnalyticMiddleware = (
   zorkoDesignerAnalytic: ZorkoDesignerAnalyticFacade

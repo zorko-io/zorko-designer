@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const examplesCollection = require('../../public/spec/vega-lite/index.json');
+const examplesCollection = require('../../../public/spec/vega-lite/index.json');
 
 export async function fetchExamplesRepositories() {
   function toResources(items) {

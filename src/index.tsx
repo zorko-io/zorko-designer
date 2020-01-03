@@ -10,12 +10,10 @@ import {chooseSpecFlow} from './features/chooseSpecFlow/asyncActions';
 import {AppShell} from './app/AppShell';
 import {HashRouter} from 'react-router-dom';
 import {createStore} from './store/createStore';
-import {reduxLoggerMiddleware} from './logger/reduxLoggerMiddleware';
-import {logrockMiddleware} from './logger/logrockMiddleware';
+import {reduxLoggerMiddleware, logrockMiddleware} from './packages/customReduxLoggerMiddlewares';
 import firebase from 'firebase';
 import {firebaseConfig} from '../firebase.config';
-import {ZorkoDesignerAnalyticFacade} from './analytic/ZorkoDesignerAnalyticFacade';
-import {zorkoDesignerAnalyticMiddleware} from './features/analytic/zorkoDesignerAnalyticMiddleware';
+import {ZorkoDesignerAnalyticFacade, zorkoDesignerAnalyticMiddleware} from './packages/analytic';
 
 declare global {
   interface Window {

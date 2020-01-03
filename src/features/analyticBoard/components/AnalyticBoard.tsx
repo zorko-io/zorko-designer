@@ -1,5 +1,5 @@
 import React from 'react';
-import {VegaLiteTopLevelUnitSpec} from '../../../common/types';
+import {VegaLiteTopLevelUnitSpec} from '../../../packages/coreTypes/types';
 import {useSelector} from 'react-redux';
 import {selectAnalyticBoardMainSpec} from '../selectors';
 import {AnalyticWidget} from '../../../components/AnalyticWidget';

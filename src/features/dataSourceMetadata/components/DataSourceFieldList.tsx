@@ -1,5 +1,5 @@
 import React from 'react';
-import {DataSourceFieldDefinition} from '../../../common/DataSourceFieldDefinition';
+import {DataSourceFieldDefinition} from '../../../packages/coreTypes/DataSourceFieldDefinition';
 import _ from 'lodash';
 import {Button} from '../../../components';
 
