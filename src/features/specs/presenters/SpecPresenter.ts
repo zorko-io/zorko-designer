@@ -1,4 +1,4 @@
-import {BaseStatePresenter} from '../../../core/BaseStatePresenter';
+import {BaseStatePresenter} from '../../../packages/corePresenters/BaseStatePresenter';
 import {SpecState} from './SpecState';
 
 export class SpecPresenter extends BaseStatePresenter<SpecState> {

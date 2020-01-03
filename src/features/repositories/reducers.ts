@@ -1,7 +1,7 @@
 import produce from 'immer';
-import {createReducer} from '../../common/utils/createReducer';
+import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
 import {RepositoriesReadSuccess, repositoriesReadSuccess} from './actions';
-import {NormalizedState} from '../../core/normalize/NormalizedState';
+import {NormalizedState} from '../../packages/corePresenters/normalize/NormalizedState';
 import {RepositoriesStatePresenter} from './presenters';
 
 export interface Repository {

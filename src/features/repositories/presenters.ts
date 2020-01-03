@@ -1,4 +1,4 @@
-import {BaseNormalizedState} from '../../core/normalize/BaseNormalizedState';
+import {BaseNormalizedState} from '../../packages/corePresenters/normalize/BaseNormalizedState';
 import {RepositoriesState, Repository} from './reducers';
 
 export class RepositoriesStatePresenter extends BaseNormalizedState<Repository> {

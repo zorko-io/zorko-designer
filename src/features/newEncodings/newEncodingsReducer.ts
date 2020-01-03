@@ -1,7 +1,7 @@
-import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
+import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
 import {chooseSpecFlowReadSuccess, ChooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {EncodingPresenter, EncodingsPresenter, EncodingsState} from './presenters';
-import {createChannelId} from '../../common/utils';
+import {createChannelId} from '../../packages/presenterReducerUtils';
 import produce from 'immer';
 
 export const newEncodingsReducer = produce(

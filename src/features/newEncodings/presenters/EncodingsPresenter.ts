@@ -1,5 +1,5 @@
-import {BaseNormalizedState} from '../../../core/normalize/BaseNormalizedState';
-import {NormalizedState} from '../../../core/normalize/NormalizedState';
+import {BaseNormalizedState} from '../../../packages/corePresenters/normalize/BaseNormalizedState';
+import {NormalizedState} from '../../../packages/corePresenters/normalize/NormalizedState';
 import {EncodingState} from './EncodingState';
 
 export interface EncodingsState extends NormalizedState<EncodingState> {}

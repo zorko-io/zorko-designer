@@ -1,5 +1,5 @@
 import {PositionChannelState} from './PositionChannelState';
-import {BaseStatePresenter} from '../../../core/BaseStatePresenter';
+import {BaseStatePresenter} from '../../../packages/corePresenters/BaseStatePresenter';
 
 export class PositionChannelPresenter extends BaseStatePresenter<PositionChannelState> {
   static create(state?: PositionChannelState) {

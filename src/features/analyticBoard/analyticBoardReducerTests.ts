@@ -3,7 +3,7 @@ import {analyticBoardReducer} from './analyticBoardReducer';
 import {createAction} from '@reduxjs/toolkit';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {getSimpleSpec} from '../__mocks__/vegaLiteSpecsFixtures';
-import {createChannelId} from '../../common/utils';
+import {createChannelId} from '../../packages/presenterReducerUtils';
 
 describe('analyticBoardReducer', () => {
   let initState: AnalyticBoardState, spec, specId: string;

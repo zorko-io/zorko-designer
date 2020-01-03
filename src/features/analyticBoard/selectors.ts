@@ -4,7 +4,7 @@ import {createSelector} from '@reduxjs/toolkit';
 import {SpecsPresenter} from '../specs/presenters';
 import {selectChannels} from '../channels/selectors';
 import {ChannelsPresenter} from '../channels/presenters';
-import {extractChannelNameFromId} from '../../common/utils';
+import {extractChannelNameFromId} from '../../packages/presenterReducerUtils';
 import {AnalyticBoardPresenter} from './presenters';
 
 export const selectAnalyticBoard = (state: RootState) => state.analyticBoard;

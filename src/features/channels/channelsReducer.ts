@@ -1,7 +1,7 @@
-import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
+import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
 import {ChannelsPresenter, ChannelsState, PositionChannelPresenter} from './presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
-import {createChannelId} from '../../common/utils';
+import {createChannelId} from '../../packages/presenterReducerUtils';
 import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../analyticBoard/actions';
 import produce from 'immer';
 

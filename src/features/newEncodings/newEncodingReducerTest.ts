@@ -4,7 +4,7 @@ import {EncodingPresenter, EncodingsPresenter, EncodingsState} from './presenter
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
-import {createChannelId} from '../../common/utils';
+import {createChannelId} from '../../packages/presenterReducerUtils';
 
 describe('Encodings Reducer', () => {
   let actual,
