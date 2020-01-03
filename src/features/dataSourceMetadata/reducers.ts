@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {createReducer} from '../../common/utils/createReducer';
+import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
 import {DataSourceMetadataReadSuccess, dataSourceMetadataReadSuccess} from './actions';
 import {DataSourceFieldDefinition} from '../../packages/coreTypes/DataSourceFieldDefinition';
 

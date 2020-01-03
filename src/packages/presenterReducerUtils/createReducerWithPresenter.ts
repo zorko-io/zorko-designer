@@ -1,6 +1,6 @@
 import {Action} from '@reduxjs/toolkit';
 import {ReducerMap} from './ReducerMap';
-import {StatePresenter} from '../../core/StatePresenter';
+import {StatePresenter} from '../corePresenters/StatePresenter';
 import {ReducerFunc} from './ReducerFunc';
 
 export interface StatePresenterCreateFunc<S, P extends StatePresenter<S>> {

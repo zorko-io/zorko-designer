@@ -1,6 +1,6 @@
 import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
-import {createReducerWithPresenter} from '../../common/utils/createReducerWithPresenter';
+import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
 import {SpecPresenter, SpecsPresenter, SpecsState} from './presenters';
 import produce from 'immer';
 

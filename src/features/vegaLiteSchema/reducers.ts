@@ -1,4 +1,4 @@
-import {createReducer} from '../../common/utils/createReducer';
+import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
 import produce from 'immer';
 import {VegaLiteSchemaReadSuccess, vegaLiteSchemaReadSuccess} from './actions';
 import {VegaLiteSchemaPresenter} from './presenters';

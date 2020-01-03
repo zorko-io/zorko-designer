@@ -1,6 +1,6 @@
-import {BaseNormalizedState} from '../../../core/normalize/BaseNormalizedState';
+import {BaseNormalizedState} from '../../../packages/corePresenters/normalize/BaseNormalizedState';
 import {PositionChannelState} from './PositionChannelState';
-import {NormalizedState} from '../../../core/normalize/NormalizedState';
+import {NormalizedState} from '../../../packages/corePresenters/normalize/NormalizedState';
 
 export interface ChannelsState extends NormalizedState<PositionChannelState> {}
 

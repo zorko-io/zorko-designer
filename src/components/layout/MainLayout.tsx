@@ -1,4 +1,5 @@
 import React, {ReactNode} from 'react';
+
 interface Props {
   renderHeader: () => ReactNode;
   renderSideBar: () => ReactNode;

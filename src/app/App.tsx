@@ -1,9 +1,9 @@
 import React from 'react';
-import {MainLayout} from '../layout/MainLayout';
+import {MainLayout} from '../components/layout/MainLayout';
 import {AnalyticBoard} from '../features/analyticBoard/components/AnalyticBoard';
 import {ChooseSpecButton} from '../features/chooseSpecFlow/components/ChooseSpecButton';
-import {HeaderLayout} from '../layout/HeaderLayout';
-import {MainContentLayout} from '../layout/MainContentLayout';
+import {HeaderLayout} from '../components/layout/HeaderLayout';
+import {MainContentLayout} from '../components/layout/MainContentLayout';
 import {MainMenuItems, MainMenuType} from '../components/VerticalMenu';
 import {Sidebar} from '../features/sidebar/components/Sidebar';
 

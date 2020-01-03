@@ -1,6 +1,6 @@
 import React from 'react';
 import {MainMenuItems, MainMenuType} from '../../../components/VerticalMenu';
-import {SidebarLayout} from '../../../layout/SidebarLayout';
+import {SidebarLayout} from '../../../components/layout/SidebarLayout';
 import {SidebarMenu} from './SidebarMenu';
 import {SidebarContent} from './SidebarContent';
 

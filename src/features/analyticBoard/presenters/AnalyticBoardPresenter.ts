@@ -1,4 +1,4 @@
-import {BaseStatePresenter} from '../../../core/BaseStatePresenter';
+import {BaseStatePresenter} from '../../../packages/corePresenters/BaseStatePresenter';
 import {AnalyticBoardState} from './AnalyticBoardState';
 
 export class AnalyticBoardPresenter extends BaseStatePresenter<AnalyticBoardState> {
