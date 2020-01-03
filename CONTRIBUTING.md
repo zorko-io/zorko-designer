@@ -60,6 +60,7 @@ store and used only in one place
 `components/` - all reusable react components
 `selectors/` - all `Selectors` over store
 `slices/` - all `Slices`
+`presenters/` - all `Presenters`
 `store/` - contains functions/objects to build Redux store instance
 
 > Other folder in 'src' are not welcome
@@ -87,6 +88,11 @@ Example:
     |-analyticBoard/
         |-analyticBoardActions.ts
         |-analyticBoardReducer.ts
+        |-index.ts
+|-presenters/
+    |-analyticBoard/
+        |-AnalyticBoardState.ts
+        |-AnalyticBoardPresenter.ts
         |-index.ts
 |-store/
 ```
