@@ -44,19 +44,53 @@ Should use cache to optimize React re-rendering.
 
 ### Components
 
-React components, should't have dependencies to Redux, try to keep them as simple as possible, use functional components only and hooks
+*Reusable* react components, should't have no dependencies to Redux, try to keep them as simple as possible, use functional components only and hooks
 
 ### Containers
 
-Components which have dependencies to redux (actions, selectors etc)
-
+Components which have dependencies to redux (actions, selectors etc), may contains react components not connected directly for
+store and used only in one place
 
 ### Project Structure
 
-/**
- * @todo #72:30m/DEV Doc - project structure
- *  mention naming conventions
- */
+### Root `src` folders overview
+
+`packages/` - contains all reusable utilites, typings etc, organized in a way that it could be exctracted as separates npm module without big effort
+`containers/` - all `Containers` see previous sections for more details
+`components/` - all reusable react components
+`selectors/` - all `Selectors` over store
+`slices/` - all `Slices`
+`store/` - contains functions/objects to build Redux store instance
+
+> Other folder in src are not welcome
+
+Example:
+
+```
+|-packages/
+    |-reducer-presenters/
+    |-logger-middlewares/
+|-containers/
+    |-analyticBoard/
+        |-AnalyticBoardContainer.tsx
+    |-app/
+        |-AppContainer.tsx
+|-components/
+    |-layout/
+        |-HeaderLayout.tsx
+    |-Button.tsx
+    |-Input.tsx
+    |-Form.tsx
+|-selectors/
+    |-analyticBoardSelectors.ts
+|-slices/
+    |-analyticBoard/
+        |-analyticBoardActions.ts
+        |-analyticBoardReducer.ts
+        |-index.ts
+|-store/
+```
+
 
 ### Unit Tests
 
