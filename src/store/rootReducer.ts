@@ -21,10 +21,10 @@ import {
   DataSourceMetadataState,
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata';
-import {ChannelsPresenter, ChannelsState} from '../features/channels/presenters';
+import {ChannelsPresenter, ChannelsState} from '../presenters/encodingChannels';
 import {channelsReducer} from '../features/channels';
-import {newEncodingsReducer} from '../features/newEncodings';
-import {EncodingsPresenter, EncodingsState} from '../features/newEncodings/presenters';
+import {encodingsReducer} from '../features/encodings';
+import {EncodingsPresenter, EncodingsState} from '../presenters/encodings';
 
 export interface RootState {
   version: string;
@@ -51,7 +51,7 @@ export const initialRootState: RootState = {
 export const rootReducer = (state: RootState = initialRootState, action: Action) => {
   state.version = '1.0.0';
 
-  state.newEncoding = newEncodingsReducer(state.newEncoding, action);
+  state.newEncoding = encodingsReducer(state.newEncoding, action);
 
   state.specs = specsReducer(state.specs, action);
   state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);

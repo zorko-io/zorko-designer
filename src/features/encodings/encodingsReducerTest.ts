@@ -1,6 +1,6 @@
-import {newEncodingsReducer} from './newEncodingsReducer';
+import {encodingsReducer} from './encodingsReducer';
 import {createAction} from '@reduxjs/toolkit';
-import {EncodingPresenter, EncodingsPresenter, EncodingsState} from './presenters';
+import {EncodingPresenter, EncodingsPresenter, EncodingsState} from '../../presenters/encodings';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
@@ -21,7 +21,7 @@ describe('Encodings Reducer', () => {
   });
 
   it('creates initial state', () => {
-    actual = newEncodingsReducer(null, createAction('anyAction'));
+    actual = encodingsReducer(null, createAction('anyAction'));
     expected = EncodingsPresenter.create().toState();
     expect(actual).toEqual(expected);
   });
@@ -29,7 +29,7 @@ describe('Encodings Reducer', () => {
   it('choose spec', () => {
     action = chooseSpecFlowReadSuccess(id, spec);
 
-    actual = newEncodingsReducer(initState, action);
+    actual = encodingsReducer(initState, action);
     expected = EncodingsPresenter.create(initState)
       .set(
         id,

@@ -1,6 +1,12 @@
 import {NormalizedState} from './NormalizedState';
 import {StatePresenter} from '../StatePresenter';
 
+/**
+ * @todo #109:55m/DEV It forse to create normalization for each store slice
+ *  it's not efficient, we need reusable normalization store container
+ *
+ */
+
 export class BaseNormalizedState<I> implements StatePresenter<NormalizedState<I>> {
   private readonly state: NormalizedState<I>;
 

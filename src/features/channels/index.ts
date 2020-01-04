@@ -1,2 +1,2 @@
 export * from './channelsReducer';
-export * from './presenters';
+export * from '../../presenters/encodingChannels';

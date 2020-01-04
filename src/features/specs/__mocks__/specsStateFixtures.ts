@@ -1,5 +1,4 @@
-import {SpecPresenter} from '../presenters';
-import {SpecsPresenter} from '../presenters';
+import {SpecPresenter, SpecsPresenter} from '../../../presenters/specs';
 
 export const getStateWithOneSpec = (id, spec, initState?) =>
   SpecsPresenter.create(initState)

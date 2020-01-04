@@ -1,7 +1,7 @@
 import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
 import produce from 'immer';
 import {VegaLiteSchemaReadSuccess, vegaLiteSchemaReadSuccess} from './actions';
-import {VegaLiteSchemaPresenter} from './presenters';
+import {VegaLiteSchemaPresenter} from '../../presenters/vegaLiteSchema/VegaLiteSchemaPresenter';
 
 export interface VegaLiteSchema {
   definitions: any;

@@ -3,7 +3,7 @@ import {createAction} from '@reduxjs/toolkit';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
 import * as specsReducerFixtures from './__mocks__/specsStateFixtures';
-import {SpecsPresenter} from './presenters';
+import {SpecsPresenter} from '../../presenters/specs';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 
 describe('Specs Reducer', () => {
