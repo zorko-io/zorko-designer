@@ -1,5 +1,5 @@
 import {createSelector} from '@reduxjs/toolkit';
-import {RootState} from '../../store/rootReducer';
+import {RootState} from '../store/rootReducer';
 
 export const selectDataSourceMetadata = (state: RootState) => state.dataSourceMetadata;
 

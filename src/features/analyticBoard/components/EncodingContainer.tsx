@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Select from 'react-select';
-import {selectDataSourceMetadataAll} from '../../dataSourceMetadata/selectors';
+import {selectDataSourceMetadataAll} from '../../../selectors/dataSourceMetadataSelectors';
 import {encodingChannelFieldEdit} from '../actions';
 import {selectAnalyticBoardEncodingChannels, selectAnalyticBoardMainSpecId} from '../selectors';
 
