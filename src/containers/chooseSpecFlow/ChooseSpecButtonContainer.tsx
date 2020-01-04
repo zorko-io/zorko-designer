@@ -1,13 +1,13 @@
 import React, {useCallback} from 'react';
 import {Dialog} from '@reach/dialog';
 import '@reach/dialog/styles.css';
-import {Button} from '../../../components';
+import {Button} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectRepositoriesAll} from '../../../selectors/repositoriesSelectors';
-import {chooseSpecFlow} from '../asyncActions';
-import {chooseSpecFlowOpenSpecs} from '../actions';
+import {selectRepositoriesAll} from '../../selectors/repositoriesSelectors';
+import {chooseSpecFlow} from '../../features/chooseSpecFlow/asyncActions';
+import {chooseSpecFlowOpenSpecs} from '../../features/chooseSpecFlow';
 
-export const ChooseSpecButton = () => {
+export const ChooseSpecButtonContainer = () => {
   const dispatch = useDispatch();
   const repositories = useSelector(selectRepositoriesAll);
   const [showDialog, setShowDialog] = React.useState(false);

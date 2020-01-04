@@ -1,6 +1,6 @@
 import React from 'react';
-import {MainMenuItems, MainMenuType} from '../../../components/VerticalMenu';
-import {SidebarLayout} from '../../../components/layout/SidebarLayout';
+import {MainMenuItems, MainMenuType} from '../../components/VerticalMenu';
+import {SidebarLayout} from '../../components/layout/SidebarLayout';
 import {SidebarMenu} from './SidebarMenu';
 import {SidebarContent} from './SidebarContent';
 
@@ -12,7 +12,7 @@ const defaultProps: Partial<Props> = {
   activeMenu: MainMenuItems.NONE
 };
 
-export const Sidebar = (props: Props) => {
+export const SidebarContainer = (props: Props) => {
   return (
     <SidebarLayout
       renderMenubar={() => <SidebarMenu activeMenu={props.activeMenu} />}
@@ -21,4 +21,4 @@ export const Sidebar = (props: Props) => {
   );
 };
 
-Sidebar.defaultProps = defaultProps;
+SidebarContainer.defaultProps = defaultProps;

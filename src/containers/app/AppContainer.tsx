@@ -1,9 +1,9 @@
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import {App} from './App';
-import {MainMenuItems} from '../components/VerticalMenu';
+import {MainMenuItems} from '../../components/VerticalMenu';
 
-export const AppShell = () => {
+export const AppContainer = () => {
   return (
     <Switch>
       <Route path="/" exact render={() => <Redirect to={'/visualization'} />} />
