@@ -2,9 +2,9 @@ import React, {useCallback} from 'react';
 import {Button} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {specMarkEdit} from '../specs';
-import {selectAnalyticBoardMainSpecId} from '../analyticBoard';
 import {DataSourceFieldListContainer} from '../dataSourceMetadata/components/DataSourceFieldListContainer';
 import {selectVegaLiteSchemaMarkOptions} from '../../selectors/vegaLiteSchemaSelectors';
+import {selectAnalyticBoardMainSpecId} from '../../selectors/analyticBoardSelectors';
 
 export const VisualizationSidebarContainer = () => {
   const specId = useSelector(selectAnalyticBoardMainSpecId);
