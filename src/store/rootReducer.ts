@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {SpecsPresenter, specsReducer, SpecsState} from '../features/specs';
+import {specsReducer} from '../features/specs';
 import repositoriesReducer, {
   initialRepositoriesState,
   RepositoriesState
@@ -25,6 +25,7 @@ import {ChannelsPresenter, ChannelsState} from '../presenters/encodingChannels';
 import {channelsReducer} from '../features/channels';
 import {encodingsReducer} from '../features/encodings';
 import {EncodingsPresenter, EncodingsState} from '../presenters/encodings';
+import {SpecsPresenter, SpecsState} from '../presenters/specs';
 
 export interface RootState {
   version: string;

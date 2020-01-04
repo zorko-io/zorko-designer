@@ -1,5 +1,5 @@
 import {RootState} from '../../store/rootReducer';
-import {selectSpecs} from '../specs/selectors';
+import {selectSpecs} from '../../selectors/specsSelectors';
 import {createSelector} from '@reduxjs/toolkit';
 import {SpecsPresenter} from '../../presenters/specs';
 import {selectChannels} from '../channels/selectors';
