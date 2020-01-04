@@ -3,7 +3,7 @@ import {Dialog} from '@reach/dialog';
 import '@reach/dialog/styles.css';
 import {Button} from '../../../components';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectRepositoriesAll} from '../../repositories/selectors';
+import {selectRepositoriesAll} from '../../../selectors/repositoriesSelectors';
 import {chooseSpecFlow} from '../asyncActions';
 import {chooseSpecFlowOpenSpecs} from '../actions';
 

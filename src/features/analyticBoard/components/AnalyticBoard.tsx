@@ -1,7 +1,7 @@
 import React from 'react';
 import {VegaLiteTopLevelUnitSpec} from '../../../packages/coreTypes/types';
 import {useSelector} from 'react-redux';
-import {selectAnalyticBoardMainSpec} from '../selectors';
+import {selectAnalyticBoardMainSpec} from '../../../selectors/analyticBoardSelectors';
 import {AnalyticWidget} from '../../../components/AnalyticWidget';
 import {EncodingContainer} from './EncodingContainer';
 

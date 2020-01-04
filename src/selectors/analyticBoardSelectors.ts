@@ -1,11 +1,11 @@
-import {RootState} from '../../store/rootReducer';
-import {selectSpecs} from '../specs/selectors';
+import {RootState} from '../store/rootReducer';
+import {selectSpecs} from './specsSelectors';
 import {createSelector} from '@reduxjs/toolkit';
-import {SpecsPresenter} from '../../presenters/specs';
-import {selectChannels} from '../channels/selectors';
-import {ChannelsPresenter} from '../../presenters/encodingChannels';
-import {extractChannelNameFromId} from '../../packages/presenterReducerUtils';
-import {AnalyticBoardPresenter} from '../../presenters/analyticBoard';
+import {SpecsPresenter} from '../presenters/specs';
+import {selectChannels} from './channelsSelectors';
+import {ChannelsPresenter} from '../presenters/encodingChannels';
+import {extractChannelNameFromId} from '../packages/presenterReducerUtils';
+import {AnalyticBoardPresenter} from '../presenters/analyticBoard';
 
 export const selectAnalyticBoard = (state: RootState) => state.analyticBoard;
 
