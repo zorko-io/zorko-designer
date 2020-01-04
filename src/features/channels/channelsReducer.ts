@@ -1,5 +1,9 @@
 import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
-import {ChannelsPresenter, ChannelsState, PositionChannelPresenter} from './presenters';
+import {
+  ChannelsPresenter,
+  ChannelsState,
+  PositionChannelPresenter
+} from '../../presenters/encodingChannels';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {createChannelId} from '../../packages/presenterReducerUtils';
 import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../analyticBoard/actions';

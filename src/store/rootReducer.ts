@@ -21,10 +21,10 @@ import {
   DataSourceMetadataState,
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata';
-import {ChannelsPresenter, ChannelsState} from '../features/channels/presenters';
+import {ChannelsPresenter, ChannelsState} from '../presenters/encodingChannels';
 import {channelsReducer} from '../features/channels';
-import {newEncodingsReducer} from '../features/newEncodings';
-import {EncodingsPresenter, EncodingsState} from '../features/newEncodings/presenters';
+import {newEncodingsReducer} from '../features/encodings';
+import {EncodingsPresenter, EncodingsState} from '../features/encodings/presenters';
 
 export interface RootState {
   version: string;

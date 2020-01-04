@@ -1,4 +1,4 @@
-import {AnalyticBoardPresenter, AnalyticBoardState} from './presenters';
+import {AnalyticBoardPresenter, AnalyticBoardState} from '../../presenters/analyticBoard';
 import {analyticBoardReducer} from './analyticBoardReducer';
 import {createAction} from '@reduxjs/toolkit';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';

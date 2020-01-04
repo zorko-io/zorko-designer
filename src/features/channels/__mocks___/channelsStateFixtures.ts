@@ -1,4 +1,4 @@
-import {ChannelsPresenter, PositionChannelPresenter} from '../presenters';
+import {ChannelsPresenter, PositionChannelPresenter} from '../../../presenters/encodingChannels';
 import {createChannelId} from '../../../packages/presenterReducerUtils';
 
 export const getSimpleChannelsState = specId => {

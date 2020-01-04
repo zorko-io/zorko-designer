@@ -4,7 +4,7 @@ import {
   selectAnalyticBoardMainSpec,
   selectAnalyticBoardMainSpecId
 } from './selectors';
-import {PositionChannelPresenter} from '../channels/presenters';
+import {PositionChannelPresenter} from '../../presenters/encodingChannels';
 import {rootReducer} from '../../store/rootReducer';
 import {createAction} from '@reduxjs/toolkit';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
