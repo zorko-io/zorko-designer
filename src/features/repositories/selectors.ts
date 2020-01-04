@@ -1,5 +1,5 @@
 import {RootState} from '../../store/rootReducer';
-import {RepositoriesStatePresenter} from './presenters';
+import {RepositoriesStatePresenter} from '../../presenters/repositories/RepositoriesStatePresenter';
 import {createSelector} from '@reduxjs/toolkit';
 
 export const selectRepositories = (state: RootState) => state.repositories;

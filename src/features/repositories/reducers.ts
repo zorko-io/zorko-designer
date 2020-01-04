@@ -2,7 +2,7 @@ import produce from 'immer';
 import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
 import {RepositoriesReadSuccess, repositoriesReadSuccess} from './actions';
 import {NormalizedState} from '../../packages/corePresenters/normalize/NormalizedState';
-import {RepositoriesStatePresenter} from './presenters';
+import {RepositoriesStatePresenter} from '../../presenters/repositories/RepositoriesStatePresenter';
 
 export interface Repository {
   name: string;

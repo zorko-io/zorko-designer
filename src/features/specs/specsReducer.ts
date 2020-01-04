@@ -1,7 +1,7 @@
 import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
-import {SpecPresenter, SpecsPresenter, SpecsState} from './presenters';
+import {SpecPresenter, SpecsPresenter, SpecsState} from '../../presenters/specs';
 import produce from 'immer';
 
 export const specsReducer = produce(

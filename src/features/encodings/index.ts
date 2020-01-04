@@ -1,2 +1,2 @@
-export * from './presenters';
-export * from './newEncodingsReducer';
+export * from '../../presenters/encodings';
+export * from './encodingsReducer';

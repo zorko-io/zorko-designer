@@ -1,4 +1,4 @@
-import {BaseNormalizedState} from '../../../packages/corePresenters/normalize/BaseNormalizedState';
+import {BaseNormalizedState} from '../../packages/corePresenters/normalize/BaseNormalizedState';
 import {SpecState} from './SpecState';
 import {SpecsState} from './SpecsState';
 

@@ -1,4 +1,4 @@
-import {BaseStatePresenter} from '../../../packages/corePresenters/BaseStatePresenter';
+import {BaseStatePresenter} from '../../packages/corePresenters/BaseStatePresenter';
 import {EncodingState} from './EncodingState';
 
 export enum EncodingChannelNames {
