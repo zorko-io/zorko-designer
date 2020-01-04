@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import {VisualizationSidebarContainer} from '../../visualizationSidebar/VisualizationSidebarContainer';
-import {DataSourceSidebarContainer} from '../../dataSourceMetadata/components/DataSourceSidebarContainer';
+import {VisualizationSidebarContainer} from '../../features/visualizationSidebar/VisualizationSidebarContainer';
+import {DataSourceSidebarContainer} from '../dataSource/DataSourceSidebarContainer';
 
 export const SidebarContent = () => {
   return (

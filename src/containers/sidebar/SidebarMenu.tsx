@@ -1,8 +1,8 @@
 import React from 'react';
-import {MainMenuItems, MainMenuType, VerticalMenu} from '../../../components/VerticalMenu';
-import {VerticalMenuItem} from '../../../components/VerticalMenuItem';
+import {MainMenuItems, MainMenuType, VerticalMenu} from '../../components/VerticalMenu';
+import {VerticalMenuItem} from '../../components/VerticalMenuItem';
 import {Link} from 'react-router-dom';
-import {Icon, IconNames} from '../../../components';
+import {Icon, IconNames} from '../../components';
 
 interface Props {
   activeMenu: MainMenuType;

@@ -3,14 +3,14 @@ import {render} from 'react-dom';
 import './index.css';
 import {Provider} from 'react-redux';
 import {repositoriesLoadInitial} from './features/repositories/asyncActions';
-import {AppLogger} from './app/AppLogger';
+import {AppLogger} from './containers/app/AppLogger';
 import vegaLiteSchema from './defaultVegaLiteSchema.json';
 import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';
 import {chooseSpecFlow} from './features/chooseSpecFlow/asyncActions';
-import {AppShell} from './app/AppShell';
+import {AppContainer} from './containers/app/AppContainer';
 import {HashRouter} from 'react-router-dom';
 import {createStore} from './store/createStore';
-import {reduxLoggerMiddleware, logrockMiddleware} from './packages/customReduxLoggerMiddlewares';
+import {logrockMiddleware, reduxLoggerMiddleware} from './packages/customReduxLoggerMiddlewares';
 import firebase from 'firebase';
 import {firebaseConfig} from '../firebase.config';
 import {ZorkoDesignerAnalyticFacade, zorkoDesignerAnalyticMiddleware} from './packages/analytic';
@@ -47,7 +47,7 @@ render(
   <AppLogger sessionId={window.sessionID}>
     <Provider store={store}>
       <HashRouter>
-        <AppShell />
+        <AppContainer />
       </HashRouter>
     </Provider>
   </AppLogger>,

@@ -1,7 +1,7 @@
 import React from 'react';
-import {DataSourceFieldDefinition} from '../../../packages/coreTypes/DataSourceFieldDefinition';
+import {DataSourceFieldDefinition} from '../../packages/coreTypes/DataSourceFieldDefinition';
 import _ from 'lodash';
-import {Button} from '../../../components';
+import {Button} from '../../components';
 
 interface Props {
   fields?: DataSourceFieldDefinition[];
