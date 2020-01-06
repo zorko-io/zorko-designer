@@ -1,6 +1,8 @@
 import produce from 'immer';
 import * as specsSlice from '../features/specs';
 import * as analyticBoardSlice from '../features/analyticBoard';
+import * as channelsSlice from '../features/channels';
+
 import repositoriesReducer, {
   initialRepositoriesState,
   RepositoriesState
@@ -18,7 +20,6 @@ import {
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata';
 import {ChannelsPresenter, ChannelsState} from '../presenters/encodingChannels';
-import {channelsReducer} from '../features/channels';
 import {encodingsReducer} from '../features/encodings';
 import {EncodingsPresenter, EncodingsState} from '../presenters/encodings';
 import {SpecsPresenter, SpecsState} from '../presenters/specs';
@@ -56,7 +57,7 @@ export const rootReducer = (state: RootState = initialRootState, action: Action)
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
   state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
 
-  state.channels = channelsReducer(state.channels, action);
+  state.channels = channelsSlice.reducer(state.channels, action);
 
   return state;
 };

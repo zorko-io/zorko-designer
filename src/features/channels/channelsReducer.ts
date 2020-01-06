@@ -9,7 +9,7 @@ import {createChannelId} from '../../packages/presenterReducerUtils';
 import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../analyticBoard';
 import produce from 'immer';
 
-export const channelsReducer = produce(
+export default produce(
   createReducerWithPresenter<ChannelsState, ChannelsPresenter>(ChannelsPresenter.create, {
     [chooseSpecFlowReadSuccess.type]: (
       presenter: ChannelsPresenter,
