@@ -37,6 +37,13 @@ Main consumers of presenters in applications are `Reducers`, secondary consumers
 
 Each slice is a module which exposes immutable reducer and functions for actions creators
 
+Example: usage of slice 
+```
+import {reducer, specsRemoveSuccess } from './slices/specs'
+
+```
+
+
 ### Selectors
 
 Selector functions for read-only operation over root app state.
@@ -69,8 +76,8 @@ Example:
 
 ```
 |-packages/
-    |-reducer-presenters/
-    |-logger-middlewares/
+    |-reducerPresenters/
+    |-loggerMiddlewares/
 |-containers/
     |-analyticBoard/
         |-AnalyticBoardContainer.tsx
