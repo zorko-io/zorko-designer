@@ -1,9 +1,9 @@
 import {RootState} from '../../../store/rootReducer';
-import {selectSpecs} from '../../../selectors/specsSelectors';
+import {selectSpecs} from '../../specs/selectors/specsSelectors';
 import {createSelector} from '@reduxjs/toolkit';
-import {SpecsPresenter} from '../../../presenters/specs';
-import {selectChannels} from '../../../selectors/channelsSelectors';
-import {ChannelsPresenter} from '../../../presenters/encodingChannels';
+import {SpecsPresenter} from '../../specs/presenters';
+import {selectChannels} from '../../channels/selectors/channelsSelectors';
+import {ChannelsPresenter} from '../../channels/presenters';
 import {extractChannelNameFromId} from '../../../packages/presenterReducerUtils';
 import {AnalyticBoardPresenter} from '../presenters';
 

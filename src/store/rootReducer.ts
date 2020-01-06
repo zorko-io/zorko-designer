@@ -1,28 +1,28 @@
 import produce from 'immer';
-import * as specsSlice from '../features/specs';
+import * as specsSlice from '../features/specs/slices';
 import * as analyticBoardSlice from '../features/analyticBoard/slices';
-import * as channelsSlice from '../features/channels';
-import * as encodingsSlice from '../features/encodings';
+import * as channelsSlice from '../features/channels/slices';
+import * as encodingsSlice from '../features/encodings/slices';
 
 import repositoriesReducer, {
   initialRepositoriesState,
   RepositoriesState
-} from '../features/repositories/repositoriesReducer';
+} from '../features/repositories/slices/repositoriesReducer';
 import vegaLiteSchemaReducer, {
   initialVegaLiteSchemaState,
   VegaLiteSchemaState
-} from '../features/vegaLiteSchema/vegaLiteSchemaReducer';
+} from '../features/vegaLiteSchema/slices/vegaLiteSchemaReducer';
 import dataSourceMetadataReducer, {
   DataSourceMetadataState,
   initialDataSourceMetadataState
-} from '../features/dataSourceMetadata/dataSourceMetadataReducer';
+} from '../features/dataSourceMetadata/slices/dataSourceMetadataReducer';
 
 import {AnalyticBoardPresenter, AnalyticBoardState} from '../features/analyticBoard/presenters';
 import {Action} from '@reduxjs/toolkit';
 
-import {ChannelsPresenter, ChannelsState} from '../presenters/encodingChannels';
-import {EncodingsPresenter, EncodingsState} from '../presenters/encodings';
-import {SpecsPresenter, SpecsState} from '../presenters/specs';
+import {ChannelsPresenter, ChannelsState} from '../features/channels/presenters';
+import {EncodingsPresenter, EncodingsState} from '../features/encodings/presenters';
+import {SpecsPresenter, SpecsState} from '../features/specs/presenters';
 
 export interface RootState {
   version: string;

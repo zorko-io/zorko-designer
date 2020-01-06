@@ -22,6 +22,7 @@ Application consist within  `Features` each feature may has next layers
 1. `Slices` -  provides reducer and actions to manipulate within particular feature state slice
 1. `Selectors` - provides access to data required by feature related to it's state slice
 1. `Effects` - contains interactions with side effects
+1. `Middlewares` - Redux middleware, main propose is to listen for app action flow and to some additional actions
 1. `Components` - 'dummy' components, which has no relations for `Slices` and `Selectors`
 1. `Containers` - components used by external features, usually use `Selectors` and Redux Actions
 

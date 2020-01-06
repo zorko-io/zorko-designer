@@ -4,11 +4,11 @@ import {
   selectAnalyticBoardMainSpec,
   selectAnalyticBoardMainSpecId
 } from './analyticBoardSelectors';
-import {PositionChannelPresenter} from '../../../presenters/encodingChannels';
+import {PositionChannelPresenter} from '../../channels/presenters';
 import {rootReducer} from '../../../store/rootReducer';
 import {createAction} from '@reduxjs/toolkit';
-import * as vegaLiteSpecsFixture from '../../__mocks__/vegaLiteSpecsFixtures';
-import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow';
+import * as vegaLiteSpecsFixture from '../../__testFixtures__/vegaLiteSpecsFixtures';
+import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import {LevelOfMeasurements} from '../../../packages/coreTypes/DataSourceFieldDefinition';
 
 /**

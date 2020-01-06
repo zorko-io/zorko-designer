@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../../chooseSpecFlow';
+import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import {AnalyticBoardPresenter, AnalyticBoardState} from '../presenters';
 import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils/createReducerWithPresenter';
 import {createChannelId} from '../../../packages/presenterReducerUtils';
