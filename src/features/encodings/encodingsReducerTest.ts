@@ -3,7 +3,7 @@ import {createAction} from '@reduxjs/toolkit';
 import {EncodingPresenter, EncodingsPresenter, EncodingsState} from '../../presenters/encodings';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
 import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
-import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/actions';
+import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow/chooseSpecFlowActions';
 import {createChannelId} from '../../packages/presenterReducerUtils';
 
 describe('Encodings Reducer', () => {

@@ -4,7 +4,7 @@ import '@reach/dialog/styles.css';
 import {Button} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectRepositoriesAll} from '../../selectors/repositoriesSelectors';
-import {chooseSpecFlow} from '../../features/chooseSpecFlow/asyncActions';
+import {chooseSpecFlow} from '../../effects/chooseSpecFlowEffects';
 import {chooseSpecFlowOpenSpecs} from '../../features/chooseSpecFlow';
 
 export const ChooseSpecButtonContainer = () => {

@@ -6,7 +6,7 @@ import {repositoriesLoadInitial} from './features/repositories/asyncActions';
 import {AppLogger} from './containers/app/AppLogger';
 import vegaLiteSchema from './defaultVegaLiteSchema.json';
 import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';
-import {chooseSpecFlow} from './features/chooseSpecFlow/asyncActions';
+import {chooseSpecFlow} from './effects/chooseSpecFlowEffects';
 import {AppContainer} from './containers/app/AppContainer';
 import {HashRouter} from 'react-router-dom';
 import {createStore} from './store/createStore';
