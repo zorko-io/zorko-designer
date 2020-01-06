@@ -1,7 +1,5 @@
-import dataSourceMetadataReducer from './reducers';
+import reducer from './dataSourceMetadataReducer';
 
-export {dataSourceMetadataReducer};
-
-export * from './reducers';
-export * from './actions';
-export * from './asyncActions';
+export {reducer};
+export * from './dataSourceMetadataReducer';
+export * from './dataSourceMetadataActions';

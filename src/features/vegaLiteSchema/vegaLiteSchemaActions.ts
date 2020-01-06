@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import {VegaLiteSchema} from './reducers';
+import {VegaLiteSchema} from './vegaLiteSchemaReducer';
 
 export const vegaLiteSchemaReadSuccess = createAction(
   'vegaLiteSchema/readSuccess',

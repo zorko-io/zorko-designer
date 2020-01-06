@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import './index.css';
 import {Provider} from 'react-redux';
-import {repositoriesLoadInitial} from './features/repositories/asyncActions';
+import {repositoriesLoadInitial} from './effects/repositoriesEffects';
 import {AppLogger} from './containers/app/AppLogger';
 import vegaLiteSchema from './defaultVegaLiteSchema.json';
 import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';

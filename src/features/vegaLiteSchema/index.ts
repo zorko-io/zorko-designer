@@ -1,6 +1,6 @@
-import vegaLiteSchemaReducer from './reducers';
+import reducer from './vegaLiteSchemaReducer';
 
-export * from './reducers';
-export * from './actions';
+export * from './vegaLiteSchemaReducer';
+export * from './vegaLiteSchemaActions';
 
-export {vegaLiteSchemaReducer};
+export {reducer};

@@ -1,5 +1,9 @@
-import * as Api from '../../packages/designerApi';
-import {repositoriesReadFailure, repositoriesReadRequest, repositoriesReadSuccess} from './actions';
+import * as Api from '../packages/designerApi';
+import {
+  repositoriesReadFailure,
+  repositoriesReadRequest,
+  repositoriesReadSuccess
+} from '../features/repositories';
 
 export const repositoriesLoadInitial = () => {
   return async dispatch => {

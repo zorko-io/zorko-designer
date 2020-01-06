@@ -1,6 +1,6 @@
 import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
 import produce from 'immer';
-import {VegaLiteSchemaReadSuccess, vegaLiteSchemaReadSuccess} from './actions';
+import {VegaLiteSchemaReadSuccess, vegaLiteSchemaReadSuccess} from './vegaLiteSchemaActions';
 import {VegaLiteSchemaPresenter} from '../../presenters/vegaLiteSchema/VegaLiteSchemaPresenter';
 
 export interface VegaLiteSchema {
@@ -11,9 +11,15 @@ export interface VegaLiteSchemaState {
   schema: VegaLiteSchema;
 }
 
+/**
+ * @todo #114:40m/DEV VegaLiteSchema Migrate to Presenter-Reducer approach
+ *  prep presenters, use createReducer util
+ *
+ */
+
 export const initialVegaLiteSchemaState = VegaLiteSchemaPresenter.create().toState();
 
-const reducers = createReducer<VegaLiteSchemaState>(initialVegaLiteSchemaState, {
+const vegaLiteSchemaReducer = createReducer<VegaLiteSchemaState>(initialVegaLiteSchemaState, {
   [vegaLiteSchemaReadSuccess.type]: (
     state: VegaLiteSchemaState,
     action: VegaLiteSchemaReadSuccess
@@ -26,4 +32,4 @@ const reducers = createReducer<VegaLiteSchemaState>(initialVegaLiteSchemaState, 
   }
 });
 
-export default produce(reducers);
+export default produce(vegaLiteSchemaReducer);
