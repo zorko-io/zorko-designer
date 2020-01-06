@@ -6,9 +6,9 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 *Table of Contents*
-[Code of Conduct](./code-of-conduct.md)
-[What should I know before I get started?](#what-should-i-know-before-i-get-started)
-[Pull Request Process](#pull-request-process)
+* [Code of Conduct](./code-of-conduct.md)
+* [What should I know before I get started?](#what-should-i-know-before-i-get-started)
+* [Pull Request Process](#pull-request-process)
 
 ## What should I know before I get started ?
 
@@ -18,16 +18,16 @@ Designer use redux+react stack. Visualization rendering performed by vega librar
 
  Application consist within next layers
 
- 1. Presenter - control access to state data structures read/modification operations
- 1. Slices -  modules  provide immutable reducer and actions to manipulate within app state slice
+1. Presenter - control access to state data structures read/modification operations
+1. Slices -  modules  provide immutable reducer and actions to manipulate within app state slice
  1. Selectors - modules with read only access to all app state, provides caching functionality
  1. Components - 'dummy' components, which has no relations for `Slices` and `Selectors`, just pure react components
  1. Containers - react components connected to store, actions hardly use `Selectors`
 
 #### Presenters
 
-Classes around plain state object used by application root state, their propose is to incapsulate read/update operations
-over plain state object, so any consumers can do state changes without burden of data massaging object directly.
+Classes around plain state object used by application root state, their propose is to encapsulate update operations
+over plain state objects, so any consumers can do state changes without burden of data massaging plain object directly.
 
 Main consumers of presenters in applications are `Reducers`, secondary consumers are `Selectors`
 
@@ -35,7 +35,7 @@ Main consumers of presenters in applications are `Reducers`, secondary consumers
 
 ### Slices
 
-Each slice is a module which combine action creators and single reducer for particular application store slice  
+Each slice is a module which combine action creators and single reducer for particular application store slice
 
 Naming of files inside of slice folder
 
@@ -46,14 +46,15 @@ Naming of files inside of slice folder
   |-mySliceActions.ts          // all actions creators (no any think actions here)
 ```
 
-Example: usage of slice 
+Example: usage of slice
 ```
 import {reducer, specsRemoveSuccess } from './slices/specs'
 
 ```
-### Effects 
+### Effects
 
-//TBD
+Effects in that projects are [redux-thunk](https://github.com/reduxjs/redux-thunk) functions which trigger side effects.
+Like API calls, timers etc.
 
 ### Selectors
 
@@ -62,7 +63,7 @@ Should use cache to optimize React re-rendering.
 
 ### Components
 
-*Reusable* react components, should't have no dependencies to Redux, try to keep them as simple as possible, use functional components only and hooks
+*Reusable* React components, should't have any dependencies to Redux, try to keep them as simple as possible
 
 ### Containers
 
