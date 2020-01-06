@@ -2,18 +2,19 @@ import React from 'react';
 import {render} from 'react-dom';
 import './index.css';
 import {Provider} from 'react-redux';
-import {repositoriesLoadInitial} from './effects/repositoriesEffects';
-import {AppLogger} from './containers/app/AppLogger';
+import {repositoriesLoadInitial} from './features/repositories/effects/repositoriesEffects';
+import {AppLogger} from './app/AppLogger';
 import vegaLiteSchema from './defaultVegaLiteSchema.json';
-import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema';
-import {chooseSpecFlow} from './effects/chooseSpecFlowEffects';
-import {AppContainer} from './containers/app/AppContainer';
+import {vegaLiteSchemaReadSuccess} from './features/vegaLiteSchema/slices';
+import {chooseSpecFlow} from './features/chooseSpecFlow/effects/chooseSpecFlowEffects';
+import {AppContainer} from './app/AppContainer';
 import {HashRouter} from 'react-router-dom';
 import {createStore} from './store/createStore';
 import {logrockMiddleware, reduxLoggerMiddleware} from './packages/customReduxLoggerMiddlewares';
 import firebase from 'firebase';
 import {firebaseConfig} from '../firebase.config';
-import {ZorkoDesignerAnalyticFacade, zorkoDesignerAnalyticMiddleware} from './packages/analytic';
+import {DesignerAnalyticMetricsDispatcher} from './packages/designerAnalyticMetrics';
+import {zorkoDesignerAnalyticMiddleware} from './features/userBehaviourAnalytic/middlewares/zorkoDesignerAnalyticMiddleware';
 
 declare global {
   interface Window {
@@ -31,7 +32,7 @@ const middleware = [reduxLoggerMiddleware, logrockMiddleware];
 if (process.env.NODE_ENV === 'production') {
   const app = firebase.initializeApp(firebaseConfig);
   const analytics = app.analytics();
-  const analyticFacade = new ZorkoDesignerAnalyticFacade(analytics);
+  const analyticFacade = new DesignerAnalyticMetricsDispatcher(analytics);
 
   middleware.push(zorkoDesignerAnalyticMiddleware(analyticFacade));
 }
