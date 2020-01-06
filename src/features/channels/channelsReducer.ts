@@ -6,7 +6,7 @@ import {
 } from '../../presenters/encodingChannels';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {createChannelId} from '../../packages/presenterReducerUtils';
-import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../analyticBoard';
+import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../analyticBoard/slices';
 import produce from 'immer';
 
 export default produce(

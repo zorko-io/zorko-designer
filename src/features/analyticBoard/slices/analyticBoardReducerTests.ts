@@ -1,9 +1,9 @@
-import {AnalyticBoardPresenter, AnalyticBoardState} from '../../presenters/analyticBoard';
+import {AnalyticBoardPresenter, AnalyticBoardState} from '../presenters';
 import analyticBoardReducer from './analyticBoardReducer';
 import {createAction} from '@reduxjs/toolkit';
-import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
-import {getSimpleSpec} from '../__mocks__/vegaLiteSpecsFixtures';
-import {createChannelId} from '../../packages/presenterReducerUtils';
+import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow';
+import {getSimpleSpec} from '../../__mocks__/vegaLiteSpecsFixtures';
+import {createChannelId} from '../../../packages/presenterReducerUtils';
 
 describe('analyticBoardReducer', () => {
   let initState: AnalyticBoardState, spec, specId: string;

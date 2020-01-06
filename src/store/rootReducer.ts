@@ -1,6 +1,6 @@
 import produce from 'immer';
 import * as specsSlice from '../features/specs';
-import * as analyticBoardSlice from '../features/analyticBoard';
+import * as analyticBoardSlice from '../features/analyticBoard/slices';
 import * as channelsSlice from '../features/channels';
 import * as encodingsSlice from '../features/encodings';
 
@@ -17,7 +17,7 @@ import dataSourceMetadataReducer, {
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata/dataSourceMetadataReducer';
 
-import {AnalyticBoardPresenter, AnalyticBoardState} from '../presenters/analyticBoard';
+import {AnalyticBoardPresenter, AnalyticBoardState} from '../features/analyticBoard/presenters';
 import {Action} from '@reduxjs/toolkit';
 
 import {ChannelsPresenter, ChannelsState} from '../presenters/encodingChannels';

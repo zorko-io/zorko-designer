@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {specMarkEdit} from '../../features/specs';
 import {DataSourceFieldListContainer} from '../dataSource/DataSourceFieldListContainer';
 import {selectVegaLiteSchemaMarkOptions} from '../../selectors/vegaLiteSchemaSelectors';
-import {selectAnalyticBoardMainSpecId} from '../../selectors/analyticBoardSelectors';
+import {selectAnalyticBoardMainSpecId} from '../../features/analyticBoard/selectors/analyticBoardSelectors';
 
 export const VisualizationSidebarContainer = () => {
   const specId = useSelector(selectAnalyticBoardMainSpecId);

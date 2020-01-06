@@ -1,6 +1,6 @@
 import React from 'react';
 import {MainLayout} from '../../components/layout/MainLayout';
-import {AnalyticBoard} from '../analyticBoard/AnalyticBoard';
+import {AnalyticBoardContainer} from '../../features/analyticBoard/containers/AnalyticBoardContainer';
 import {ChooseSpecButtonContainer} from '../chooseSpecFlow/ChooseSpecButtonContainer';
 import {HeaderLayout} from '../../components/layout/HeaderLayout';
 import {MainContentLayout} from '../../components/layout/MainContentLayout';
@@ -20,7 +20,9 @@ export const App = (props: Props) => {
     <MainLayout
       renderHeader={() => <HeaderLayout renderContent={() => <ChooseSpecButtonContainer />} />}
       renderSideBar={() => <SidebarContainer activeMenu={props.activeMenu} />}
-      renderContent={() => <MainContentLayout renderCanvasBoard={() => <AnalyticBoard />} />}
+      renderContent={() => (
+        <MainContentLayout renderCanvasBoard={() => <AnalyticBoardContainer />} />
+      )}
     />
   );
 };

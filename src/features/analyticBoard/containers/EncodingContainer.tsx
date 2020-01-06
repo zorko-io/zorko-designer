@@ -1,12 +1,12 @@
 import React, {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Select from 'react-select';
-import {selectDataSourceMetadataAll} from '../../selectors/dataSourceMetadataSelectors';
-import {encodingChannelFieldEdit} from '../../features/analyticBoard';
+import {selectDataSourceMetadataAll} from '../../../selectors/dataSourceMetadataSelectors';
+import {encodingChannelFieldEdit} from '../slices';
 import {
   selectAnalyticBoardEncodingChannels,
   selectAnalyticBoardMainSpecId
-} from '../../selectors/analyticBoardSelectors';
+} from '../selectors/analyticBoardSelectors';
 
 export const EncodingContainer = () => {
   const channels = useSelector(selectAnalyticBoardEncodingChannels);

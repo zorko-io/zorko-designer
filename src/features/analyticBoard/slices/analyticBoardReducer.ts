@@ -1,8 +1,8 @@
 import produce from 'immer';
-import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
-import {AnalyticBoardPresenter, AnalyticBoardState} from '../../presenters/analyticBoard';
-import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
-import {createChannelId} from '../../packages/presenterReducerUtils';
+import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../../chooseSpecFlow';
+import {AnalyticBoardPresenter, AnalyticBoardState} from '../presenters';
+import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils/createReducerWithPresenter';
+import {createChannelId} from '../../../packages/presenterReducerUtils';
 
 export default produce(
   createReducerWithPresenter<AnalyticBoardState, AnalyticBoardPresenter>(

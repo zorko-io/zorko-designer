@@ -1,8 +1,8 @@
 import React from 'react';
-import {VegaLiteTopLevelUnitSpec} from '../../packages/coreTypes/types';
+import {VegaLiteTopLevelUnitSpec} from '../../../packages/coreTypes/types';
 import {useSelector} from 'react-redux';
-import {selectAnalyticBoardMainSpec} from '../../selectors/analyticBoardSelectors';
-import {AnalyticWidget} from '../../components/AnalyticWidget';
+import {selectAnalyticBoardMainSpec} from '../selectors/analyticBoardSelectors';
+import {AnalyticWidget} from '../components/AnalyticWidget';
 import {EncodingContainer} from './EncodingContainer';
 
 interface Props {
@@ -13,7 +13,7 @@ const defaultProps: Partial<Props> = {
   selectedSpec: null
 };
 
-export const AnalyticBoard = () => {
+export const AnalyticBoardContainer = () => {
   const spec = useSelector(selectAnalyticBoardMainSpec);
 
   return (
@@ -24,4 +24,4 @@ export const AnalyticBoard = () => {
   );
 };
 
-AnalyticBoard.defaultProps = defaultProps;
+AnalyticBoardContainer.defaultProps = defaultProps;

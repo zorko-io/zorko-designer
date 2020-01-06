@@ -4,12 +4,12 @@ import {
   selectAnalyticBoardMainSpec,
   selectAnalyticBoardMainSpecId
 } from './analyticBoardSelectors';
-import {PositionChannelPresenter} from '../presenters/encodingChannels';
-import {rootReducer} from '../store/rootReducer';
+import {PositionChannelPresenter} from '../../../presenters/encodingChannels';
+import {rootReducer} from '../../../store/rootReducer';
 import {createAction} from '@reduxjs/toolkit';
-import * as vegaLiteSpecsFixture from '../features/__mocks__/vegaLiteSpecsFixtures';
-import {chooseSpecFlowReadSuccess} from '../features/chooseSpecFlow';
-import {LevelOfMeasurements} from '../packages/coreTypes/DataSourceFieldDefinition';
+import * as vegaLiteSpecsFixture from '../../__mocks__/vegaLiteSpecsFixtures';
+import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow';
+import {LevelOfMeasurements} from '../../../packages/coreTypes/DataSourceFieldDefinition';
 
 /**
  * @todo #32:30m/DEV Move to its own features, prep presenter
