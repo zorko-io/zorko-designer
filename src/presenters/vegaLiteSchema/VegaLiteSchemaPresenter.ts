@@ -1,4 +1,7 @@
-import {VegaLiteSchema, VegaLiteSchemaState} from '../../features/vegaLiteSchema/reducers';
+import {
+  VegaLiteSchema,
+  VegaLiteSchemaState
+} from '../../features/vegaLiteSchema/vegaLiteSchemaReducer';
 
 export class VegaLiteSchemaPresenter {
   private state: VegaLiteSchemaState;

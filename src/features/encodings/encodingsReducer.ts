@@ -4,7 +4,7 @@ import {EncodingPresenter, EncodingsPresenter, EncodingsState} from '../../prese
 import {createChannelId} from '../../packages/presenterReducerUtils';
 import produce from 'immer';
 
-export const encodingsReducer = produce(
+export default produce(
   createReducerWithPresenter<EncodingsState, EncodingsPresenter>(EncodingsPresenter.create, {
     [chooseSpecFlowReadSuccess.type]: (
       presenter: EncodingsPresenter,

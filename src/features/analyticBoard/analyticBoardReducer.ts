@@ -4,7 +4,7 @@ import {AnalyticBoardPresenter, AnalyticBoardState} from '../../presenters/analy
 import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
 import {createChannelId} from '../../packages/presenterReducerUtils';
 
-export const analyticBoardReducer = produce(
+export default produce(
   createReducerWithPresenter<AnalyticBoardState, AnalyticBoardPresenter>(
     AnalyticBoardPresenter.create,
     {

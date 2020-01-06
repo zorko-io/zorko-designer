@@ -1,2 +1,3 @@
-export * from '../../presenters/encodings';
-export * from './encodingsReducer';
+import reducer from './encodingsReducer';
+
+export {reducer};

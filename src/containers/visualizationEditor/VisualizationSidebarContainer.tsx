@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react';
 import {Button} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
-import {specMarkEdit} from '../specs';
-import {DataSourceFieldListContainer} from '../../containers/dataSource/DataSourceFieldListContainer';
+import {specMarkEdit} from '../../features/specs';
+import {DataSourceFieldListContainer} from '../dataSource/DataSourceFieldListContainer';
 import {selectVegaLiteSchemaMarkOptions} from '../../selectors/vegaLiteSchemaSelectors';
 import {selectAnalyticBoardMainSpecId} from '../../selectors/analyticBoardSelectors';
 

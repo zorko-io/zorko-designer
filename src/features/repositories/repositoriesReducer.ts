@@ -1,6 +1,6 @@
 import produce from 'immer';
 import {createReducer} from '../../packages/presenterReducerUtils/createReducer';
-import {RepositoriesReadSuccess, repositoriesReadSuccess} from './actions';
+import {RepositoriesReadSuccess, repositoriesReadSuccess} from './repositoriesActions';
 import {NormalizedState} from '../../packages/corePresenters/normalize/NormalizedState';
 import {RepositoriesStatePresenter} from '../../presenters/repositories/RepositoriesStatePresenter';
 
@@ -8,6 +8,12 @@ export interface Repository {
   name: string;
   resources: any[];
 }
+
+/**
+ * @todo #114:40m/DEV Repositories Migrate to Presenter-Reducer approach
+ *  prep presenters, use createReducer util
+ *
+ */
 
 export interface RepositoriesState extends NormalizedState<Repository> {}
 

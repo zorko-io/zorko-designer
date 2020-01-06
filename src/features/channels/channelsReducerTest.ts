@@ -5,11 +5,11 @@ import {
   PositionChannelPresenter
 } from '../../presenters/encodingChannels';
 import * as vegaLiteSpecsFixture from '../__mocks__/vegaLiteSpecsFixtures';
-import {channelsReducer} from './channelsReducer';
+import channelsReducer from './channelsReducer';
 import {chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import * as channelsStateFixtures from './__mocks___/channelsStateFixtures';
 import {createChannelId} from '../../packages/presenterReducerUtils';
-import {encodingChannelFieldEdit} from '../analyticBoard/actions';
+import {encodingChannelFieldEdit} from '../analyticBoard';
 
 describe('Channels Reducer', () => {
   let actual, expected, action, initState: ChannelsState, id: string, spec;

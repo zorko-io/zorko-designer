@@ -1,2 +1,3 @@
-export * from './channelsReducer';
-export * from '../../presenters/encodingChannels';
+import reducer from './channelsReducer';
+
+export {reducer};
