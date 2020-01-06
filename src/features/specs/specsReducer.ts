@@ -1,10 +1,10 @@
-import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './actions';
+import {specDescriptionEdit, SpecDescriptionEdit, SpecMarkEdit, specMarkEdit} from './specsActions';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../chooseSpecFlow';
 import {createReducerWithPresenter} from '../../packages/presenterReducerUtils/createReducerWithPresenter';
 import {SpecPresenter, SpecsPresenter, SpecsState} from '../../presenters/specs';
 import produce from 'immer';
 
-export const specsReducer = produce(
+export default produce(
   createReducerWithPresenter<SpecsState, SpecsPresenter>(SpecsPresenter.create, {
     [specDescriptionEdit.type]: (presenter: SpecsPresenter, action: SpecDescriptionEdit) => {
       const {description, id} = action.payload;

@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {specsReducer} from '../features/specs';
+import * as specsSlice from '../features/specs';
 import repositoriesReducer, {
   initialRepositoriesState,
   RepositoriesState
@@ -54,7 +54,7 @@ export const rootReducer = (state: RootState = initialRootState, action: Action)
 
   state.newEncoding = encodingsReducer(state.newEncoding, action);
 
-  state.specs = specsReducer(state.specs, action);
+  state.specs = specsSlice.reducer(state.specs, action);
   state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);
   state.repositories = repositoriesReducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
