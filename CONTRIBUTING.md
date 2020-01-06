@@ -81,12 +81,10 @@ store and used only in one place
 
 ### Root `src` folders overview
 
-`packages/` - contains all reusable utilites, typings etc, organized in a way that it could be exctracted as separates npm module without big effort
-`containers/` - all `Containers` see previous sections for more details
+`packages/` - contains all reusable utilises, typings etc, organized in a way that it could be extracted as separates npm module without big effort
+`app/` - top level react components
 `components/` - all reusable react components
-`selectors/` - all `Selectors` over store
-`slices/` - all `Slices`
-`presenters/` - all `Presenters`
+`features/` - application's features
 `store/` - contains functions/objects to build Redux store instance
 
 > Other folder in 'src' are not welcome
@@ -97,36 +95,43 @@ Example:
 |-packages/
     |-reducerPresenters/
     |-loggerMiddlewares/
-|-containers/
-    |-analyticBoard/
-        |-AnalyticBoardContainer.tsx
-    |-app/
-        |-AppContainer.tsx
+    |-api/
+|-app/
+    AppContainer.tsx
 |-components/
     |-layout/
         |-HeaderLayout.tsx
     |-Button.tsx
     |-Input.tsx
     |-Form.tsx
-|-selectors/
-    |-analyticBoardSelectors.ts
-|-slices/
+|-features/
     |-analyticBoard/
-        |-analyticBoardActions.ts
-        |-analyticBoardReducer.ts
-        |-index.ts
-|-presenters/
-    |-analyticBoard/
-        |-AnalyticBoardState.ts
-        |-AnalyticBoardPresenter.ts
-        |-index.ts
+        |-components/
+            |-AnalyticBoardWidget.tsx
+        |-containers/
+            |-AnalyticBoardContainer.tsx
+        |-effects/
+            |-analyticBoardEffects.ts
+        |-selectors/
+            |-analyticBoardSectors.ts
+        |-slices/
+            |-analyticBoardActions.ts
+            |-analyticBoardReducer.ts
+            |-index.ts
+        |-presenters/
+            |-AnalyticBoardState.ts
+            |-AnalyticBoardPresenter.ts
+            |-index.ts
+    |-specs/
+    |-encodings/
+    |-visualizationEditor
+    |-dataSources
 |-store/
 ```
 
-
 ### Unit Tests
 
-Project has a requirement for high level of code coverage with unit test for next entitles: `Presenters`, `Reducers` and
+Project has a requirement for high level code coverage with unit test for next entitles: `Presenters`, `Reducers` and
 `Selectors`. Test runner has a configuration for coverage threshold, it's a quite big, around ~90% for `Presenters`,`Reducers` and `Selectors`
 
 > Unit tests for UI elements like `components` and/or `containers` are not welcome
