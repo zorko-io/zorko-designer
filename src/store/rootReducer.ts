@@ -1,5 +1,6 @@
 import produce from 'immer';
 import * as specsSlice from '../features/specs';
+import * as analyticBoardSlice from '../features/analyticBoard';
 import repositoriesReducer, {
   initialRepositoriesState,
   RepositoriesState
@@ -9,12 +10,7 @@ import {
   vegaLiteSchemaReducer,
   VegaLiteSchemaState
 } from '../features/vegaLiteSchema';
-import {
-  AnalyticBoardPresenter,
-  analyticBoardReducer,
-  AnalyticBoardState
-} from '../features/analyticBoard';
-
+import {AnalyticBoardPresenter, AnalyticBoardState} from '../presenters/analyticBoard';
 import {Action} from '@reduxjs/toolkit';
 import {
   dataSourceMetadataReducer,
@@ -55,7 +51,7 @@ export const rootReducer = (state: RootState = initialRootState, action: Action)
   state.newEncoding = encodingsReducer(state.newEncoding, action);
 
   state.specs = specsSlice.reducer(state.specs, action);
-  state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);
+  state.analyticBoard = analyticBoardSlice.reducer(state.analyticBoard, action);
   state.repositories = repositoriesReducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
   state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);

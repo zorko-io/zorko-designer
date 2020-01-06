@@ -1,5 +1,5 @@
-import {analyticBoardReducer} from './analyticBoardReducer';
+import reducer from './analyticBoardReducer';
 
-export * from '../../presenters/analyticBoard';
+export * from './analyticBoardActions';
 
-export {analyticBoardReducer};
+export {reducer};
