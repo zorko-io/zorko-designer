@@ -16,13 +16,20 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 Designer use redux+react stack. Visualization rendering performed by vega library.
 
- Application consist within next layers
+Application consist within  `Features` each feature may has next layers
 
-1. Presenter - control access to state data structures read/modification operations
-1. Slices -  modules  provide immutable reducer and actions to manipulate within app state slice
- 1. Selectors - modules with read only access to all app state, provides caching functionality
- 1. Components - 'dummy' components, which has no relations for `Slices` and `Selectors`, just pure react components
- 1. Containers - react components connected to store, actions hardly use `Selectors`
+1. `Presenter` - controls access to state data structures read/modification operations
+1. `Slices` -  provides reducer and actions to manipulate within particular feature state slice
+1. `Selectors` - provides access to data required by feature related to it's state slice
+1. `Effects` - contains interactions with side effects
+1. `Components` - 'dummy' components, which has no relations for `Slices` and `Selectors`
+1. `Containers` - components used by external features, usually use `Selectors` and Redux Actions
+
+### Features
+
+Parts of application which may contains UI. Feature usually contains store state, actions to work with that store and
+already 'connected' UI component to application store.
+
 
 #### Presenters
 
