@@ -35,7 +35,7 @@ Main consumers of presenters in applications are `Reducers`, secondary consumers
 
 ### Slices
 
-Each slice is a module which exposes immutable reducer and functions for actions creators
+Each slice is a module which combine action creators and single reducer for particular application store slice  
 
 Naming of files inside of slice folder
 
@@ -46,16 +46,14 @@ Naming of files inside of slice folder
   |-mySliceActions.ts          // all actions creators (no any think actions here)
 ```
 
-
 Example: usage of slice 
 ```
 import {reducer, specsRemoveSuccess } from './slices/specs'
 
 ```
+### Effects 
 
-
-
-
+//TBD
 
 ### Selectors
 
