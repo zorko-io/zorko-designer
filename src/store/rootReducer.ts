@@ -20,9 +20,10 @@ import dataSourceMetadataReducer, {
 import {AnalyticBoardPresenter, AnalyticBoardState} from '../features/analyticBoard/presenters';
 import {Action} from '@reduxjs/toolkit';
 
-import {ChannelsPresenter, ChannelsState} from '../features/channels/presenters';
-import {EncodingsPresenter, EncodingsState} from '../features/encodings/presenters';
-import {SpecsPresenter, SpecsState} from '../features/specs/presenters';
+import {ChannelsState, EncodingChannelState} from '../features/channels/presenters';
+import {EncodingsState, EncodingState} from '../features/encodings/presenters';
+import {SpecsState, SpecState} from '../features/specs/presenters';
+import {NormalizedPresenter} from '../packages/corePresenters';
 
 export interface RootState {
   version: string;
@@ -37,13 +38,13 @@ export interface RootState {
 
 export const initialRootState: RootState = {
   version: '',
-  specs: SpecsPresenter.create().toState(),
+  specs: NormalizedPresenter.create<SpecState>().toState(),
   analyticBoard: AnalyticBoardPresenter.create().toState(),
   repositories: initialRepositoriesState,
   vegaLiteSchema: initialVegaLiteSchemaState,
   dataSourceMetadata: initialDataSourceMetadataState,
-  channels: ChannelsPresenter.create().toState(),
-  newEncoding: EncodingsPresenter.create().toState()
+  channels: NormalizedPresenter.create<EncodingChannelState>().toState(),
+  newEncoding: NormalizedPresenter.create<EncodingState>().toState()
 };
 
 export const rootReducer = (state: RootState = initialRootState, action: Action) => {

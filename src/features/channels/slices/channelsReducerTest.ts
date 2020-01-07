@@ -1,17 +1,18 @@
 import {createAction} from '@reduxjs/toolkit';
-import {ChannelsPresenter, ChannelsState, PositionChannelPresenter} from '../presenters';
+import {ChannelsState, EncodingChannelState, PositionChannelPresenter} from '../presenters';
 import * as vegaLiteSpecsFixture from '../../__testFixtures__/vegaLiteSpecsFixtures';
 import channelsReducer from './channelsReducer';
 import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import * as channelsStateFixtures from './__mocks___/channelsStateFixtures';
 import {createChannelId} from '../../../packages/presenterReducerUtils';
 import {encodingChannelFieldEdit} from '../../analyticBoard/slices';
+import {NormalizedPresenter} from '../../../packages/corePresenters/normalize/NormalizedPresenter';
 
 describe('Channels Reducer', () => {
   let actual, expected, action, initState: ChannelsState, id: string, spec;
 
   beforeEach(() => {
-    initState = ChannelsPresenter.create().toState();
+    initState = NormalizedPresenter.create<EncodingChannelState>().toState();
     spec = vegaLiteSpecsFixture.getSimpleSpec();
     id = 'boom';
   });
@@ -37,7 +38,9 @@ describe('Channels Reducer', () => {
     action = encodingChannelFieldEdit({specId: id, field: nextField, channelName});
 
     actual = channelsReducer(initState, action);
-    expected = ChannelsPresenter.create(channelsStateFixtures.getSimpleChannelsState(id))
+    expected = NormalizedPresenter.create<EncodingChannelState>(
+      channelsStateFixtures.getSimpleChannelsState(id)
+    )
       .editById(createChannelId(id, channelName), channel => {
         return PositionChannelPresenter.create(channel).setField(nextField);
       })

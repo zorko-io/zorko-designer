@@ -2,23 +2,24 @@ import {createAction} from '@reduxjs/toolkit';
 import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import {VegaLiteTopLevelUnitSpec} from '../../../packages/coreTypes/types';
 import * as specsReducerFixtures from './__mocks__/specsStateFixtures';
-import {SpecsPresenter, SpecsState} from '../presenters';
+import {SpecsState, SpecState} from '../presenters';
 import * as vegaLiteSpecsFixture from '../../__testFixtures__/vegaLiteSpecsFixtures';
 import specsReducer from './specsReducer';
 import {specDescriptionEdit, specMarkEdit} from './specsActions';
+import {NormalizedPresenter} from '../../../packages/corePresenters';
 
 describe('Specs Reducer', () => {
   let actual, expected, initState: SpecsState, id: string, spec: VegaLiteTopLevelUnitSpec;
 
   beforeEach(() => {
-    initState = SpecsPresenter.create().toState();
+    initState = NormalizedPresenter.create<SpecState>().toState();
     id = 'someId';
     spec = vegaLiteSpecsFixture.getSimpleSpec();
   });
 
   it('inits default state', () => {
     actual = specsReducer(null, createAction('anyAction'));
-    expected = SpecsPresenter.create().toState();
+    expected = NormalizedPresenter.create().toState();
 
     expect(actual).toEqual(expected);
   });
@@ -38,7 +39,7 @@ describe('Specs Reducer', () => {
     let state = specsReducerFixtures.getStateWithOneSpec(id, spec, initState);
 
     state = specsReducer(state, action);
-    actual = SpecsPresenter.create(state).get(id).description;
+    actual = NormalizedPresenter.create(state).get(id).description;
     expected = nextDescription;
 
     expect(expected).toEqual(expected);
@@ -50,7 +51,7 @@ describe('Specs Reducer', () => {
     let state = specsReducerFixtures.getStateWithOneSpec(id, spec, initState);
 
     state = specsReducer(state, action);
-    actual = SpecsPresenter.create(state).get(id).mark;
+    actual = NormalizedPresenter.create(state).get(id).mark;
     expected = nextMark;
 
     expect(expected).toEqual(expected);

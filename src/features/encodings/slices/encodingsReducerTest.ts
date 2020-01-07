@@ -1,10 +1,11 @@
 import encodingsReducer from './encodingsReducer';
 import {createAction} from '@reduxjs/toolkit';
-import {EncodingPresenter, EncodingsPresenter, EncodingsState} from '../presenters';
+import {EncodingPresenter, EncodingsState} from '../presenters';
 import * as vegaLiteSpecsFixture from '../../__testFixtures__/vegaLiteSpecsFixtures';
 import {VegaLiteTopLevelUnitSpec} from '../../../packages/coreTypes/types';
 import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import {createChannelId} from '../../../packages/presenterReducerUtils';
+import {NormalizedPresenter} from '../../../packages/corePresenters';
 
 describe('Encodings Reducer', () => {
   let actual,
@@ -15,14 +16,14 @@ describe('Encodings Reducer', () => {
     spec: VegaLiteTopLevelUnitSpec;
 
   beforeEach(() => {
-    initState = EncodingsPresenter.create().toState();
+    initState = NormalizedPresenter.create().toState();
     id = 'bar';
     spec = vegaLiteSpecsFixture.getSimpleSpec();
   });
 
   it('creates initial state', () => {
     actual = encodingsReducer(null, createAction('anyAction'));
-    expected = EncodingsPresenter.create().toState();
+    expected = NormalizedPresenter.create().toState();
     expect(actual).toEqual(expected);
   });
 
@@ -30,7 +31,7 @@ describe('Encodings Reducer', () => {
     action = chooseSpecFlowReadSuccess(id, spec);
 
     actual = encodingsReducer(initState, action);
-    expected = EncodingsPresenter.create(initState)
+    expected = NormalizedPresenter.create(initState)
       .set(
         id,
         EncodingPresenter.create()
