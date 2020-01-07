@@ -1,9 +1,9 @@
 import {RootState} from '../../../store/rootReducer';
-import {RepositoriesStatePresenter} from '../presenters/RepositoriesStatePresenter';
 import {createSelector} from '@reduxjs/toolkit';
+import {NormalizedPresenter} from '../../../packages/corePresenters';
 
 export const selectRepositories = (state: RootState) => state.repositories;
 
 export const selectRepositoriesAll = createSelector(selectRepositories, repositories =>
-  RepositoriesStatePresenter.create(repositories).allItems()
+  NormalizedPresenter.create(repositories).allItems()
 );

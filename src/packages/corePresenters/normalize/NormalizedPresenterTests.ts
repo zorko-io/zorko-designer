@@ -1,18 +1,12 @@
-import {BaseNormalizedState} from './BaseNormalizedState';
+import {NormalizedPresenter} from './NormalizedPresenter';
 
 interface TestInnerState {
   message: string;
   id?: string;
 }
 
-class TestNormalizedState extends BaseNormalizedState<TestInnerState> {
-  static create<TestInnerState>(state?) {
-    return new TestNormalizedState(state);
-  }
-}
-
 describe('BaseNormalizeSate', () => {
-  let presenter: TestNormalizedState,
+  let presenter: NormalizedPresenter<TestInnerState>,
     item: TestInnerState,
     itemId: string,
     itemIds: string[],
@@ -28,7 +22,7 @@ describe('BaseNormalizeSate', () => {
     item = {message: 'boom'};
     itemIds = ['id-1', 'id-2', 'id-3'];
 
-    presenter = TestNormalizedState.create();
+    presenter = NormalizedPresenter.create<TestInnerState>();
   });
 
   it('checks something', () => {

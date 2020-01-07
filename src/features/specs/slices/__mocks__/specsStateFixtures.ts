@@ -1,7 +1,8 @@
-import {SpecPresenter, SpecsPresenter} from '../../presenters';
+import {SpecPresenter, SpecState} from '../../presenters';
+import {NormalizedPresenter} from '../../../../packages/corePresenters';
 
 export const getStateWithOneSpec = (id, spec, initState?) =>
-  SpecsPresenter.create(initState)
+  NormalizedPresenter.create<SpecState>(initState)
     .set(
       id,
       SpecPresenter.create()

@@ -1,8 +1,9 @@
-import {ChannelsPresenter, PositionChannelPresenter} from '../../presenters';
+import {EncodingChannelState, PositionChannelPresenter} from '../../presenters';
 import {createChannelId} from '../../../../packages/presenterReducerUtils';
+import {NormalizedPresenter} from '../../../../packages/corePresenters/normalize/NormalizedPresenter';
 
 export const getSimpleChannelsState = specId => {
-  return ChannelsPresenter.create()
+  return NormalizedPresenter.create<EncodingChannelState>()
     .set(
       createChannelId(specId, 'x'),
       PositionChannelPresenter.create()

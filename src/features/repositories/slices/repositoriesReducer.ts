@@ -1,8 +1,7 @@
 import produce from 'immer';
 import {createReducer} from '../../../packages/presenterReducerUtils/createReducer';
 import {RepositoriesReadSuccess, repositoriesReadSuccess} from './repositoriesActions';
-import {NormalizedState} from '../../../packages/corePresenters/normalize/NormalizedState';
-import {RepositoriesStatePresenter} from '../presenters/RepositoriesStatePresenter';
+import {NormalizedPresenter, NormalizedState} from '../../../packages/corePresenters';
 
 export interface Repository {
   name: string;
@@ -17,13 +16,15 @@ export interface Repository {
 
 export interface RepositoriesState extends NormalizedState<Repository> {}
 
-export const initialRepositoriesState: RepositoriesState = RepositoriesStatePresenter.create().toState();
+export const initialRepositoriesState: RepositoriesState = NormalizedPresenter.create<
+  Repository
+>().toState();
 
 const repositoriesReducer = createReducer<RepositoriesState>(initialRepositoriesState, {
   [repositoriesReadSuccess.type]: (state: RepositoriesState, action: RepositoriesReadSuccess) => {
     const {repositories} = action.payload;
 
-    return RepositoriesStatePresenter.create(state)
+    return NormalizedPresenter.create<Repository>(state)
       .setMany(repositories, repo => repo.name)
       .toState();
   }
