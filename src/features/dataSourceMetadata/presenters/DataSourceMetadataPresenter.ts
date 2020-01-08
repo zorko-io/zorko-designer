@@ -13,4 +13,9 @@ export class DataSourceMetadataPresenter extends BaseStatePresenter<DataSourceMe
   getDefaultState(): DataSourceMetadataState {
     return {fields: []};
   }
+
+  setFields(fields: DataSourceFieldDefinition[]): this {
+    this.state.fields = fields;
+    return this;
+  }
 }

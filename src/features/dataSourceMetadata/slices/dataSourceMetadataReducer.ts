@@ -1,10 +1,10 @@
 import produce from 'immer';
-import {createReducer} from '../../../packages/presenterReducerUtils/createReducer';
 import {
   DataSourceMetadataReadSuccess,
   dataSourceMetadataReadSuccess
 } from './dataSourceMetadataActions';
-import {DataSourceMetadataState} from '../presenters';
+import {DataSourceMetadataPresenter, DataSourceMetadataState} from '../presenters';
+import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils/createReducerWithPresenter';
 
 /**
  * @todo #114:40m/DEV DataSources Migrate to Presenter-Reducer approach
@@ -12,22 +12,15 @@ import {DataSourceMetadataState} from '../presenters';
  *
  */
 
-export const initialDataSourceMetadataState: DataSourceMetadataState = {fields: []};
+export default produce(
+  createReducerWithPresenter<DataSourceMetadataState, DataSourceMetadataPresenter>(
+    DataSourceMetadataPresenter.create,
+    {
+      [dataSourceMetadataReadSuccess.type]: (presenter, action: DataSourceMetadataReadSuccess) => {
+        const {dataSourceMetadata} = action.payload;
 
-const dataSourceMetadataReducer = createReducer<DataSourceMetadataState>(
-  initialDataSourceMetadataState,
-  {
-    [dataSourceMetadataReadSuccess.type]: (
-      state: DataSourceMetadataState,
-      action: DataSourceMetadataReadSuccess
-    ) => {
-      const {dataSourceMetadata} = action.payload;
-
-      state.fields = dataSourceMetadata.fields;
-
-      return state;
+        return presenter.setFields(dataSourceMetadata.fields);
+      }
     }
-  }
+  )
 );
-
-export default produce(dataSourceMetadataReducer);

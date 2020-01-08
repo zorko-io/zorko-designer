@@ -5,3 +5,16 @@ Object {
   "fields": Array [],
 }
 `;
+
+exports[`DataSourceMetadataPresenter sets new fields  1`] = `
+Object {
+  "fields": Array [
+    Object {
+      "id": "dasd",
+      "levelOfMeasurement": "nominal",
+      "name": "dasdsdasdasd",
+      "valueType": "string",
+    },
+  ],
+}
+`;
