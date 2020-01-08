@@ -3,6 +3,7 @@ import * as specsSlice from '../features/specs/slices';
 import * as analyticBoardSlice from '../features/analyticBoard/slices';
 import * as channelsSlice from '../features/channels/slices';
 import * as encodingsSlice from '../features/encodings/slices';
+import * as dataSourceMetadataSlice from '../features/dataSourceMetadata/slices';
 
 import repositoriesReducer, {
   initialRepositoriesState,
@@ -12,10 +13,6 @@ import vegaLiteSchemaReducer, {
   initialVegaLiteSchemaState,
   VegaLiteSchemaState
 } from '../features/vegaLiteSchema/slices/vegaLiteSchemaReducer';
-import dataSourceMetadataReducer, {
-  DataSourceMetadataState,
-  initialDataSourceMetadataState
-} from '../features/dataSourceMetadata/slices/dataSourceMetadataReducer';
 
 import {AnalyticBoardPresenter, AnalyticBoardState} from '../features/analyticBoard/presenters';
 import {Action} from '@reduxjs/toolkit';
@@ -24,6 +21,10 @@ import {ChannelsState, EncodingChannelState} from '../features/channels/presente
 import {EncodingsState, EncodingState} from '../features/encodings/presenters';
 import {SpecsState, SpecState} from '../features/specs/presenters';
 import {NormalizedPresenter} from '../packages/corePresenters';
+import {
+  DataSourceMetadataPresenter,
+  DataSourceMetadataState
+} from '../features/dataSourceMetadata/presenters';
 
 export interface RootState {
   version: string;
@@ -42,7 +43,7 @@ export const initialRootState: RootState = {
   analyticBoard: AnalyticBoardPresenter.create().toState(),
   repositories: initialRepositoriesState,
   vegaLiteSchema: initialVegaLiteSchemaState,
-  dataSourceMetadata: initialDataSourceMetadataState,
+  dataSourceMetadata: DataSourceMetadataPresenter.create().toState(),
   channels: NormalizedPresenter.create<EncodingChannelState>().toState(),
   newEncoding: NormalizedPresenter.create<EncodingState>().toState()
 };
@@ -56,7 +57,7 @@ export const rootReducer = (state: RootState = initialRootState, action: Action)
   state.analyticBoard = analyticBoardSlice.reducer(state.analyticBoard, action);
   state.repositories = repositoriesReducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
-  state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
+  state.dataSourceMetadata = dataSourceMetadataSlice.reducer(state.dataSourceMetadata, action);
 
   state.channels = channelsSlice.reducer(state.channels, action);
 
