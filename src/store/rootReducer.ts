@@ -13,7 +13,6 @@ import vegaLiteSchemaReducer, {
   VegaLiteSchemaState
 } from '../features/vegaLiteSchema/slices/vegaLiteSchemaReducer';
 import dataSourceMetadataReducer, {
-  DataSourceMetadataState,
   initialDataSourceMetadataState
 } from '../features/dataSourceMetadata/slices/dataSourceMetadataReducer';
 
@@ -24,6 +23,7 @@ import {ChannelsState, EncodingChannelState} from '../features/channels/presente
 import {EncodingsState, EncodingState} from '../features/encodings/presenters';
 import {SpecsState, SpecState} from '../features/specs/presenters';
 import {NormalizedPresenter} from '../packages/corePresenters';
+import {DataSourceMetadataState} from '../features/dataSourceMetadata/presenters/DataSourceMetadataPresenter';
 
 export interface RootState {
   version: string;

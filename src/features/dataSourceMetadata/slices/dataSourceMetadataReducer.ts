@@ -4,11 +4,7 @@ import {
   DataSourceMetadataReadSuccess,
   dataSourceMetadataReadSuccess
 } from './dataSourceMetadataActions';
-import {DataSourceFieldDefinition} from '../../../packages/coreTypes/DataSourceFieldDefinition';
-
-export type DataSourceMetadataState = {
-  fields: DataSourceFieldDefinition[];
-};
+import {DataSourceMetadataState} from '../presenters';
 
 /**
  * @todo #114:40m/DEV DataSources Migrate to Presenter-Reducer approach
