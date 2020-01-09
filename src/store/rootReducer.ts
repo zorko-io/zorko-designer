@@ -4,11 +4,8 @@ import * as analyticBoardSlice from '../features/analyticBoard/slices';
 import * as channelsSlice from '../features/channels/slices';
 import * as encodingsSlice from '../features/encodings/slices';
 import * as dataSourceMetadataSlice from '../features/dataSourceMetadata/slices';
+import * as repositoriesSlice from '../features/repositories/slices';
 
-import repositoriesReducer, {
-  initialRepositoriesState,
-  RepositoriesState
-} from '../features/repositories/slices/repositoriesReducer';
 import vegaLiteSchemaReducer, {
   initialVegaLiteSchemaState,
   VegaLiteSchemaState
@@ -25,6 +22,7 @@ import {
   DataSourceMetadataPresenter,
   DataSourceMetadataState
 } from '../features/dataSourceMetadata/presenters';
+import {RepositoriesState, RepositoryState} from '../features/repositories/presenters';
 
 export interface RootState {
   version: string;
@@ -41,7 +39,7 @@ export const initialRootState: RootState = {
   version: '',
   specs: NormalizedPresenter.create<SpecState>().toState(),
   analyticBoard: AnalyticBoardPresenter.create().toState(),
-  repositories: initialRepositoriesState,
+  repositories: NormalizedPresenter.create<RepositoryState>().toState(),
   vegaLiteSchema: initialVegaLiteSchemaState,
   dataSourceMetadata: DataSourceMetadataPresenter.create().toState(),
   channels: NormalizedPresenter.create<EncodingChannelState>().toState(),
@@ -55,7 +53,7 @@ export const rootReducer = (state: RootState = initialRootState, action: Action)
 
   state.specs = specsSlice.reducer(state.specs, action);
   state.analyticBoard = analyticBoardSlice.reducer(state.analyticBoard, action);
-  state.repositories = repositoriesReducer(state.repositories, action);
+  state.repositories = repositoriesSlice.reducer(state.repositories, action);
   state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
   state.dataSourceMetadata = dataSourceMetadataSlice.reducer(state.dataSourceMetadata, action);
 
