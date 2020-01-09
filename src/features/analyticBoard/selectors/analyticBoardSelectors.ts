@@ -3,9 +3,9 @@ import {selectSpecs} from '../../specs/selectors/specsSelectors';
 import {createSelector} from '@reduxjs/toolkit';
 import {selectChannels} from '../../channels/selectors/channelsSelectors';
 import {PositionChannelState} from '../../channels/presenters';
-import {extractChannelNameFromId} from '../../../packages/presenterReducerUtils';
 import {AnalyticBoardPresenter} from '../presenters';
 import {NormalizedPresenter} from '../../../packages/corePresenters';
+import {extractChannelNameFromId} from '../../../packages/idGenderators/createChannelId';
 
 export const selectAnalyticBoard = (state: RootState) => state.analyticBoard;
 

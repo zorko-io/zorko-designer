@@ -1,1 +1,1 @@
-export * from '../idGenderators/createChannelId';
+export * from './createReducerWithPresenter';

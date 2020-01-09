@@ -4,9 +4,9 @@ import * as vegaLiteSpecsFixture from '../../__testFixtures__/vegaLiteSpecsFixtu
 import channelsReducer from './channelsReducer';
 import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import * as channelsStateFixtures from './__mocks___/channelsStateFixtures';
-import {createChannelId} from '../../../packages/presenterReducerUtils';
 import {encodingChannelFieldEdit} from '../../analyticBoard/slices';
-import {NormalizedPresenter} from '../../../packages/corePresenters/normalize/NormalizedPresenter';
+import {NormalizedPresenter} from '../../../packages/corePresenters';
+import {createChannelId} from '../../../packages/idGenderators/createChannelId';
 
 describe('Channels Reducer', () => {
   let actual, expected, action, initState: ChannelsState, id: string, spec;
