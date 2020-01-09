@@ -1,10 +1,10 @@
-import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils/createReducerWithPresenter';
+import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils';
 import {ChannelsState, PositionChannelPresenter, PositionChannelState} from '../presenters';
 import {ChooseSpecFlowReadSuccess, chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
-import {createChannelId} from '../../../packages/presenterReducerUtils';
 import {EncodingChannelFieldEdit, encodingChannelFieldEdit} from '../../analyticBoard/slices';
 import produce from 'immer';
-import {NormalizedPresenter} from '../../../packages/corePresenters/normalize/NormalizedPresenter';
+import {NormalizedPresenter} from '../../../packages/corePresenters';
+import {createChannelId} from '../../../packages/idGenderators/createChannelId';
 
 export default produce(
   createReducerWithPresenter<ChannelsState, NormalizedPresenter<PositionChannelState>>(

@@ -4,8 +4,8 @@ import {EncodingPresenter, EncodingsState} from '../presenters';
 import * as vegaLiteSpecsFixture from '../../__testFixtures__/vegaLiteSpecsFixtures';
 import {VegaLiteTopLevelUnitSpec} from '../../../packages/coreTypes/types';
 import {chooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
-import {createChannelId} from '../../../packages/presenterReducerUtils';
 import {NormalizedPresenter} from '../../../packages/corePresenters';
+import {createChannelId} from '../../../packages/idGenderators/createChannelId';
 
 describe('Encodings Reducer', () => {
   let actual,

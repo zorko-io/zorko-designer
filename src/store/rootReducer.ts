@@ -5,11 +5,7 @@ import * as channelsSlice from '../features/channels/slices';
 import * as encodingsSlice from '../features/encodings/slices';
 import * as dataSourceMetadataSlice from '../features/dataSourceMetadata/slices';
 import * as repositoriesSlice from '../features/repositories/slices';
-
-import vegaLiteSchemaReducer, {
-  initialVegaLiteSchemaState,
-  VegaLiteSchemaState
-} from '../features/vegaLiteSchema/slices/vegaLiteSchemaReducer';
+import * as vegaLiteSchemaSlice from '../features/vegaLiteSchema/slices';
 
 import {AnalyticBoardPresenter, AnalyticBoardState} from '../features/analyticBoard/presenters';
 import {Action} from '@reduxjs/toolkit';
@@ -23,6 +19,7 @@ import {
   DataSourceMetadataState
 } from '../features/dataSourceMetadata/presenters';
 import {RepositoriesState, RepositoryState} from '../features/repositories/presenters';
+import {VegaLiteSchemaPresenter, VegaLiteSchemaState} from '../features/vegaLiteSchema/presenters';
 
 export interface RootState {
   version: string;
@@ -40,7 +37,7 @@ export const initialRootState: RootState = {
   specs: NormalizedPresenter.create<SpecState>().toState(),
   analyticBoard: AnalyticBoardPresenter.create().toState(),
   repositories: NormalizedPresenter.create<RepositoryState>().toState(),
-  vegaLiteSchema: initialVegaLiteSchemaState,
+  vegaLiteSchema: VegaLiteSchemaPresenter.create().toState(),
   dataSourceMetadata: DataSourceMetadataPresenter.create().toState(),
   channels: NormalizedPresenter.create<EncodingChannelState>().toState(),
   newEncoding: NormalizedPresenter.create<EncodingState>().toState()
@@ -54,7 +51,7 @@ export const rootReducer = (state: RootState = initialRootState, action: Action)
   state.specs = specsSlice.reducer(state.specs, action);
   state.analyticBoard = analyticBoardSlice.reducer(state.analyticBoard, action);
   state.repositories = repositoriesSlice.reducer(state.repositories, action);
-  state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
+  state.vegaLiteSchema = vegaLiteSchemaSlice.reducer(state.vegaLiteSchema, action);
   state.dataSourceMetadata = dataSourceMetadataSlice.reducer(state.dataSourceMetadata, action);
 
   state.channels = channelsSlice.reducer(state.channels, action);

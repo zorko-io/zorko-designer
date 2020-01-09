@@ -1,9 +1,9 @@
-import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils/createReducerWithPresenter';
+import {createReducerWithPresenter} from '../../../packages/presenterReducerUtils';
 import {chooseSpecFlowReadSuccess, ChooseSpecFlowReadSuccess} from '../../chooseSpecFlow/slices';
 import {EncodingPresenter, EncodingsState, EncodingState} from '../presenters';
-import {createChannelId} from '../../../packages/presenterReducerUtils';
 import produce from 'immer';
 import {NormalizedPresenter} from '../../../packages/corePresenters';
+import {createChannelId} from '../../../packages/idGenderators/createChannelId';
 
 export default produce(
   createReducerWithPresenter<EncodingsState, NormalizedPresenter<EncodingState>>(
