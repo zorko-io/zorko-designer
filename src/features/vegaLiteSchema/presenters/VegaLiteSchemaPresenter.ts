@@ -1,4 +1,5 @@
-import {VegaLiteSchema, VegaLiteSchemaState} from '../slices';
+import {VegaLiteSchemaState} from './VegaLiteSchemaState';
+import {VegaLiteSchema} from './VegaLiteSchema';
 
 export class VegaLiteSchemaPresenter {
   private state: VegaLiteSchemaState;
