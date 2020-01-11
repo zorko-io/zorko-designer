@@ -27,7 +27,7 @@ module.exports = {
      *  - it ok to specify only for features here
      */
     "./src/**/*Reducer.ts": {
-      "branches": 50,
+      "branches": 100,
       "functions": 80,
       "lines": 80,
       "statements": 80
