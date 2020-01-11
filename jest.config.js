@@ -27,10 +27,10 @@ module.exports = {
      *  - it ok to specify only for features here
      */
     "./src/**/*Reducer.ts": {
-      "branches": 100,
-      "functions": 50,
-      "lines": 50,
-      "statements": 60
+      "branches": 50,
+      "functions": 80,
+      "lines": 80,
+      "statements": 80
     },
     /**
      * @todo #75:1h/DEV Increase code coverage for presenters
