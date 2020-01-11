@@ -13,11 +13,17 @@ jobs:
           keys:
             - cache-v9-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
+          name: Setup rsync
+          command: apt-get -y install rsync
+      - run:
+          name: Remove 'r' characters from the vendor script (otherwise it won't execute)
+          command: sed $'s/\r$//' ./../scripts/vendor.sh > ./../scripts/vendor.sh
+      - run:
           name: Install Top Deps
           command: yarn install
       - run:
           name: Install Sub Packages Deps
-          command: yarn test
+          command: yarn test:coverage
       - run:
           name: Build
           command: yarn build
