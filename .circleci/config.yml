@@ -1,7 +1,3 @@
-##
-# @todo #52:30m/DEV Integrate with CI with trigger for push
-#  start with simple test and linters run on pull req creation
-#
 version: 2.1
 jobs:
   build:
