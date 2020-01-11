@@ -17,7 +17,7 @@ jobs:
           command: sudo apt-get -y install rsync
       - run:
           name: Remove 'r' characters from the vendor script (otherwise it won't execute)
-          command: sed $'s/\r$//' ./../scripts/vendor.sh > ./../scripts/vendor.sh
+          command: sed $'s/\r$//' ./scripts/vendor.sh > ./scripts/vendor.sh
       - run:
           name: Install Top Deps
           command: yarn install
