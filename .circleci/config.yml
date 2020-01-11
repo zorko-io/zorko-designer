@@ -15,8 +15,11 @@ jobs:
           name: Remove 'r' characters from the vendor script (otherwise it won't execute)
           command: sed $'s/\r$//' ./scripts/vendor.sh > ./scripts/vendor.sh
       - run:
-          name: Install Top Deps
+          name: Install Deps
           command: yarn install
+      - run:
+          name: Static Code Analysis
+          command: yarn lint
       - run:
           name: Install Sub Packages Deps
           command: yarn test:ci
