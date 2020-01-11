@@ -1,6 +1,14 @@
 import _ from 'lodash';
 
-const examplesCollection = require('../../../public/spec/vega-lite/index.json');
+/**
+ * @todo #56:30m/DEV Static import of JSON doesn't work on CI
+ *  Issues with location '../../../public/spec/vega-lite/index.json'
+ *  during CI build, switch to relative HTTP call, as far as examples are part of
+ *  designer assets.
+ *
+ */
+
+import examplesCollection from './exampleCollection.json';
 
 export async function fetchExamplesRepositories() {
   function toResources(items) {
