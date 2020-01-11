@@ -23,7 +23,7 @@ jobs:
           command: yarn install
       - run:
           name: Install Sub Packages Deps
-          command: yarn test:coverage
+          command: yarn test:ci
       - run:
           name: Build
           command: yarn build
