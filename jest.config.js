@@ -28,7 +28,7 @@ module.exports = {
      */
     "./src/**/*Reducer.ts": {
       "branches": 100,
-      "functions": 80,
+      "functions": 70,
       "lines": 80,
       "statements": 80
     },
