@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSourceMetadataPresenter creates default 1`] = `
+Object {
+  "fields": Array [],
+}
+`;
+
+exports[`DataSourceMetadataPresenter sets new fields  1`] = `
+Object {
+  "fields": Array [
+    Object {
+      "id": "dasd",
+      "levelOfMeasurement": "nominal",
+      "name": "dasdsdasdasd",
+      "valueType": "string",
+    },
+  ],
+}
+`;

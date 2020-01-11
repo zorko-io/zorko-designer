@@ -1,11 +1,11 @@
 import React from 'react';
-import {MainLayout} from '../layout/MainLayout';
-import {AnalyticBoard} from '../features/analyticBoard/components/AnalyticBoard';
-import {ChooseSpecButton} from '../features/chooseSpecFlow/components/ChooseSpecButton';
-import {HeaderLayout} from '../layout/HeaderLayout';
-import {MainContentLayout} from '../layout/MainContentLayout';
+import {MainLayout} from '../components/layout/MainLayout';
+import {AnalyticBoardContainer} from '../features/analyticBoard/containers/AnalyticBoardContainer';
+import {ChooseSpecButtonContainer} from '../features/chooseSpecFlow/containers/ChooseSpecButtonContainer';
+import {HeaderLayout} from '../components/layout/HeaderLayout';
+import {MainContentLayout} from '../components/layout/MainContentLayout';
 import {MainMenuItems, MainMenuType} from '../components/VerticalMenu';
-import {Sidebar} from '../features/sidebar/components/Sidebar';
+import {SidebarContainer} from '../features/sidebar/containers/SidebarContainer';
 
 interface Props {
   activeMenu?: MainMenuType;
@@ -18,9 +18,11 @@ const defaultProps: Partial<Props> = {
 export const App = (props: Props) => {
   return (
     <MainLayout
-      renderHeader={() => <HeaderLayout renderContent={() => <ChooseSpecButton />} />}
-      renderSideBar={() => <Sidebar activeMenu={props.activeMenu} />}
-      renderContent={() => <MainContentLayout renderCanvasBoard={() => <AnalyticBoard />} />}
+      renderHeader={() => <HeaderLayout renderContent={() => <ChooseSpecButtonContainer />} />}
+      renderSideBar={() => <SidebarContainer activeMenu={props.activeMenu} />}
+      renderContent={() => (
+        <MainContentLayout renderCanvasBoard={() => <AnalyticBoardContainer />} />
+      )}
     />
   );
 };

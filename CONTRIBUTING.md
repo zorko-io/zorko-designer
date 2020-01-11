@@ -6,9 +6,9 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 *Table of Contents*
-[What should I know before I get started?](#what-should-i-know-before-i-get-started)
-[Pull Request Process](#pull-request-process)
-[Code of Conduct](#code-of-conduct)
+* [Code of Conduct](./code-of-conduct.md)
+* [What should I know before I get started?](#what-should-i-know-before-i-get-started)
+* [Pull Request Process](#pull-request-process)
 
 ## What should I know before I get started ?
 
@@ -16,18 +16,26 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 Designer use redux+react stack. Visualization rendering performed by vega library.
 
- Application consist within next layers
+Application consist within  `Features` each feature may has next layers
 
- 1. Presenter - control access to state data structures read/modification operations
- 1. Slices -  modules  provide immutable reducer and actions to manipulate within app state slice
- 1. Selectors - modules with read only access to all app state, provides caching functionality
- 1. Components - 'dummy' components, which has no relations for `Slices` and `Selectors`, just pure react components
- 1. Containers - react components connected to store, actions hardly use `Selectors`
+1. `Presenter` - controls access to state data structures read/modification operations
+1. `Slices` -  provides reducer and actions to manipulate within particular feature state slice
+1. `Selectors` - provides access to data required by feature related to it's state slice
+1. `Effects` - contains interactions with side effects
+1. `Middlewares` - Redux middleware, main propose is to listen for app action flow and to some additional actions
+1. `Components` - 'dummy' components, which has no relations for `Slices` and `Selectors`
+1. `Containers` - components used by external features, usually use `Selectors` and Redux Actions
+
+### Features
+
+Parts of application which may contains UI. Feature usually contains store state, actions to work with that store and
+already 'connected' UI component to application store.
+
 
 #### Presenters
 
-Classes around plain state object used by application root state, their propose is to incapsulate read/update operations
-over plain state object, so any consumers can do state changes without burden of data massaging object directly.
+Classes around plain state object used by application root state, their propose is to encapsulate update operations
+over plain state objects, so any consumers can do state changes without burden of data massaging plain object directly.
 
 Main consumers of presenters in applications are `Reducers`, secondary consumers are `Selectors`
 
@@ -35,7 +43,26 @@ Main consumers of presenters in applications are `Reducers`, secondary consumers
 
 ### Slices
 
-Each slice is a module which exposes immutable reducer and functions for actions creators
+Each slice is a module which combine action creators and single reducer for particular application store slice
+
+Naming of files inside of slice folder
+
+```
+|-slices/
+  |-index.ts                   // exports all actions and 'reducer' for current slice
+  |-mySliceNameReducer.ts      // main reducer for current slice
+  |-mySliceActions.ts          // all actions creators (no any think actions here)
+```
+
+Example: usage of slice
+```
+import {reducer, specsRemoveSuccess } from './slices/specs'
+
+```
+### Effects
+
+Effects in that projects are [redux-thunk](https://github.com/reduxjs/redux-thunk) functions which trigger side effects.
+Like API calls, timers etc.
 
 ### Selectors
 
@@ -44,27 +71,71 @@ Should use cache to optimize React re-rendering.
 
 ### Components
 
-React components, should't have dependencies to Redux, try to keep them as simple as possible, use functional components only and hooks
+*Reusable* React components, should't have any dependencies to Redux, try to keep them as simple as possible
 
 ### Containers
 
-Components which have dependencies to redux (actions, selectors etc)
-
+Components which have dependencies to redux (actions, selectors etc), may contains react components not connected directly for
+store and used only in one place
 
 ### Project Structure
 
-/**
- * @todo #72:30m/DEV Doc - project structure
- *  mention naming conventions
- */
+### Root `src` folders overview
+
+`packages/` - contains all reusable utilises, typings etc, organized in a way that it could be extracted as separates npm module without big effort
+`app/` - top level react components
+`components/` - all reusable react components
+`features/` - application's features
+`store/` - contains functions/objects to build Redux store instance
+
+> Other folder in 'src' are not welcome
+
+Example:
+
+```
+|-packages/
+    |-reducerPresenters/
+    |-loggerMiddlewares/
+    |-api/
+|-app/
+    AppContainer.tsx
+|-components/
+    |-layout/
+        |-HeaderLayout.tsx
+    |-Button.tsx
+    |-Input.tsx
+    |-Form.tsx
+|-features/
+    |-analyticBoard/
+        |-components/
+            |-AnalyticBoardWidget.tsx
+        |-containers/
+            |-AnalyticBoardContainer.tsx
+        |-effects/
+            |-analyticBoardEffects.ts
+        |-selectors/
+            |-analyticBoardSectors.ts
+        |-slices/
+            |-analyticBoardActions.ts
+            |-analyticBoardReducer.ts
+            |-index.ts
+        |-presenters/
+            |-AnalyticBoardState.ts
+            |-AnalyticBoardPresenter.ts
+            |-index.ts
+    |-specs/
+    |-encodings/
+    |-visualizationEditor
+    |-dataSources
+|-store/
+```
 
 ### Unit Tests
 
-/**
- * @todo #72:15m/DEV Doc - Explain reasons for strict unit coverage
- *  define suggestions on how/when to write unit tests
- *
- */
+Project has a requirement for high level code coverage with unit test for next entitles: `Presenters`, `Reducers` and
+`Selectors`. Test runner has a configuration for coverage threshold, it's a quite big, around ~90% for `Presenters`,`Reducers` and `Selectors`
+
+> Unit tests for UI elements like `components` and/or `containers` are not welcome
 
 
 ## How can I contribute ?
@@ -75,7 +146,6 @@ Components which have dependencies to redux (actions, selectors etc)
  * @todo #72:15m/DEV Doc - Define bug reporting steps
  *
  */
-
 
 ### Suggesting Enhancements
 
@@ -93,88 +163,7 @@ Components which have dependencies to redux (actions, selectors etc)
 
 ## Pull Request Process
 
-
 /**
  * @todo #72:30m/DEV Doc - Define pull request process
  *
  */
-
-
-## Code of Conduct
-
-/**
- * @todo #72:15m/DEV Doc - Move to separate file
- */
-
-### Our Pledge
-
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of experience,
-nationality, personal appearance, race, religion, or sexual identity and
-orientation.
-
-### Our Standards
-
-Examples of behavior that contributes to creating a positive environment
-include:
-
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
-
-Examples of unacceptable behavior by participants include:
-
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
-
-### Our Responsibilities
-
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
-
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
-
-### Scope
-
-This Code of Conduct applies both within project spaces and in public spaces
-when an individual is representing the project or its community. Examples of
-representing a project or community include using an official project e-mail
-address, posting via an official social media account, or acting as an appointed
-representative at an online or offline event. Representation of a project may be
-further defined and clarified by project maintainers.
-
-### Enforcement
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at igornester@gmail.com. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
-obligated to maintain confidentiality with regard to the reporter of an incident.
-Further details of specific enforcement policies may be posted separately.
-
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
-
-### Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at [http://contributor-covenant.org/version/1/4][version]
-
-[homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/

@@ -1,30 +1,25 @@
 import produce from 'immer';
-import {SpecsPresenter, specsReducer, SpecsState} from '../features/specs';
-import repositoriesReducer, {
-  initialRepositoriesState,
-  RepositoriesState
-} from '../features/repositories/reducers';
-import {
-  initialVegaLiteSchemaState,
-  vegaLiteSchemaReducer,
-  VegaLiteSchemaState
-} from '../features/vegaLiteSchema';
-import {
-  AnalyticBoardPresenter,
-  analyticBoardReducer,
-  AnalyticBoardState
-} from '../features/analyticBoard';
+import * as specsSlice from '../features/specs/slices';
+import * as analyticBoardSlice from '../features/analyticBoard/slices';
+import * as channelsSlice from '../features/channels/slices';
+import * as encodingsSlice from '../features/encodings/slices';
+import * as dataSourceMetadataSlice from '../features/dataSourceMetadata/slices';
+import * as repositoriesSlice from '../features/repositories/slices';
+import * as vegaLiteSchemaSlice from '../features/vegaLiteSchema/slices';
 
+import {AnalyticBoardPresenter, AnalyticBoardState} from '../features/analyticBoard/presenters';
 import {Action} from '@reduxjs/toolkit';
+
+import {ChannelsState, EncodingChannelState} from '../features/channels/presenters';
+import {EncodingsState, EncodingState} from '../features/encodings/presenters';
+import {SpecsState, SpecState} from '../features/specs/presenters';
+import {NormalizedPresenter} from '../packages/corePresenters';
 import {
-  dataSourceMetadataReducer,
-  DataSourceMetadataState,
-  initialDataSourceMetadataState
-} from '../features/dataSourceMetadata';
-import {ChannelsPresenter, ChannelsState} from '../features/channels/presenters';
-import {channelsReducer} from '../features/channels';
-import {newEncodingsReducer} from '../features/newEncodings';
-import {EncodingsPresenter, EncodingsState} from '../features/newEncodings/presenters';
+  DataSourceMetadataPresenter,
+  DataSourceMetadataState
+} from '../features/dataSourceMetadata/presenters';
+import {RepositoriesState, RepositoryState} from '../features/repositories/presenters';
+import {VegaLiteSchemaPresenter, VegaLiteSchemaState} from '../features/vegaLiteSchema/presenters';
 
 export interface RootState {
   version: string;
@@ -39,27 +34,27 @@ export interface RootState {
 
 export const initialRootState: RootState = {
   version: '',
-  specs: SpecsPresenter.create().toState(),
+  specs: NormalizedPresenter.create<SpecState>().toState(),
   analyticBoard: AnalyticBoardPresenter.create().toState(),
-  repositories: initialRepositoriesState,
-  vegaLiteSchema: initialVegaLiteSchemaState,
-  dataSourceMetadata: initialDataSourceMetadataState,
-  channels: ChannelsPresenter.create().toState(),
-  newEncoding: EncodingsPresenter.create().toState()
+  repositories: NormalizedPresenter.create<RepositoryState>().toState(),
+  vegaLiteSchema: VegaLiteSchemaPresenter.create().toState(),
+  dataSourceMetadata: DataSourceMetadataPresenter.create().toState(),
+  channels: NormalizedPresenter.create<EncodingChannelState>().toState(),
+  newEncoding: NormalizedPresenter.create<EncodingState>().toState()
 };
 
 export const rootReducer = (state: RootState = initialRootState, action: Action) => {
   state.version = '1.0.0';
 
-  state.newEncoding = newEncodingsReducer(state.newEncoding, action);
+  state.newEncoding = encodingsSlice.reducer(state.newEncoding, action);
 
-  state.specs = specsReducer(state.specs, action);
-  state.analyticBoard = analyticBoardReducer(state.analyticBoard, action);
-  state.repositories = repositoriesReducer(state.repositories, action);
-  state.vegaLiteSchema = vegaLiteSchemaReducer(state.vegaLiteSchema, action);
-  state.dataSourceMetadata = dataSourceMetadataReducer(state.dataSourceMetadata, action);
+  state.specs = specsSlice.reducer(state.specs, action);
+  state.analyticBoard = analyticBoardSlice.reducer(state.analyticBoard, action);
+  state.repositories = repositoriesSlice.reducer(state.repositories, action);
+  state.vegaLiteSchema = vegaLiteSchemaSlice.reducer(state.vegaLiteSchema, action);
+  state.dataSourceMetadata = dataSourceMetadataSlice.reducer(state.dataSourceMetadata, action);
 
-  state.channels = channelsReducer(state.channels, action);
+  state.channels = channelsSlice.reducer(state.channels, action);
 
   return state;
 };
