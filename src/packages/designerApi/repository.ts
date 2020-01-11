@@ -4,7 +4,7 @@ import _ from 'lodash';
  * @todo #56:30m/DEV Static import of JSON doesn't work on CI
  *  Issues with location '../../../public/spec/vega-lite/index.json'
  *  during CI build, switch to relative HTTP call, as far as examples are part of
- *  designer assets
+ *  designer assets.
  *
  */
 
