@@ -14,7 +14,7 @@ export default produce(
         const encoding = EncodingPresenter.create();
 
         if (!spec.encoding) {
-          return presenter.set(id, encoding);
+          return presenter;
         }
 
         for (const name of Object.keys(spec.encoding)) {

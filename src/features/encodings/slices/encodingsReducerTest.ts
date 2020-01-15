@@ -27,7 +27,7 @@ describe('Encodings Reducer', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('choose spec', () => {
+  it('choose spec with encoding', () => {
     action = chooseSpecFlowReadSuccess(id, spec);
 
     actual = encodingsReducer(initState, action);
@@ -39,6 +39,18 @@ describe('Encodings Reducer', () => {
           .setY(createChannelId(id, 'y'))
       )
       .toState();
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('choose spec without encoding', () => {
+    const specWithoutEncoding = {...spec};
+    delete specWithoutEncoding.encoding;
+
+    action = chooseSpecFlowReadSuccess(id, specWithoutEncoding);
+
+    actual = encodingsReducer(initState, action);
+    expected = NormalizedPresenter.create(initState).toState();
 
     expect(actual).toEqual(expected);
   });

@@ -28,9 +28,9 @@ module.exports = {
      */
     "./src/**/*Reducer.ts": {
       "branches": 50,
-      "functions": 80,
-      "lines": 80,
-      "statements": 80
+      "functions": 99,
+      "lines": 99,
+      "statements": 99
     },
     /**
      * @todo #75:1h/DEV Increase code coverage for presenters
