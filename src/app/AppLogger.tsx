@@ -12,6 +12,11 @@ const defaultProps: Partial<Props> = {
   children: null
 };
 
+/**
+ * @todo #138:30m/DEV Provide logger for component did catch
+ *
+ */
+
 export const AppLogger = (props: Props) => {
   const showMessage = useCallback((level, message) => {
     alert(message);
@@ -34,6 +39,12 @@ export const AppLogger = (props: Props) => {
     },
     [showMessage]
   );
+
+  /**
+   * @todo #138:30m/DEV BSOD doesn't shown for critical errors
+   *
+   *
+   */
 
   return (
     <LoggerContainer

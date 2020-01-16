@@ -13,6 +13,8 @@ import {createStore} from './store/createStore';
 import {logrockMiddleware, reduxLoggerMiddleware} from './packages/customReduxLoggerMiddlewares';
 import firebase from 'firebase';
 import {firebaseConfig} from '../firebase.config';
+import logger from 'logrock';
+
 import {DesignerAnalyticMetricsDispatcher} from './packages/designerAnalyticMetrics';
 import {zorkoDesignerAnalyticMiddleware} from './features/userBehaviourAnalytic/middlewares/zorkoDesignerAnalyticMiddleware';
 
@@ -27,7 +29,20 @@ window.sessionID = `sessionid-${Math.random()
   .toString(36)
   .substr(3, 9)}`;
 
-const middleware = [reduxLoggerMiddleware, logrockMiddleware];
+/**
+ * @todo #138:15m/DEV Move to custom middlewares
+ *
+ */
+
+export const catchErrors = () => next => action => {
+  try {
+    next(action);
+  } catch (e) {
+    logger.error('GOT ERROR', e);
+  }
+};
+
+const middleware = [reduxLoggerMiddleware, logrockMiddleware, catchErrors];
 
 if (process.env.NODE_ENV === 'production') {
   const app = firebase.initializeApp(firebaseConfig);
