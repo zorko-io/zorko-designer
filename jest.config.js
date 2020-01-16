@@ -16,16 +16,11 @@ module.exports = {
   "coverageThreshold": {
 
     /**
-     * @todo #76:1h/DEV Specify code coverage threhold for common
-     *  - increase up to 80%
-     *  - add common section here
+     * @todo #76:30m/DEV Specify code coverage threshold for common
+     *  - increase up to 90%
+     *  - add common Selectors here
      */
 
-    /**
-     * @todo #76:1h/DEV Increase code coverage for reducers
-     *  - increase up to 80%
-     *  - it ok to specify only for features here
-     */
     "./src/**/*Reducer.ts": {
       "branches": 50,
       "functions": 99,
@@ -33,8 +28,8 @@ module.exports = {
       "statements": 99
     },
     /**
-     * @todo #75:1h/DEV Increase code coverage for presenters
-     *  - increase up to 80%
+     * @todo #75:30m/DEV Increase code coverage for presenters
+     *  - increase up to 90%
      *  - it ok to specify only for features here
      */
     "./src/**/*Presenter.ts": {
