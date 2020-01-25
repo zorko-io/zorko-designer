@@ -10,10 +10,13 @@ import {chooseSpecFlow} from './features/chooseSpecFlow/effects/chooseSpecFlowEf
 import {AppContainer} from './app/AppContainer';
 import {HashRouter} from 'react-router-dom';
 import {createStore} from './store/createStore';
-import {logrockMiddleware, reduxLoggerMiddleware} from './packages/customReduxLoggerMiddlewares';
+import {
+  logrockActionsMiddleware,
+  logrockReduxErrors,
+  reduxLoggerMiddleware
+} from './packages/customReduxLoggerMiddlewares';
 import firebase from 'firebase';
 import {firebaseConfig} from '../firebase.config';
-import logger from 'logrock';
 
 import {DesignerAnalyticMetricsDispatcher} from './packages/designerAnalyticMetrics';
 import {zorkoDesignerAnalyticMiddleware} from './features/userBehaviourAnalytic/middlewares/zorkoDesignerAnalyticMiddleware';
@@ -29,20 +32,7 @@ window.sessionID = `sessionid-${Math.random()
   .toString(36)
   .substr(3, 9)}`;
 
-/**
- * @todo #138:15m/DEV Move to custom middlewares
- *
- */
-
-export const catchErrors = () => next => action => {
-  try {
-    next(action);
-  } catch (e) {
-    logger.error('GOT ERROR', e);
-  }
-};
-
-const middleware = [reduxLoggerMiddleware, logrockMiddleware, catchErrors];
+const middleware = [reduxLoggerMiddleware, logrockActionsMiddleware, logrockReduxErrors];
 
 if (process.env.NODE_ENV === 'production') {
   const app = firebase.initializeApp(firebaseConfig);

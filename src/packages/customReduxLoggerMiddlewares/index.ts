@@ -1,2 +1,3 @@
-export * from './logrockMiddleware';
+export * from './logrockActionsMiddleware';
 export * from './reduxLoggerMiddleware';
+export * from './logrockReduxErrors';

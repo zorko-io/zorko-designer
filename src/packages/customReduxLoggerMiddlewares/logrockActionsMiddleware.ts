@@ -1,6 +1,6 @@
 import logger from 'logrock';
 
-export const logrockMiddleware = () => next => action => {
+export const logrockActionsMiddleware = () => next => action => {
   const beforeAction = Date.now();
 
   next(action);
