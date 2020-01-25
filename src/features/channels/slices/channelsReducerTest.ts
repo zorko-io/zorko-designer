@@ -48,4 +48,13 @@ describe('Channels Reducer', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it('choose spec without encoding', () => {
+    delete spec.encoding;
+    action = chooseSpecFlowReadSuccess(id, spec);
+    actual = channelsReducer(initState, action);
+    expected = initState;
+
+    expect(actual).toEqual(expected);
+  });
 });
