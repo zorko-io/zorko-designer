@@ -60,7 +60,7 @@
     "test:ci": "jest --coverage -w 1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.24",
+    "@types/jest": "^25.1.1",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "autoprefixer": "^9.7.3",
