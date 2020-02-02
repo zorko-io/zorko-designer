@@ -21,13 +21,8 @@ module.exports = {
      *  - add common section here
      */
 
-    /**
-     * @todo #76:1h/DEV Increase code coverage for reducers
-     *  - increase up to 80%
-     *  - it ok to specify only for features here
-     */
     "./src/**/*Reducer.ts": {
-      "branches": 50,
+      "branches": 95,
       "functions": 99,
       "lines": 99,
       "statements": 99

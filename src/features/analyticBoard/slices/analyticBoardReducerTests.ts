@@ -6,7 +6,7 @@ import {getSimpleSpec} from '../../__testFixtures__/vegaLiteSpecsFixtures';
 import {createChannelId} from '../../../packages/idGenderators/createChannelId';
 
 describe('analyticBoardReducer', () => {
-  let initState: AnalyticBoardState, spec, specId: string;
+  let initState: AnalyticBoardState, spec, specId: string, action, actual, expected;
 
   beforeEach(() => {
     spec = getSimpleSpec();
@@ -19,12 +19,24 @@ describe('analyticBoardReducer', () => {
   });
 
   it('choose spec', () => {
-    const action = chooseSpecFlowReadSuccess(specId, spec);
+    action = chooseSpecFlowReadSuccess(specId, spec);
 
-    const actual = analyticBoardReducer(initState, action);
-    const expected = AnalyticBoardPresenter.create()
+    actual = analyticBoardReducer(initState, action);
+    expected = AnalyticBoardPresenter.create()
       .setMainSpec(specId)
       .setChannels(Object.keys(spec.encoding).map(name => createChannelId(specId, name)))
+      .toState();
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('choose spec with no encoding', () => {
+    delete spec.encoding;
+    action = chooseSpecFlowReadSuccess(specId, spec);
+
+    actual = analyticBoardReducer(initState, action);
+    expected = AnalyticBoardPresenter.create()
+      .setMainSpec(specId)
       .toState();
 
     expect(actual).toEqual(expected);
