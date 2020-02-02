@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@reach/dialog": "^0.7.0",
-    "@reach/menu-button": "^0.7.0",
+    "@reach/menu-button": "^0.8.0",
     "@reduxjs/toolkit": "^1.1.0",
     "@types/classnames": "^2.2.9",
     "@types/lodash": "^4.14.149",
