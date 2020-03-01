@@ -6821,10 +6821,10 @@ object-keys@^1.0.11, object-keys@^1.0.12, object-keys@^1.1.1:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-object-sizeof@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/object-sizeof/-/object-sizeof-1.5.2.tgz#d2db77107779e4c522a390fbf5e715d848395dc1"
-  integrity sha512-5M9MYfLX3GsUv8YVSxypUkjQvpj5p3lX5gSaZCcV5973EqcQYp576vNU/620C1V6UaCdxeYGk3/QzEWz7uLvUQ==
+object-sizeof@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/object-sizeof/-/object-sizeof-1.5.3.tgz#ba3755a9a2bd0bec3ca0678da97b661e6e5ff5b8"
+  integrity sha512-YtPJaDLJ9PnrwsvEgvsejxuOnc/Uc/keGSRCJ/GNsUincXo7LTHaLKYUmxu6NK4vCtP4TuXclV378mgKv5UfTQ==
   dependencies:
     buffer "^5.4.3"
 
