@@ -16,7 +16,7 @@ In the document we put initial  UI/UX requirements related to Zorko Designer and
 
 ## Zorko Designer
 
-### Problems
+### Problems 
 
 * No visual editor for vega-lite gramma designed to use on mobile (tablet) devices
 * No visual editor which would allow to create and modify Vega-Lite specifications
