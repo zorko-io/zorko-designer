@@ -1,6 +1,7 @@
 # Zorko Spec
 
 ## Intro
+
 In the document we put initial  UI/UX requirements related to Zorko Designer and Zorko Landing. Idea is to establish initial, basic UI functionality in such a way that it would be extendable with each new iteration.
 
 ## Resources
@@ -33,8 +34,8 @@ So user need a way to choose one spec from list of available examples it’s cou
 To narrow down a scope we can disable examples which not supported yet
 
 /**
- * @todo #136:2d/UX
- *   Open Spec - list of screens in Zeplin
+ * @todo #136:2d/UX Open Spec - list of screens in Zeplin
+ *
  */
 
 ### 2. Modify Visualization
@@ -48,8 +49,8 @@ To narrow down a scope let’s assume that:
 1. Fields represent  [Vega Types](https://vega.github.io/vega-lite/docs/type.html#nominal): Nominal, Quantitative, Temporal, Ordinal, except Geojson
 
 /**
- * @todo #136:3d/UX
- *   Modify visualization -list of screens in Zeplin
+ * @todo #136:3d/UX Modify visualization - list of screens in Zeplin
+ *
  */
 
 ### 3. View Data Source
@@ -67,8 +68,8 @@ We need to inform user that it’s a data source based on remote URL, if it does
 To narrow down a scope we are not allowing user to modify data source.
 
 /**
- * @todo #136:2d/UX
- *   View Data Source - list of screens in Zeplin
+ * @todo #136:2d/UX View Data Source - list of screens in Zeplin
+ *
  */
 
 #### 4. Save as ...
@@ -77,8 +78,8 @@ Designer should allow users to download result of their work in next formats: Ve
 It’s not necessary to directly download format, it’s possible to open generated format in separate tab so user can save it to filesystem.
 
 /**
- * @todo #136:1d/UX
- *   Save as - list of screens in Zeplin
+ * @todo #136:1d/UX Save as - list of screens in Zeplin
+ *
  */
 
 ### Metrics
@@ -109,4 +110,5 @@ Let’s start with next measurements:
 
 
 ## Zorko Landing
+
 To Be Continuing ...
