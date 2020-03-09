@@ -32,6 +32,11 @@ In current iteration we are going to concentrate only on opening pre-build examp
 So user need a way to choose one spec from list of available examples it’s could be done by analogy with examples in Vega Editor (see Examples)
 To narrow down a scope we can disable examples which not supported yet
 
+/**
+ * @todo #136:2d/UX
+ *   Open Spec - list of screens in Zeplin
+ */
+
 ### 2. Modify Visualization
 
 One of the important parts of designer it’s a place to modify Mark and Encoding.  So the main screen should contain:  ability to change Marks, Encoding and see all the available Fields.
@@ -41,6 +46,11 @@ To narrow down a scope let’s assume that:
 1. Mark contains only two options:  Bar and Line
 1. Encoding contains only X and Y (position channels), Color (mark property channel)
 1. Fields represent  [Vega Types](https://vega.github.io/vega-lite/docs/type.html#nominal): Nominal, Quantitative, Temporal, Ordinal, except Geojson
+
+/**
+ * @todo #136:3d/UX
+ *   Modify visualization -list of screens in Zeplin
+ */
 
 ### 3. View Data Source
 
@@ -56,11 +66,20 @@ We need to inform user that it’s a data source based on remote URL, if it does
 
 To narrow down a scope we are not allowing user to modify data source.
 
+/**
+ * @todo #136:2d/UX
+ *   View Data Source - list of screens in Zeplin
+ */
+
 #### 4. Save as ...
 
 Designer should allow users to download result of their work in next formats: Vega-Lite, SVG and  PNG.
 It’s not necessary to directly download format, it’s possible to open generated format in separate tab so user can save it to filesystem.
 
+/**
+ * @todo #136:1d/UX
+ *   Save as - list of screens in Zeplin
+ */
 
 ### Metrics
 
