@@ -7,7 +7,11 @@ Web based data visualization designer for Vega-Lite specifications, inspired by
 
 It includes number of examples copied from Vega Editor repo. Deployed on https://designer.zorko.io (MAY NOT WORK!!!)
 
-* What to Contribute ? follow our [Contribute Guide](CONTRIBUTING.md)
+* What to Contribute ? follow our [Contribute Guide] (CONTRIBUTING.md)
+
+More highlevel overview of requirements and UI/UX issues happens in 
+
+* [Docs](./docs/spec.md)
 
 ## License
 
