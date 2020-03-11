@@ -36,6 +36,7 @@ To narrow down a scope we can disable examples which not supported yet
  *
  */
  https://zpl.io/aweA0Y1
+ zpl://screen?pid=5b424f034d50f36965a0be52&sid=5e270b38baa2047ef1e9112b
 
 ### 2. Modify Visualization
 
