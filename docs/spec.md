@@ -35,6 +35,7 @@ To narrow down a scope we can disable examples which not supported yet
  * @todo #136:2d/UX Open Spec - list of screens in Zeplin
  *
  */
+ https://zpl.io/aweA0Y1
 
 ### 2. Modify Visualization
 
@@ -50,6 +51,7 @@ To narrow down a scope let’s assume that:
  * @todo #136:3d/UX Modify visualization - list of screens in Zeplin
  *
  */
+
 
 ### 3. View Data Source
 
