@@ -31,13 +31,12 @@ In current iteration we are going to concentrate only on opening pre-build examp
 So user need a way to choose one spec from list of available examples it’s could be done by analogy with examples in Vega Editor (see Examples)
 To narrow down a scope we can disable examples which not supported yet
 
-/**
- * @todo #136:2d/UX Open Spec - list of screens in Zeplin
- *
- */
-https://zpl.io/2yeQJ4q
-https://zpl.io/aweA0Y1
-https://zpl.io/2yeLprn
+
+(https://zpl.io/2yeQJ4q) - main view
+
+(https://zpl.io/aweA0Y1) - example's view
+
+(https://zpl.io/2yeLprn) - view of bar chart
 
 ### 2. Modify Visualization
 
