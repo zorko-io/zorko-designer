@@ -36,7 +36,7 @@ To narrow down a scope we can disable examples which not supported yet
 
 (https://zpl.io/aweA0Y1) - example's view
 
-(https://zpl.io/2yeLprn) - view of bar chart
+(https://zpl.io/2yeLprn) - view of Bar chart
 
 ### 2. Modify Visualization
 
