@@ -32,11 +32,11 @@ So user need a way to choose one spec from list of available examples it’s cou
 To narrow down a scope we can disable examples which not supported yet
 
 
-(https://zpl.io/2yeQJ4q) - main view
+1. (https://zpl.io/2yeQJ4q) - main view
 
-(https://zpl.io/aweA0Y1) - example's view
+2. (https://zpl.io/aweA0Y1) - example's view
 
-(https://zpl.io/2yeLprn) - view of Bar chart
+3. (https://zpl.io/2yeLprn) - view of Bar chart
 
 ### 2. Modify Visualization
 
