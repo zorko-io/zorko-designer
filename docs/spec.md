@@ -16,8 +16,6 @@ In the document we put initial  UI/UX requirements related to Zorko Designer and
 
 ## Zorko Designer
 
-### Problems
-
 * No visual editor for vega-lite gramma designed to use on mobile (tablet) devices
 * No visual editor which would allow to create and modify Vega-Lite specifications
 
@@ -33,10 +31,12 @@ In current iteration we are going to concentrate only on opening pre-build examp
 So user need a way to choose one spec from list of available examples it’s could be done by analogy with examples in Vega Editor (see Examples)
 To narrow down a scope we can disable examples which not supported yet
 
-/**
- * @todo #136:2d/UX Open Spec - list of screens in Zeplin
- *
- */
+
+1. [main view](https://zpl.io/2yeQJ4q)
+
+2. [example's view](https://zpl.io/aweA0Y1) 
+
+3. [view of Bar chart](https://zpl.io/2yeLprn) 
 
 ### 2. Modify Visualization
 
@@ -52,6 +52,7 @@ To narrow down a scope let’s assume that:
  * @todo #136:3d/UX Modify visualization - list of screens in Zeplin
  *
  */
+
 
 ### 3. View Data Source
 
