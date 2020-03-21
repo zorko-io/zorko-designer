@@ -26,6 +26,18 @@ Establish a system to track user’s metric to be able to validate our decisions
 
 ### Use Cases
 
+/**
+ * @todo #136:1d/BA Move all UI specifics to Appendix
+ *
+ */
+
+### Flow Diagram
+
+/**
+ * @todo #136:1d/UX Create Flow Diagram for basic use cases
+ *
+ */
+
 ### 1. Open Spec
 In current iteration we are going to concentrate only on opening pre-build examples, so now other ways to start working with designer. In future it’s should be  possible to open spec from dataset like csv,json file (see Voyager)
 So user need a way to choose one spec from list of available examples it’s could be done by analogy with examples in Vega Editor (see Examples)
@@ -34,9 +46,9 @@ To narrow down a scope we can disable examples which not supported yet
 
 1. [main view](https://zpl.io/2yeQJ4q)
 
-2. [example's view](https://zpl.io/aweA0Y1) 
+2. [example's view](https://zpl.io/aweA0Y1)
 
-3. [view of Bar chart](https://zpl.io/2yeLprn) 
+3. [view of Bar chart](https://zpl.io/2yeLprn)
 
 ### 2. Modify Visualization
 
