@@ -19,7 +19,7 @@
     "@types/webpack-env": "^1.15.1",
     "classnames": "^2.2.6",
     "datalib": "^1.9.2",
-    "dayjs": "^1.8.19",
+    "dayjs": "^1.8.28",
     "dotenv-safe": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "firebase": "^7.8.0",
