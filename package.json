@@ -36,7 +36,7 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "tailwindcss": "^1.2.0",
-    "vega": "^5.9.2",
+    "vega": "^5.17.3",
     "vega-cli": "^5.10.0",
     "vega-datasets": "^1.28.0",
     "vega-lite": "4.0.0-beta.10"
